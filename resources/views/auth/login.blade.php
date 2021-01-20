@@ -4,6 +4,12 @@
             <div class="theme-container">  
                 <div class="row center-xs middle-xs my-5"> 
                     <div class="mdc-card p-3 p-relative mw-500px">
+                        
+                         
+                        
+                        
+                        
+                        
                         <div class="column center-xs middle-xs text-center">  
                             <h1 class="uppercase">Sign In</h1>
                             <a href="{{url('/register')}}" class="mdc-button mdc-ripple-surface mdc-ripple-surface--accent accent-color normal w-100">
@@ -34,6 +40,19 @@
                                 <h3 class="text-muted ws-nowrap fw-500 p-2">or Sign in with email</h3>                       
                                 <div class="divider p-relative w-100"></div>
                             </div> 
+                        
+                        @if ($errors->any())
+    <div class="alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            
+                 <div class="alert-danger accent-color">
+                {{ $error }}
+              </div>
+            @endforeach
+        </ul>
+    </div>
+@endif
                         
                         
                         

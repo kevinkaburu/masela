@@ -5,6 +5,13 @@
             <div class="theme-container">  
                 <div class="row center-xs middle-xs my-5"> 
                     <div class="mdc-card p-3 p-relative mw-500px">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                         <div class="column center-xs middle-xs text-center">  
                             <h1 class="uppercase">Register</h1>
                             <a href="{{url('login')}}" class="mdc-button mdc-ripple-surface mdc-ripple-surface--accent accent-color normal w-100">
@@ -35,6 +42,20 @@
                                 <h3 class="text-muted ws-nowrap fw-500 p-2">or Signup with email</h3>                       
                                 <div class="divider p-relative w-100"></div>
                             </div> 
+                        
+                         @if ($errors->any())
+    <div class="alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            
+                 <div class="alert-danger accent-color">
+                {{ $error }}
+              </div>
+            @endforeach
+        </ul>
+    </div>
+@endif
+                        
                         
                         
                         <form method="POST" action="{{ route('register') }}">
@@ -67,8 +88,7 @@
                             <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon mdc-text-field--with-trailing-icon w-100 custom-field mt-4 custom-field">
                                 <i class="material-icons mdc-text-field__icon text-muted">lock</i>
                                 <i class="material-icons mdc-text-field__icon text-muted password-toggle" tabindex="1">visibility_off</i>
-                                <input class="mdc-text-field__input" type="password">
-                                <input type="password" class="mdc-text-field__input" name="password_confirmation" placeholder="Password (confirm)">
+                                <input type="password" class="mdc-text-field__input" name="password_confirmation">
                                 <div class="mdc-notched-outline">
                                     <div class="mdc-notched-outline__leading"></div>
                                     <div class="mdc-notched-outline__notch">

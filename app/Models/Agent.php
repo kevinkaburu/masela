@@ -4,17 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class OperatorUser extends Model
+class Agent extends Model
 {
-    protected $table = 'operator_user';
-    protected $primaryKey = 'operator_user_id';
+    protected $table = 'agent';
+    protected $primaryKey = 'agent_id';
     public const CREATED_AT = 'created';
     public const UPDATED_AT = 'modified';
 
 
 
     protected $fillable = [
-        'operator_id', 'user_id', 'created','role','status',
+        'name', 'phone_number','description','phone_number_otp', 'logo_url','status','created',
     ];
 
 }

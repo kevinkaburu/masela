@@ -38,12 +38,25 @@ class FacebookController extends Controller {
 
                 return redirect('/home');
             } else {
+                $finduser = User::where('email', $user->email)->first();
+                if ($finduser) {
+                $finduser->email = $user->email;
+                $finduser->email_verified_at = new \DateTime();
+                $finduser->facebook_id = $user->id;
+                $finduser->password = encrypt($this->generateRandomString());
+                $finduser->profile_photo_url = $user->avatar;
+                $finduser->save();  
+                
+                Auth::login($finduser);
+                return redirect('/home');
+                }
+                
                 $newUser = new User;
 
                 $newUser->name = $user->name;
                 $newUser->email = $user->email;
                 $newUser->facebook_id = $user->id;
-                $newUser->password = encrypt('V!nurUFB-login');
+                $newUser->password = encrypt($this->generateRandomString());
                 $newUser->profile_photo_url = $user->avatar;
                 $newUser->save();
 
@@ -58,5 +71,7 @@ class FacebookController extends Controller {
             return redirect('/auth/facebook');
         }
     }
+    
+    
 
 }

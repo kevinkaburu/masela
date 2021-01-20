@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Masela - Buy & sell Land safely.</title> 
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico')}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">  
     <link rel="stylesheet" href="{{ asset('css/libs/swiper.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/libs/dropzone.css')}}">
     <link rel="stylesheet" href="{{ asset('css/libs/material-components-web.min.css')}}">  
     <link rel="stylesheet" href="{{ asset('css/style.css')}}"> 
     <link rel="stylesheet" href="{{ asset('css/skins/green.css')}}"> 
@@ -106,7 +108,7 @@
                            <?php
                       if (Auth::check()) {
                       $fb_id = Auth::user()->facebook_id;
-                      $photo = Auth::user()->profile_photo_path;
+                      $photo = Auth::user()->profile_photo_url;
                       $name = Auth::user()->name;
                       $email  =Auth::user()->email;
                       ?>
@@ -156,7 +158,7 @@
                                 </li>
                                 
                                 <li>
-                                    <a href="profile.html" class="mdc-list-item" role="menuitem">
+                                    <a href="{{ route('profile.update') }}" class="mdc-list-item" role="menuitem">
                                         <i class="material-icons mat-icon-sm text-muted">edit</i> 
                                         <span class="mdc-list-item__text px-3">Edit Profile</span>
                                     </a>
@@ -190,7 +192,7 @@
                     <div class="row middle-xs"> 
                     <a href="{{ url('/login') }}" class="mdc-button mdc-button d-none d-sm-flex d-md-flex d-lg-flex d-xl-flex">
                         <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">Signin</span> 
+                        <span class="mdc-button__label">Login</span> 
                     </a> 
                 </div>  
                       
@@ -203,7 +205,7 @@
                          <?php
                       if (Auth::check()) {
                       $fb_id = Auth::user()->facebook_id;
-                      $photo = Auth::user()->profile_photo_path;
+                      $photo = Auth::user()->profile_photo_url;
                       $name = Auth::user()->name;
                       $email  =Auth::user()->email;
                       ?>
@@ -254,7 +256,7 @@
                                 </li>
                                 
                                 <li>
-                                    <a href="profile.html" class="mdc-list-item" role="menuitem">
+                                    <a href="{{ route('profile.update') }}" class="mdc-list-item" role="menuitem">
                                         <i class="material-icons mat-icon-sm text-muted">edit</i> 
                                         <span class="mdc-list-item__text px-3">Edit Profile</span>
                                     </a>
@@ -425,8 +427,11 @@
     <div id="back-to-top"><i class="material-icons">arrow_upward</i></div>
     <script src="{{ asset('js/libs/jquery.min.js')}}"></script> 
     <script src="{{ asset('js/libs/material-components-web.min.js')}}"></script> 
-    <script src="{{ asset('js/libs/swiper.min.js')}}"></script> 
+    <script src="{{ asset('js/libs/swiper.min.js')}}"></script>
+    <script src="{{ asset('js/libs/dropzone.js')}}"></script> 
     <script src="{{ asset('js/scripts.js')}}"></script>  
+     <script src="{{ asset('js/masela.js')}}"></script>
+     @yield('jscript')
 <!--    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1rF9bttCxRmsNdZYjW7FzIoyrul5jb-s&callback=initMap" async defer></script>-->
 </body>
 </html>

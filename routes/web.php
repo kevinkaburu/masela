@@ -31,6 +31,12 @@ Route::middleware(['web', 'auth'])->group(function () {
     //Home
     Route::get('/home', 'HomeController@index')->name('home');
     
+    
+    //Profile
+     Route::get('/profile/update', 'ProfileController@update')->name('profile.update');
+     Route::post('/profile/update', 'ProfileController@write')->name('profile.write');
+     Route::post('/profile/verify/mobile', 'ProfileController@sendOtp')->name('profile.verify.mobile');
+    
    
 
     //posts/{post}/comments/{comment}

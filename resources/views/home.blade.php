@@ -1,92 +1,98 @@
-@extends('layouts.main')
+@extends('layouts.masela')
 
-@section('content')
-<section>
-    <div class="container">
-        <header class="section-header">
-            <ul class="nav nav-tabs-minimal">
-                <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('home') }}">Home</a>
-                </li>
-               
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('itinerary.index') }}">Itinerary</a>
-                </li>
-                 <li class="nav-item">
-                    <a class="nav-link " href="{{ route('itinerary.list') }}">Market Place</a>
-                </li>
-
-            </ul>
-        </header>
-
-        <div class="row " id="list-itinerary">
-
-
-            
-
-
-
-            <div class="col-md-4">
-                <div class="card border hover-shadow-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Itinerary</h5>
-                        <div class="text-center">
-                            <p class="mb-6">
-                                <span class="iconbox iconbox-xxl bg-pale-primary">
-                                    <i class="icon-book-open text-primary"></i>
-                                </span>
-                            </p>
-                            <a class="btn btn-round btn-outline-primary"  href="{{ route('itinerary.index') }}" >Itinerary Builder</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-           
-            
-            <div class="col-md-4">
-                <div class="card border hover-shadow-4">
-                    <div class="card-body">
-                        <h5 class="card-title">MarketPlace</h5>
-                        <div class="text-center">
-                            <p class="mb-6">
-                                <span class="iconbox iconbox-xxl bg-pale-info">
-                                    <i class="icon-browser text-info"></i>
-                                </span>
-                            </p>
-                            <a class="btn btn-round btn-outline-info"  href="{{ route('itinerary.list') }}" >MarketPlace</a>
-                        </div>
-                    </div>
-                </div>
-            </div> 
-            
-            
-             <div class="col-md-4">
-                <div class="card border hover-shadow-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Profile</h5>
-                        <div class="text-center">
-                            <p class="mb-6">
-                                <span class="iconbox iconbox-xxl bg-pale-warning">
-                                    <i class="icon-gears text-warning"></i>
-                                </span>
-                            </p>
-                            <a class="btn btn-round btn-outline-warning"  href="{{ route('operator.index') }}" >Operator Account</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-        </div>
-
-        <hr class="my-7">
-
-
-    </div>
-</section>
-<!-- #END# Bar Chart -->
+@section('main')
+ <div class="px-3">  
+            <div class="theme-container">   
+                <div class="page-drawer-container mt-3">
+                    @include('layouts.bomenu')
+                    <div class="mdc-drawer-scrim page-sidenav-scrim"></div>  
+                    <div class="page-sidenav-content"> 
+                        <div class="row mdc-card between-xs middle-xs w-100 p-2 mdc-elevation--z1 text-muted d-md-none d-lg-none d-xl-none mb-3">
+                            <button id="page-sidenav-toggle" class="mdc-icon-button material-icons">more_vert</button> 
+                            <h3 class="fw-500">My Account</h3>
+                        </div> 
+                        <div class="mdc-card p-3">
+                            <div class="mdc-text-field mdc-text-field--outlined custom-field w-100">
+                                <input class="mdc-text-field__input" placeholder="Type for filter properties">
+                                <div class="mdc-notched-outline">
+                                    <div class="mdc-notched-outline__leading"></div>
+                                    <div class="mdc-notched-outline__notch">
+                                        <label class="mdc-floating-label">Filter properties</label>
+                                    </div>
+                                    <div class="mdc-notched-outline__trailing"></div>
+                                </div>
+                            </div>  
+                            <div class="mdc-data-table border-0 w-100 mt-3">
+                                <table class="mdc-data-table__table" aria-label="Dessert calories">
+                                    <thead>
+                                        <tr class="mdc-data-table__header-row">
+                                            <th class="mdc-data-table__header-cell">ID</th>
+                                            <th class="mdc-data-table__header-cell">Image</th>
+                                            <th class="mdc-data-table__header-cell">Title</th>
+                                            <th class="mdc-data-table__header-cell">Published</th>
+                                            <th class="mdc-data-table__header-cell">Views</th>
+                                            <th class="mdc-data-table__header-cell">status</th>
+                                            <th class="mdc-data-table__header-cell">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="mdc-data-table__content">
+                                        <tr class="mdc-data-table__row">
+                                            <td class="mdc-data-table__cell">1</td>
+                                            <td class="mdc-data-table__cell"><img src="{{ asset('images/props/flat-1/1-small.jpg')}}" alt="pro-image" width="100" class="d-block py-3"></td>
+                                            <td class="mdc-data-table__cell"><a href="property.html" class="mdc-button mdc-ripple-surface mdc-ripple-surface--primary normal">Modern and quirky flat</a></td>
+                                            <td class="mdc-data-table__cell">12 August, 2012</td>
+                                            <td class="mdc-data-table__cell">322</td>
+                                            <td class="mdc-data-table__cell">Pending</td>
+                                            <td class="mdc-data-table__cell">
+                                                <button class="mdc-icon-button material-icons primary-color">edit</button>
+                                                <button class="mdc-icon-button material-icons warn-color">delete</button>
+                                            </td>
+                                        </tr>
+                                        <tr class="mdc-data-table__row">
+                                            <td class="mdc-data-table__cell">2</td>
+                                            <td class="mdc-data-table__cell"><img src="{{ asset('images/props/office/1-small.jpg')}}" alt="pro-image" width="100" class="d-block py-3"></td>
+                                            <td class="mdc-data-table__cell"><a href="property.html" class="mdc-button mdc-ripple-surface mdc-ripple-surface--primary normal">Centrally located office</a></td>
+                                            <td class="mdc-data-table__cell">18 September, 2013</td>
+                                            <td class="mdc-data-table__cell">258</td>
+                                            <td class="mdc-data-table__cell">Active</td>
+                                            <td class="mdc-data-table__cell">
+                                                <button class="mdc-icon-button material-icons primary-color">edit</button>
+                                                <button class="mdc-icon-button material-icons warn-color">delete</button>
+                                            </td>
+                                        </tr>
+                                        <tr class="mdc-data-table__row">
+                                            <td class="mdc-data-table__cell">3</td>
+                                            <td class="mdc-data-table__cell"><img src="assets/images/props/house-1/1-small.jpg" alt="pro-image" width="100" class="d-block py-3"></td>
+                                            <td class="mdc-data-table__cell"><a href="property.html" class="mdc-button mdc-ripple-surface mdc-ripple-surface--primary normal">Comfortable family house</a></td>
+                                            <td class="mdc-data-table__cell">19 November, 2013</td>
+                                            <td class="mdc-data-table__cell">125</td>
+                                            <td class="mdc-data-table__cell">Expired</td>
+                                            <td class="mdc-data-table__cell">
+                                                <button class="mdc-icon-button material-icons primary-color">edit</button>
+                                                <button class="mdc-icon-button material-icons warn-color">delete</button>
+                                            </td>
+                                        </tr>
+                                       
+                                    </tbody>
+                                </table>
+                            </div> 
+                        </div> 
+                        <div class="row center-xs middle-xs my-3 w-100">                
+                            <div class="mdc-card w-100"> 
+                                <ul class="theme-pagination">
+                                    <li class="pagination-previous disabled"><span>Previous</span></li>
+                                    <li class="current"><span>1</span></li>
+                                    <li><a><span>2</span></a></li>
+                                    <li><a><span>3</span></a></li>
+                                    <li><a><span>4</span></a></li>
+                                    <li class="pagination-next"><a><span>Next</span></a></li>
+                                </ul> 
+                            </div>
+                        </div> 
+                    </div> 
+                </div>  
+            </div>  
+        </div> 
 
 
 
