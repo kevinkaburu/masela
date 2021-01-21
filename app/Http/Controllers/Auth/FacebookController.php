@@ -55,6 +55,7 @@ class FacebookController extends Controller {
 
                 $newUser->name = $user->name;
                 $newUser->email = $user->email;
+                $newUser->email_verified_at = new \DateTime();
                 $newUser->facebook_id = $user->id;
                 $newUser->password = encrypt($this->generateRandomString());
                 $newUser->profile_photo_url = $user->avatar;

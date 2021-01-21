@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\Agent;
 use App\Models\UserAgent;
+use  Illuminate\Support\MessageBag;
+
 
 
 class HomeController extends Controller
@@ -37,18 +39,22 @@ class HomeController extends Controller
          
          
          if($agent->status ==0){
-             return $this->pending(); 
-         } 
+             $errors = new MessageBag();
+                 $errors->add('otp_error', 'Kindly verify your mobile number to proceed.');
+                 return redirect('/profile/update')->withErrors($errors);
+             
+         }
+         
+         if(Auth::user()->email_verified_at == null){
+             return $this->pending();
+         }
             
         return view('home');
         
     }
     
     public function pending()
-    {
-        
-        
-            
+    {   
             
         return view('pending');
         
