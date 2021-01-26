@@ -49,7 +49,7 @@ class HomeController extends Controller
              return $this->pending();
          }
             
-        return view('home');
+        return view('home', compact('agent'));
         
     }
     

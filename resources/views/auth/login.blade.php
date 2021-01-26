@@ -72,7 +72,7 @@
                             <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon mdc-text-field--with-trailing-icon w-100 custom-field mt-4 custom-field">
                                 <i class="material-icons mdc-text-field__icon text-muted">lock</i>
                                 <i class="material-icons mdc-text-field__icon text-muted" tabindex="1" id="password-toggle">visibility_off</i>
-                                <input type="password" class="mdc-text-field__input" name="password">
+                                <input type="password" class="mdc-text-field__input" name="password" autocomplete>
                                 <div class="mdc-notched-outline">
                                     <div class="mdc-notched-outline__leading"></div>
                                     <div class="mdc-notched-outline__notch">

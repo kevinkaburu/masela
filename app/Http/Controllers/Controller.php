@@ -12,7 +12,12 @@ class Controller extends BaseController {
     use AuthorizesRequests,
         DispatchesJobs,
         ValidatesRequests;
-
+public function genPropertyUrl($name,$property_id){
+        $uri = str_replace(" ", "-", $name);
+        $uri = str_replace("/", "-", $uri);
+        $uri = $uri . "-" . $property_id;
+        return $uri;
+    }
     public function generateRandomString($length = 12) {
         $characters = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ';
         $charactersLength = strlen($characters);

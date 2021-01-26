@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ asset('css/libs/dropzone.css')}}">
     <link rel="stylesheet" href="{{ asset('css/libs/material-components-web.min.css')}}">  
     <link rel="stylesheet" href="{{ asset('css/style.css')}}"> 
-    <link rel="stylesheet" href="{{ asset('css/skins/green.css')}}"> 
+    <link rel="stylesheet" href="{{ asset('css/skins/grey.css')}}"> 
     <link rel="stylesheet" href="{{ asset('css/responsive.css')}}">    
 </head>
 <body class="mdc-theme--background"> 
@@ -53,21 +53,39 @@
         <div class="mdc-drawer__content"> 
             <div class="vertical-menu">
                 <div>
-                    <a href="{{ route('home') }}" class="mdc-button">
-                        <span class="mdc-button__ripple"></span>
+                     <?php
+                      if (Auth::check()) {?>
+                    
+                          <a href="{{ route('home.index') }}" class="mdc-button">
+                              <span class="mdc-button__ripple"></span>
                         <span class="mdc-button__label">Home</span> 
+                              
+                      
+                          <?php
+                          
+                      }else{?>
+                          <a href="{{ route('welcome') }}" class="mdc-button">
+                              <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label">Property Listing</span> 
+
+                              <?php
+                      
+                      }
+                      ?>
+                   
+                        
                     </a> 
                 </div>  
                 <div>
                     <a href="contact.html" class="mdc-button">
                         <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">Buying tips</span> 
+                        <span class="mdc-button__label">Legal Services</span> 
                     </a> 
                 </div> 
                 <div>
                     <a href="about.html" class="mdc-button">
                         <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">Our services</span> 
+                        <span class="mdc-button__label">Pricing</span> 
                     </a> 
                 </div>  
                 <div>
@@ -137,13 +155,28 @@
                                 </li>
                                 <li role="separator" class="mdc-list-divider m-0"></li> 
                                 <li>
-                                    <a href="submit-property.html" class="mdc-list-item" role="menuitem">
+                                    <a href="{{ route('property.new') }}" class="mdc-list-item" role="menuitem">
                                         <i class="material-icons mat-icon-sm text-muted">add_circle</i> 
                                         <span class="mdc-list-item__text px-3">Submit Property</span>
                                     </a> 
                                 </li>
                                 <li>
-                                    <a href="{{ url('/home') }}" class="mdc-list-item" role="menuitem">
+                                    <?php
+                      if (Auth::check()) {?>
+                    
+                          <a href="{{ route('home.index') }}" class="mdc-list-item" role="menuitem">
+                              
+                      
+                          <?php
+                          
+                      }else{?>
+                          <a href="{{ route('welcome') }}" class="mdc-list-item" role="menuitem">
+
+                              <?php
+                      
+                      }
+                      ?>
+                                  
                                         <i class="material-icons mat-icon-sm text-muted">home</i> 
                                         <span class="mdc-list-item__text px-3">My Properties</span>
                                     </a>
@@ -209,68 +242,7 @@
                       $name = Auth::user()->name;
                       $email  =Auth::user()->email;
                       ?>
-                    <div class="mdc-menu-surface--anchor"> 
-                        <button class="mdc-button mdc-ripple-surface"> 
-                            <span class="mdc-button__ripple"></span>
-                            <i class="material-icons mdc-button__icon mx-1">person</i>
-                            <span class="mdc-button__label">account</span>
-                            <i class="material-icons mdc-button__icon m-0">arrow_drop_down</i>
-                        </button> 
-                        <div class="mdc-menu mdc-menu-surface user-menu">
-                            <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
-                                <li class="user-info row start-xs middle-xs">  
-                                                         <?php
-                      if(isset ($fb_id)){
-                     echo '<img src="'.$photo.'" alt="user-image" width="50">';
-                      }
-                      else{?>
-                         <img src="{{ asset('images/others/user.jpg')}}" alt="user-image" width="50">
-                         <?php
-                         
-                      }
-                      ?>
-                                    
-                         <p class="m-0">{{$name}} <br> <small><i>{{$email}}</i></small></p><!-- comment -->
-                         
-                                </li>
-                                <li role="separator" class="mdc-list-divider m-0"></li> 
-                                <li>
-                                    <a href="submit-property.html" class="mdc-list-item" role="menuitem">
-                                        <i class="material-icons mat-icon-sm text-muted">add_circle</i> 
-                                        <span class="mdc-list-item__text px-3">Submit Property</span>
-                                    </a> 
-                                </li>
-                                <li>
-                                    <a href="my-properties.html" class="mdc-list-item" role="menuitem">
-                                        <i class="material-icons mat-icon-sm text-muted">home</i> 
-                                        <span class="mdc-list-item__text px-3">My Properties</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="favorites.html" class="mdc-list-item" role="menuitem">
-                                        <i class="material-icons mat-icon-sm text-muted">favorite_border</i> 
-                                        <span class="mdc-list-item__text px-3">Favorites
-                                            <span class="badge warn">2</span>
-                                        </span> 
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="{{ route('profile.update') }}" class="mdc-list-item" role="menuitem">
-                                        <i class="material-icons mat-icon-sm text-muted">edit</i> 
-                                        <span class="mdc-list-item__text px-3">Edit Profile</span>
-                                    </a>
-                                </li>
-                                
-                                <li role="separator" class="mdc-list-divider m-0"></li>
-                                <li>
-                                                            <a class="mdc-list-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="material-icons mat-icon-sm text-muted">power_settings_new</i> 
-                                        <span class="mdc-list-item__text px-3">Sign Out</span></a>
-         <form id= "logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> @csrf</form>
-                                </li> 
-                            </ul>
-                        </div> 
-                    </div> 
+                   
                     <?php
                       }else{
                           ?>
@@ -296,22 +268,40 @@
                 </a>  
                 <div class="horizontal-menu d-none d-md-flex d-lg-flex d-xl-flex">  
                     <div>
-                        <a href="{{ url('/') }}" class="mdc-button">
-                            <span class="mdc-button__ripple"></span>
+                         <?php
+                      if (Auth::check()) {?>
+                    
+                          <a href="{{ route('home.index') }}" class="mdc-button">
+                              <span class="mdc-button__ripple"></span>
                             <span class="mdc-button__label">Home</span> 
+                              
+                      
+                          <?php
+                          
+                      }else{?>
+                          <a href="{{ route('welcome') }}" class="mdc-button">
+                              <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label">Property Listing</span> 
+
+                              <?php
+                      
+                      }
+                      ?>
+                       
+                            
                         </a> 
                     </div>  
                    
                     <div>
                         <a href="contact.html" class="mdc-button">
                             <span class="mdc-button__ripple"></span>
-                            <span class="mdc-button__label">Buying tips</span> 
+                            <span class="mdc-button__label">Legal Services</span> 
                         </a> 
                     </div> 
                     <div>
                         <a href="about.html" class="mdc-button">
                             <span class="mdc-button__ripple"></span>
-                            <span class="mdc-button__label">Our services</span> 
+                            <span class="mdc-button__label">Pricing</span> 
                         </a> 
                     </div>  
                     
@@ -324,7 +314,7 @@
                     
                 </div>
                 <div class="row middle-xs"> 
-                    <a href="submit-property.html" class="mdc-button mdc-button--raised d-none d-sm-flex d-md-flex d-lg-flex d-xl-flex">
+                    <a href="{{ route('property.new') }}" class="mdc-button mdc-button--raised d-none d-sm-flex d-md-flex d-lg-flex d-xl-flex">
                         <span class="mdc-button__ripple"></span>
                         <span class="mdc-button__label">submit property</span> 
                     </a> 
@@ -430,8 +420,12 @@
     <script src="{{ asset('js/libs/swiper.min.js')}}"></script>
     <script src="{{ asset('js/libs/dropzone.js')}}"></script> 
     <script src="{{ asset('js/scripts.js')}}"></script>  
-     <script src="{{ asset('js/masela.js')}}"></script>
-     @yield('jscript')
-<!--    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1rF9bttCxRmsNdZYjW7FzIoyrul5jb-s&callback=initMap" async defer></script>-->
+     
+     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script src="{{ asset('js/masela.js')}}"></script>
+ 
+    
+ @yield('jscript')
+
 </body>
 </html>

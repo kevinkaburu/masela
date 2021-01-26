@@ -1381,6 +1381,9 @@ main.content-offset-to-top .main-content-header{
 #contact-map{
   height: 400px;
 }
+#property-map{
+  height: 400px;
+}
 .agents-wrapper{
   margin: -16px;
   padding: 32px 0; 

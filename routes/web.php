@@ -29,7 +29,7 @@ Route::get('/auth/facebook/callback', [FacebookController::class, 'handleFaceboo
 //AUth protected routes
 Route::middleware(['web', 'auth'])->group(function () {
     //Home
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home/', 'HomeController@index')->name('home.index');
     
     
     //Profile
@@ -37,6 +37,16 @@ Route::middleware(['web', 'auth'])->group(function () {
      Route::post('/profile/update', 'ProfileController@write')->name('profile.write');
      Route::post('/profile/verify/mobile', 'ProfileController@sendOtp')->name('profile.verify.mobile');
     
+    
+    //Property
+     Route::get('/property/new', 'PropertyController@create')->name('property.new');
+     Route::get('/property/edit/{PropertyID}/', 'PropertyController@edit')->name('property.edit');
+     Route::post('/property/create', 'PropertyController@write')->name('property.write');
+     Route::post('/property/list', 'PropertyController@list')->name('property.list');
+     Route::post('/property/delete', 'PropertyController@delete')->name('property.delete');
+     Route::post('/property/publish', 'PropertyController@publish')->name('property.publish');
+     
+     
    
 
     //posts/{post}/comments/{comment}
@@ -50,6 +60,8 @@ Route::middleware(['web', 'auth'])->group(function () {
 
 //No Auth required
 Route::get('/blog', 'BlogController@index')->name('blog.index');
+Route::post('/property/search', 'PropertyController@search')->name('property.search');
+Route::get('/property/view/{propertyUri}/', 'PropertyController@view')->name('property.view');
 
 
 

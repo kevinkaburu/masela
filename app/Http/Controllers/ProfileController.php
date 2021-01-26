@@ -111,7 +111,7 @@ class ProfileController extends Controller {
         }
                   
         //SEND OTP HERE
-        $text = "Your Masela verification code: \n".$newAgent->phone_number_otp."\n Do not share it with anyone.";
+        $text = "Your Masela verification code:\n".$newAgent->phone_number_otp."\nDo not share it with anyone.";
         $this->sendsms($msisdn, $text);
         
         
