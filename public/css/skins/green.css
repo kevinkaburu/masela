@@ -1,5 +1,5 @@
 :root {
-    --mdc-theme-primary: #689f38;
+    --mdc-theme-primary: #75b82a;
     --mdc-theme-on-primary: #fff;
     --mdc-theme-secondary: #e91e63;
     --mdc-theme-on-secondary: #fff;
@@ -16,5 +16,5 @@
     --theme-surface-rgb: 255,255,255;
     --theme-inputs-border-color: rgba(0, 0, 0, 0.2);
     --theme-unselected-chip: #e0e0e0; 
-    --swiper-theme-color: #689f38; 
+    --swiper-theme-color: #75b82a; 
 }

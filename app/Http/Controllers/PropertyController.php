@@ -24,9 +24,35 @@ use File;
 
 class PropertyController extends Controller {
     
+        public function agent($agentUri) {
+        $explodedUril = explode('-', $agentUri);
+        $agent_id = end($explodedUril);
+        $counties = County::all();
+    $propertydetail = PropertyDetail::groupBy('type')->get();
+    $agent = Agent::find($agent_id);
+    if(!$agent){
+        return redirect('/'); 
+    }
+        
+        
+        
+        
+        return view('property.agent', compact('agent_id','counties','propertydetail','agent'));
+    }
+    
     public function view($propertyUri) {
         $explodedUril = explode('-', $propertyUri);
         $property_id = end($explodedUril);
+        $propertyView = PropertyView::where('property_id',$property_id)->where('viewed','details')->first();
+       
+        if(!$propertyView){
+           $propertyView = new PropertyView();
+           $propertyView->property_id = $property_id;
+        }
+        $propertyView->viewed = 'details';
+        $propertyView->views = $propertyView->views+1;
+        $propertyView->save();
+        
         
         
         return view('property.view', compact('property_id'));
@@ -47,6 +73,7 @@ class PropertyController extends Controller {
             $property['property_id']=$property_id;
             $property['property_name']=$data->name;
              $property['property_status']=$data->status;
+            $property['property_link']= "/property/view/".$this->genPropertyUrl($data->name, $data->property_id);
              //get IMG
             $propertyImages  = PropertyImage::where('property_id',$property_id)->first();
             $images = ["/images/others/transparent-bg.png"];
@@ -76,6 +103,7 @@ class PropertyController extends Controller {
             $views=(int)$propertyViews->views;
         }
         $property['property_views']=$views;
+        
         
          array_push($response,$property);
         }
@@ -150,6 +178,7 @@ class PropertyController extends Controller {
         $response['error'] = 0;
             $response['messages'] = ["Property Published"];
             $response['property_id'] = '';
+            $response['url'] = "/property/view/".$this->genPropertyUrl($property->name, $property->property_id);
             return json_encode($response);
     
 }
@@ -248,29 +277,148 @@ class PropertyController extends Controller {
     
         public function search(Request $request) {
         $requestpayload = $request->all();
+        //agent specific content
+        /*
+     {
+         * "query":"kitengela",
+         * "type":"commercial",//
+         * "county_id":"10",//
+         * "min_price":"10",//
+         * "max_price":"100000",//
+         * "max_kms_to_tarmac":"5",//
+         * "ready_title_deed":"on",//
+         * "controlled_development":"on",//
+         * "gated_community":"on",//
+         * "installments":"on",//
+         * "negotiable":"on"//
+         * }
+         */
+        
         $where = [
-            ['property.status','=','1']
+            ['property.status','=','1'],
+            ['property_view.viewed','=','details']
         ];
+        $orwhere = [];
+        $qwhere = [];
+        //agent specific content
+        if(!empty($requestpayload['agent_id'])){
+            array_push($where,['property.agent_id','=',$requestpayload['agent_id']]);
+        }
+        //agent specific content
+        if(!empty($requestpayload['property_id'])){
+            array_push($where,['property.property_id','=',$requestpayload['property_id']]);
+        }
+        //build up on the search
+        if(!empty($requestpayload['property_type'])){
+            array_push($where,['property_detail.type','=',$requestpayload['property_type']]);
+        }
+        if(!empty($requestpayload['county_id'])){
+            array_push($where,['property_location.county_id','=',$requestpayload['county_id']]);
+        }
+        if(!empty($requestpayload['county_id'])){
+            array_push($where,['property_location.county_id','=',$requestpayload['county_id']]);
+        }
+        if(!empty($requestpayload['min_price'])){
+            array_push($where,['property.price','>=',$requestpayload['min_price']]);
+        }
+        if(!empty($requestpayload['max_price'])){
+            array_push($where,['property.price','<=',$requestpayload['max_price']]);
+        }
+        if(!empty($requestpayload['max_kms_to_tarmac'])){
+            array_push($where,['property_detail.kms_to_tarmac','<=',$requestpayload['max_kms_to_tarmac']]);
+        }
+        
+        if(!empty($requestpayload['ready_title_deed'])){
+            array_push($where,['property_feature.ready_title','=',1]);
+        }
+        
+        if(!empty($requestpayload['controlled_development'])){
+            array_push($where,['property_feature.controlled_development','=',1]);
+        }
+        
+        if(!empty($requestpayload['gated_community'])){
+            array_push($where,['property_feature.gated_community','=',1]);
+        }
+        
+        if(!empty($requestpayload['installments'])){
+            array_push($where,['property_payment_terms.installment','=',1]);
+        }
+        
+        if(!empty($requestpayload['negotiable'])){
+            array_push($where,['property.negotiable','=',1]);
+        }
+        
+        
+        if(!empty($requestpayload['query'])){
+            array_push($qwhere,['property.name','like',"%".$requestpayload['query']."%"]);
+            array_push($orwhere,['property.name','like',"%".$requestpayload['query']."%"]);
+            array_push($orwhere,['property.description','like',"%".$requestpayload['query']."%"]);
+            array_push($orwhere,['agent.description','like',"%".$requestpayload['query']."%"]);
+            array_push($orwhere,['agent.name','like',"%".$requestpayload['query']."%"]);
+        }
+        
+        
+        
+        
+        
+        
+        
         $properties = [];
+        if(!empty($requestpayload['query'])){
         $proprtydata = DB::table('property')
             ->join('property_detail', 'property.property_id', '=', 'property_detail.property_id')
             ->join('property_location', 'property.property_id', '=', 'property_location.property_id')
             ->leftjoin('property_feature', 'property.property_id', '=', 'property_feature.property_id')
+            ->leftjoin('property_view', 'property.property_id', '=', 'property_view.property_id')
             ->join('property_payment_terms', 'property.property_id', '=', 'property_payment_terms.property_id')
             ->leftjoin('property_image', 'property.property_id', '=', 'property_image.property_id')
             ->leftjoin('county', 'property_location.county_id', '=', 'county.county_id')
             ->join('agent', 'property.agent_id', '=', 'agent.agent_id')
-            ->select('property.property_id','property.name as property_name','property.created as property_created','property.price', 'property.agent_id',
+            ->select('property.property_id','property.name as property_name','property.created as property_created','property.modified as property_modified','property.price', 'property.agent_id','property.description AS property_description',
                     'property.negotiable','property_detail.type','property_detail.size_acre',
                     'property_detail.size_feet','property_detail.kms_to_tarmac','property_detail.soil',
                     'property_detail.access_rd_type','property_feature.gated_community','property_feature.controlled_development',
                     'property_feature.ready_title','property_feature.electricity','property_feature.water','property_image.images',
                     'county.name AS county_name','property_location.nearest_town','property_location.neighborhood','property_location.latlong',
                     'property_payment_terms.installment','property_payment_terms.installment_deposit_amount','property_payment_terms.installment_months',
-                    'property_payment_terms.installment_price','property_payment_terms.inclusive_titledeed_processing','agent.name AS agent_name')
+                    'property_payment_terms.installment_price','property_view.views','property_payment_terms.inclusive_titledeed_processing','agent.phone_number_whatsapp','agent.name AS agent_name','agent.description AS agent_description','agent.phone_number')
             ->where($where)
+            ->where(function($query) use ($requestpayload){
+                            $query->where('property.name','like',"%".$requestpayload['query']."%")
+                                  ->orWhere('property.description','like',"%".$requestpayload['query']."%")
+                                  ->orWhere('property_location.nearest_town','like',"%".$requestpayload['query']."%")
+                                  ->orWhere('property_location.neighborhood','like',"%".$requestpayload['query']."%")
+                                   ->orWhere('agent.name','like',"%".$requestpayload['query']."%")
+                                  ->orWhere('agent.description','like',"%".$requestpayload['query']."%");
+                        })
+
             ->orderBy('property.property_id', 'DESC')
             ->get();
+                
+        } else {
+          $proprtydata = DB::table('property')
+            ->join('property_detail', 'property.property_id', '=', 'property_detail.property_id')
+            ->join('property_location', 'property.property_id', '=', 'property_location.property_id')
+            ->leftjoin('property_feature', 'property.property_id', '=', 'property_feature.property_id')
+            ->leftjoin('property_view', 'property.property_id', '=', 'property_view.property_id')
+            ->join('property_payment_terms', 'property.property_id', '=', 'property_payment_terms.property_id')
+            ->leftjoin('property_image', 'property.property_id', '=', 'property_image.property_id')
+            ->leftjoin('county', 'property_location.county_id', '=', 'county.county_id')
+            ->join('agent', 'property.agent_id', '=', 'agent.agent_id')
+            ->select('property.property_id','property.name as property_name','property.created as property_created','property.modified as property_modified','property.price', 'property.agent_id','property.description AS property_description',
+                    'property.negotiable','property_detail.type','property_detail.size_acre',
+                    'property_detail.size_feet','property_detail.kms_to_tarmac','property_detail.soil',
+                    'property_detail.access_rd_type','property_feature.gated_community','property_feature.controlled_development',
+                    'property_feature.ready_title','property_feature.electricity','property_feature.water','property_image.images',
+                    'county.name AS county_name','property_location.nearest_town','property_location.neighborhood','property_location.latlong',
+                    'property_payment_terms.installment','property_payment_terms.installment_deposit_amount','property_payment_terms.installment_months',
+                    'property_payment_terms.installment_price','property_view.views','property_payment_terms.inclusive_titledeed_processing','agent.phone_number_whatsapp','agent.name AS agent_name','agent.description AS agent_description','agent.phone_number')
+            ->where($where)
+            ->orwhere($orwhere)
+            ->orderBy('property.property_id', 'DESC')
+            ->get();  
+        }
+        
     foreach ($proprtydata as $key => $data) {
         $property=[];
         //process Images
@@ -286,6 +434,7 @@ class PropertyController extends Controller {
         $property['img_placeholder'] = "/images/others/transparent-bg.png";
         $property['property_id'] = $data->property_id;
         $property['property_name'] = substr($data->property_name, 0, 70).(strlen($data->property_name)>70? "...":"");
+        $property['property_description'] = $data->property_description;
         $property['price'] = $data->price;
         $property['kmb'] = $this->number_shorten($data->price);
         $property['agent_id'] = $data->agent_id;
@@ -302,18 +451,24 @@ class PropertyController extends Controller {
         $property['electricity'] = $data->electricity;
         $property['water'] = $data->water;
         $property['url'] = "/property/view/".$this->genPropertyUrl($data->property_name,$data->property_id)."/";
+        $property['agent_url'] = "/property/view/agent/".$this->genPropertyUrl($data->agent_name,$data->agent_id)."/";
         $property['county_name'] = $data->county_name;
         $property['nearest_town'] = $data->nearest_town;
         $property['neighborhood'] = $data->neighborhood;
         $property['location'] = $data->county_name.", ".$data->nearest_town.", ".$data->neighborhood;
         $property['latlong'] = $data->latlong;
+        $property['views'] = empty($data->views)?0:$data->views;
         $property['installment'] = $data->installment;
-        $property['installment_deposit_amount'] = $data->installment_deposit_amount;
+        $property['installment_deposit_amount'] = $this->number_shorten($data->installment_deposit_amount);
         $property['installment_months'] = $data->installment_months;
-        $property['installment_price'] = $data->installment_price;
+        $property['installment_price'] = $this->number_shorten($data->installment_price);
         $property['inclusive_titledeed_processing'] = $data->inclusive_titledeed_processing;
         $property['agent_name'] = substr($data->agent_name, 0, 30);
+        $property['agent_description'] = ($data->agent_description == ""?substr($data->agent_name, 0, 30):$data->agent_description);
+        $property['phone_number'] = $data->phone_number;
+        $property['phone_number_whatsapp'] = $data->phone_number_whatsapp;
         $property['property_created'] =Carbon::parse($data->property_created)->format('d M, Y');
+        $property['property_modified'] =Carbon::parse($data->property_modified)->format('d M, Y');
        
         array_push($properties,$property);
     }

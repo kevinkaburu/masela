@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ asset('css/libs/dropzone.css')}}">
     <link rel="stylesheet" href="{{ asset('css/libs/material-components-web.min.css')}}">  
     <link rel="stylesheet" href="{{ asset('css/style.css')}}"> 
-    <link rel="stylesheet" href="{{ asset('css/skins/grey.css')}}"> 
+    <link rel="stylesheet" href="{{ asset('css/skins/green.css')}}"> 
     <link rel="stylesheet" href="{{ asset('css/responsive.css')}}">    
 </head>
 <body class="mdc-theme--background"> 
@@ -87,7 +87,13 @@
                         <span class="mdc-button__ripple"></span>
                         <span class="mdc-button__label">Pricing</span> 
                     </a> 
-                </div>  
+                </div> 
+                <div>
+                    <a href="faq.html" class="mdc-button">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label">FAQS</span> 
+                    </a> 
+                </div> 
                 <div>
                     <a href="about.html" class="mdc-button">
                         <span class="mdc-button__ripple"></span>
@@ -162,33 +168,19 @@
                                 </li>
                                 <li>
                                     <?php
-                      if (Auth::check()) {?>
-                    
-                          <a href="{{ route('home.index') }}" class="mdc-list-item" role="menuitem">
-                              
-                      
-                          <?php
-                          
-                      }else{?>
-                          <a href="{{ route('welcome') }}" class="mdc-list-item" role="menuitem">
-
-                              <?php
-                      
-                      }
+                                    $UserAgent =  App\Models\UserAgent::where('user_id', Auth::user()->id)->first();
+                      $agent = App\Models\Agent::where('agent_id', $UserAgent->agent_id)->first();
+                      $uri = str_replace(" ", "-", $agent->name);
+        $uri = str_replace("/", "-", $uri);
+        $agenturl = "/property/view/agent/".$uri . "-" . $agent->agent_id."/";
+                     
                       ?>
-                                  
+                                  <a href="{{ $agenturl }}" class="mdc-list-item" role="menuitem">
                                         <i class="material-icons mat-icon-sm text-muted">home</i> 
                                         <span class="mdc-list-item__text px-3">My Properties</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="favorites.html" class="mdc-list-item" role="menuitem">
-                                        <i class="material-icons mat-icon-sm text-muted">favorite_border</i> 
-                                        <span class="mdc-list-item__text px-3">Favorites
-                                            <span class="badge warn">2</span>
-                                        </span> 
-                                    </a>
-                                </li>
+                               
                                 
                                 <li>
                                     <a href="{{ route('profile.update') }}" class="mdc-list-item" role="menuitem">
@@ -303,7 +295,13 @@
                             <span class="mdc-button__ripple"></span>
                             <span class="mdc-button__label">Pricing</span> 
                         </a> 
-                    </div>  
+                    </div> 
+                    <div>
+                    <a href="faq.html" class="mdc-button">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label">FAQS</span> 
+                    </a> 
+                </div> 
                     
                      <div>
                         <a href="about.html" class="mdc-button">

@@ -7,7 +7,10 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\Agent;
 use App\Models\UserAgent;
+
 use  Illuminate\Support\MessageBag;
+use App\Models\County;
+use App\Models\PropertyDetail;
 
 
 
@@ -18,10 +21,21 @@ class HomeController extends Controller
      *
      * @return void
      */
+    
     public function __construct()
     {
     }
-
+    
+public function landing(){
+    $counties = County::all();
+    $propertydetail = PropertyDetail::groupBy('type')->get();
+    
+    
+    
+    
+    return view('welcome', compact('counties','propertydetail'));
+    
+}
     /**
      * Show the application dashboard.
      *

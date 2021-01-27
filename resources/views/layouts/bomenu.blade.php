@@ -7,6 +7,12 @@
                                    $rawN =Auth::user()->name;
                       $nameArray = explode(" ", $rawN);
                       $name  =$nameArray[0];
+                      
+                      $UserAgent =  App\Models\UserAgent::where('user_id', Auth::user()->id)->first();
+                      $agent = App\Models\Agent::where('agent_id', $UserAgent->agent_id)->first();
+                      $uri = str_replace(" ", "-", $agent->name);
+        $uri = str_replace("/", "-", $uri);
+        $agenturl = "/property/view/agent/".$uri . "-" . $agent->agent_id."/";
                       ?>
                                
                          <img src="{{ asset('images/others/user.jpg')}}" alt="user-image" class="avatar">
@@ -23,17 +29,12 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="my-properties.html" class="mdc-list-item py-1">
+                                    <a href="{{$agenturl}}" class="mdc-list-item py-1">
                                         <span class="mdc-list-item__graphic material-icons text-muted mx-3">view_list</span>
                                         <span class="mdc-list-item__text">My Properties</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="favorites.html" class="mdc-list-item py-1">
-                                        <span class="mdc-list-item__graphic material-icons text-muted mx-3">favorite</span>
-                                        <span class="mdc-list-item__text">Favorites</span>
-                                    </a> 
-                                </li>
+                               
                                
                                 <li>
                                     <a href="{{ route('profile.update') }}" class="mdc-list-item py-1">

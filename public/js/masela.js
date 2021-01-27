@@ -148,7 +148,7 @@ function hometabledata(data, elementID) {
             status = "Active";
             published = '';
         }
-        var tr = '<tr class="mdc-data-table__row"><td hidden class="mdc-data-table__cell">' + property.property_id + '</td><td class="mdc-data-table__cell"><img src="' + property.property_image + '" alt="pro-image" width="100" height="80" class="d-block py-3"></td><td class="mdc-data-table__cell"><a href="property.html" class="mdc-button mdc-ripple-surface mdc-ripple-surface--primary normal">' + property.property_name + '</a></td><td class="mdc-data-table__cell">' + property.property_views + '</td><td class="mdc-data-table__cell">' + status + '</td><td class="mdc-data-table__cell"><button class="mdc-icon-button material-icons primary-color" onclick="editProperty(' + property.property_id + ')">edit</button>' + published + '<button class="mdc-icon-button material-icons warn-color" onclick="deleteProperty(' + property.property_id + ')">delete</button></td></tr>';
+        var tr = '<tr class="mdc-data-table__row"><td hidden class="mdc-data-table__cell">' + property.property_id + '</td><td class="mdc-data-table__cell"><img src="' + property.property_image + '" alt="pro-image" width="100" height="80" class="d-block py-3"></td><td class="mdc-data-table__cell"><a href="'+property.property_link+'" class="mdc-button mdc-ripple-surface mdc-ripple-surface--primary normal">' + property.property_name + '</a></td><td class="mdc-data-table__cell">' + property.property_views + '</td><td class="mdc-data-table__cell">' + status + '</td><td class="mdc-data-table__cell"><button class="mdc-icon-button material-icons primary-color" onclick="editProperty(' + property.property_id + ')">edit</button>' + published + '<button class="mdc-icon-button material-icons warn-color" onclick="deleteProperty(' + property.property_id + ')">delete</button></td></tr>';
         tbody.insertAdjacentHTML('beforeend', tr);
 
     }
@@ -363,7 +363,11 @@ async function GetListingProperty(data, elementID, elementType) {
 
                 if (elementType == 'cards') {
                     cardsdata(response, elementID);
+                }else if (elementType == 'single') {
+                    singleProperty(response);
+                    
                 }
+
 
             },
             function rejectprocessList(jqXHR, textStatus, errorThrown) {
@@ -380,6 +384,116 @@ async function GetListingProperty(data, elementID, elementType) {
 
 }
 
+function singleProperty(data){
+     for (var i = 0; i < data.length; i++) {
+        var property = data[i];
+        var imageswippers = '';
+        var imageswippersslide = '';
+        document.getElementById('single-property-name').innerHTML=property.property_name; 
+        document.getElementById('single-property-location').innerHTML=property.location;//
+        document.getElementById('single-property-price').innerHTML="Ksh "+property.kmb;
+        if (property.negotiable == 1) {
+            document.getElementById("single-property-negotiable").innerHTML="NEGOTIABLE";
+        }
+        
+        //images setup html
+        $.each(property.images, function (key, value) {
+            imageswippers += imageswiperhtml(property, value);
+            imageswippersslide += imageswiperslidehtml(property, value);
+        });
+        document.getElementById('single-property-swiper-wrapper').innerHTML=imageswippers;
+        document.getElementById('single-property-swiper-wrapper-view').innerHTML=imageswippersslide;
+        document.getElementById("single-property-type").innerHTML = property.type;
+        document.getElementById("single-property-description").innerHTML = property.property_description;
+        document.getElementById("single-property-agent-name").innerHTML= property.agent_name;
+        document.getElementById("single-property-agent-listing").innerHTML = agentlink(property.agent_url);
+        document.getElementById("single-property-agent-description").innerHTML=property.agent_description;
+        document.getElementById("single-property-agent-phone").innerHTML=property.phone_number;
+        if (property.phone_number_whatsapp == 1) {
+            var sms = "Hi, I'm reaching out to inquire more about this piece of land that you have on Masela. "+window.location.href;
+            document.getElementById("single-property-agent-whatsApp").innerHTML=agentwhatApp(property.phone_number,sms);
+        }
+        document.getElementById("single-property-size-acre").innerHTML = property.size_acre;
+        document.getElementById("single-property-size-feet").innerHTML = property.size_feet;
+        document.getElementById("single-property-soil-type").innerHTML=property.soil;
+        document.getElementById("single-property-kms-to-tarmac").innerHTML=property.kms_to_tarmac;
+        document.getElementById("single-property-access_rd_type").innerHTML=property.access_rd_type;
+        document.getElementById("single-property-county").innerHTML=property.county_name;
+        document.getElementById("single-property-nearest-town").innerHTML = property.nearest_town;
+        document.getElementById("single-property-neighborhood").innerHTML = property.neighborhood;
+         document.getElementById("single-property-piped-water").innerHTML = property.water;
+         document.getElementById("single-property-electricity").innerHTML = property.electricity;
+        var featurelist = '';
+        if (property.gated_community == 1) {
+            featurelist +=featurelisting("Gated Comunity");
+        }
+        if (property.controlled_development == 1) {
+            featurelist +=featurelisting("Controlled Development");
+        }
+        if (property.ready_title == 1) {
+            featurelist +=featurelisting("Ready TitleDeed");
+        }
+         if (property.inclusive_titledeed_processing == 1) {
+            featurelist +=featurelisting("Price inclusive of Title Transfer");
+        }
+        
+        if (property.installment == 1) {
+            featurelist +=featurelisting("Pay in Installments:");
+        }
+        document.getElementById("single-property-features-list").innerHTML = featurelist;
+        var installmentslist = '';
+        if (property.installment == 1) {
+            installmentslist +=installmentlist("Deposit amount:",property.installment_deposit_amount);
+            installmentslist +=installmentlist("Months to clear balance:",property.installment_months);
+            if (property.installment_price !== 'undefined') {
+                installmentslist +=installmentlist("Installments full price:",property.installment_price);
+            }
+            document.getElementById("single-property-installment-details").display="inline-block";
+            document.getElementById("single-property-installment-details").innerHTML = installmentPayments(installmentslist);
+        }
+        document.getElementById("single-property-id").innerHTML = property.property_id;
+        document.getElementById("single-property-created").innerHTML = property.property_created;
+        document.getElementById("single-property-updated").innerHTML = property.property_modified;
+        document.getElementById("single-property-views").innerHTML = property.views;
+        
+        
+    }
+    refreshSwiper();
+}
+function installmentlist(key,value){
+    var list = `<div class="row col-xs-12 col-sm-6 item">
+                                    <span>${key}</span>
+                                    <span>${value}</span>
+                                </div> `;
+    return list;
+}
+function installmentPayments(list){
+    var installments = `            <h2 class="uppercase text-center fw-500 mb-2">Installments</h2>  
+                            <div class="row details">
+                                ${list}
+                            </div>`;
+    return installments;
+}
+function featurelisting(name){
+    var featurehtml = `<div class="col-xs-12 col-sm-4 row middle-xs">
+                                    <i class="material-icons mat-icon-sm primary-color">check</i>
+                                    <span class="mx-2">${name}</span>
+                                </div>`;
+    return featurehtml;
+}
+function agentlink(url){
+    var url = `<a href="${url}" class="mdc-button mdc-button--raised d-none d-sm-flex d-md-flex d-lg-flex d-xl-flex bg-accent">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label">Other listings</span> 
+                    </a> `;
+    return url;
+}
+function agentwhatApp(phone,current){
+    var url = ` <a href="https://api.whatsapp.com/send?phone=+${phone}&text=${current}" class="primary-color"> <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7 8.5 7 9.71C7 10.93 7.89 12.1 8 12.27C8.14 12.44 9.76 14.94 12.25 16C12.84 16.27 13.3 16.42 13.66 16.53C14.25 16.72 14.79 16.69 15.22 16.63C15.7 16.56 16.68 16.03 16.89 15.45C17.1 14.87 17.1 14.38 17.04 14.27C16.97 14.17 16.81 14.11 16.56 14C16.31 13.86 15.09 13.26 14.87 13.18C14.64 13.1 14.5 13.06 14.31 13.3C14.15 13.55 13.67 14.11 13.53 14.27C13.38 14.44 13.24 14.46 13 14.34C12.74 14.21 11.94 13.95 11 13.11C10.26 12.45 9.77 11.64 9.62 11.39C9.5 11.15 9.61 11 9.73 10.89C9.84 10.78 10 10.6 10.1 10.45C10.23 10.31 10.27 10.2 10.35 10.04C10.43 9.87 10.39 9.73 10.33 9.61C10.27 9.5 9.77 8.26 9.56 7.77C9.36 7.29 9.16 7.35 9 7.34C8.86 7.34 8.7 7.33 8.53 7.33Z" />
+    </svg><span class="mx-2 text-muted fw-500">${phone}</span></a>`;
+    return url;
+}
 function cardsdata(data, elementID) {
     var parentDiv = document.getElementById(elementID);
     parentDiv.innerHTML = "";
@@ -400,7 +514,7 @@ function cardsdata(data, elementID) {
             commercialNegotiablehtml += moneyed("green", "Negotiable");
         }
         commercialNegotiablehtml += moneyed("blue", property.type);
-        console.log(commercialNegotiablehtml);
+        
 
         // Features time
         featuresHtml += featurehtml("Size", property.size_acre);
@@ -426,6 +540,22 @@ function moneyed(color, name) {
 function featurehtml(key, value) {
     var feature = `<p><span>${key}</span><span>${value}</span></p>`;
     return feature;
+}
+function imageswiperslidehtml(property, img) {
+    var image = `<div class="swiper-slide">
+                                            <img style="max-height: 120px;"  src="${property.img_placeholder}" alt="slide image" data-src="${img}" class="slide-item swiper-lazy">
+                                            <div class="swiper-lazy-preloader"></div> 
+                                        </div> `;
+ 
+    return image;
+}
+function imageswiperhtml(property, img) {
+    var image = `<div class="swiper-slide">
+                                            <img style="height: 550px;" style="object-fit: cover;" src="${property.img_placeholder}" alt="slide image" data-src="${img}" class="slide-item swiper-lazy">
+                                            <div class="swiper-lazy-preloader"></div> 
+                                        </div> `;
+ 
+    return image;
 }
 function imageshtml(property, img) {
     var image = `<div class="swiper-slide"><img style="height: 230px;" src="${property.img_placeholder}" alt="slide image" data-src="${img}" class="slide-item swiper-lazy"><div class="swiper-lazy-preloader"></div></div>`;
