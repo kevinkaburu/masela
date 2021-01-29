@@ -153,7 +153,10 @@ class PropertyController extends Controller {
         $propertyPaymentTerms = PropertyPaymentTerms::where('property_id',$property->property_id)->first();
         //propertyImage
         $propertyImage= PropertyImage::where('property_id',$property->property_id)->first();
+        $jsondata=[];
+        if($propertyImage){
         $jsondata = json_decode($propertyImage->images);
+        }
         $propertyImages = json_encode($jsondata);
         
         
