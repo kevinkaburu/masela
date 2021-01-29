@@ -9,10 +9,14 @@
                       $name  =$nameArray[0];
                       
                       $UserAgent =  App\Models\UserAgent::where('user_id', Auth::user()->id)->first();
+                      if($UserAgent){
                       $agent = App\Models\Agent::where('agent_id', $UserAgent->agent_id)->first();
                       $uri = str_replace(" ", "-", $agent->name);
         $uri = str_replace("/", "-", $uri);
         $agenturl = "/property/view/agent/".$uri . "-" . $agent->agent_id."/";
+                      }else{
+                         $agenturl = "/"; 
+                      }
                       ?>
                                
                          <img src="{{ asset('images/others/user.jpg')}}" alt="user-image" class="avatar">
