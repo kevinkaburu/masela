@@ -184,10 +184,14 @@
                                 <li>
                                     <?php
                                     $UserAgent =  App\Models\UserAgent::where('user_id', Auth::user()->id)->first();
+                                    if($UserAgent){
                       $agent = App\Models\Agent::where('agent_id', $UserAgent->agent_id)->first();
                       $uri = str_replace(" ", "-", $agent->name);
         $uri = str_replace("/", "-", $uri);
         $agenturl = "/property/view/agent/".$uri . "-" . $agent->agent_id."/";
+                                    }else{
+                                       $agenturl = "/"; 
+                                    }
                      
                       ?>
                                   <a href="{{ $agenturl }}" class="mdc-list-item" role="menuitem">
