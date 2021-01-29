@@ -257,6 +257,8 @@
             <div class="theme-container row between-xs middle-xs h-100"> 
                 <a class="logo" href="{{ url('/') }}"> 
 <!--                    logo goes in here-->
+
+<img src="{{ asset('favicon.ico')}}" alt="MASELA">
                 </a>  
                 <div class="horizontal-menu d-none d-md-flex d-lg-flex d-xl-flex">  
                     <div>
