@@ -15,10 +15,6 @@ use App\Http\Controllers\Auth\FacebookController;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//})->name('welcome');
-Route::get('/', 'HomeController@landing')->name('welcome');
 
 Auth::routes(['verify'=>true]);
 
@@ -60,6 +56,9 @@ Route::middleware(['web', 'auth'])->group(function () {
 });
 
 //No Auth required
+Route::get('/', 'HomeController@landing')->name('welcome');
+Route::get('/pricing', 'HomeController@pricing')->name('pricing');
+Route::get('/legal', 'HomeController@legal')->name('legal');
 Route::get('/blog', 'BlogController@index')->name('blog.index');
 Route::post('/property/search', 'PropertyController@search')->name('property.search');
 Route::get('/property/view/{propertyUri}/', 'PropertyController@view')->name('property.view');

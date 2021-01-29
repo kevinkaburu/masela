@@ -55,7 +55,13 @@ class PropertyController extends Controller {
         
         
         
-        return view('property.view', compact('property_id'));
+        $propertyView = PropertyLocation::where('property_id',$property_id)->first();
+        $latlong="0.1768,37.9083,13";
+        if($propertyView){
+            $latlong=$propertyView->latlong.",8";
+        }
+        
+        return view('property.view', compact('property_id','latlong'));
     }
     public function list(Request $request) {
         $requestpayload = $request->all();

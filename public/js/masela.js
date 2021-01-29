@@ -1,3 +1,4 @@
+
 jQuery(document).ready(function ($) {
     "use strict";
     $(".send-otp").on("click", function (event) {
@@ -347,6 +348,27 @@ function initMap() {
 }
 
 
+function initPropertViewMap() {
+        let latlong = document.getElementById("single-property-map-data").value.split(',');
+var lat=Number(latlong[0]);
+var lng= Number(latlong[1]);
+var zoom=Number(latlong[2]);
+  const myLatLng = { lat: lat, lng: lng };
+  const mymap = new google.maps.Map(document.getElementById("single-property-map"), {
+    zoom: zoom,
+    center: myLatLng,
+  });
+  new google.maps.Marker({
+    position: myLatLng,
+    mymap,
+    title: "Masela Listed!",
+  });
+}
+
+
+
+
+
 async function GetListingProperty(data, elementID, elementType) {
 
     await ajax({
@@ -456,6 +478,8 @@ function singleProperty(data){
         document.getElementById("single-property-updated").innerHTML = property.property_modified;
         document.getElementById("single-property-views").innerHTML = property.views;
         
+        
+ 
         
     }
     refreshSwiper();

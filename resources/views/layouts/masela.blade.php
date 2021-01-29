@@ -77,25 +77,25 @@
                     </a> 
                 </div>  
                 <div>
-                    <a href="contact.html" class="mdc-button">
+                    <a href="{{ url('/legal') }}" class="mdc-button">
                         <span class="mdc-button__ripple"></span>
                         <span class="mdc-button__label">Legal Services</span> 
                     </a> 
                 </div> 
                 <div>
-                    <a href="about.html" class="mdc-button">
+                    <a href="{{ route('pricing') }}" class="mdc-button">
                         <span class="mdc-button__ripple"></span>
                         <span class="mdc-button__label">Pricing</span> 
                     </a> 
                 </div> 
-                <div>
+<!--                <div>
                     <a href="faq.html" class="mdc-button">
                         <span class="mdc-button__ripple"></span>
                         <span class="mdc-button__label">FAQS</span> 
                     </a> 
-                </div> 
+                </div> -->
                 <div>
-                    <a href="about.html" class="mdc-button">
+                    <a href="{{ route('blog.index') }}" class="mdc-button">
                         <span class="mdc-button__ripple"></span>
                         <span class="mdc-button__label">Blog</span> 
                     </a> 
@@ -285,26 +285,26 @@
                     </div>  
                    
                     <div>
-                        <a href="contact.html" class="mdc-button">
+                        <a href="{{ url('/legal') }}" class="mdc-button">
                             <span class="mdc-button__ripple"></span>
                             <span class="mdc-button__label">Legal Services</span> 
                         </a> 
                     </div> 
                     <div>
-                        <a href="about.html" class="mdc-button">
+                        <a href="{{ route('pricing') }}" class="mdc-button">
                             <span class="mdc-button__ripple"></span>
                             <span class="mdc-button__label">Pricing</span> 
                         </a> 
                     </div> 
-                    <div>
+<!--                    <div>
                     <a href="faq.html" class="mdc-button">
                         <span class="mdc-button__ripple"></span>
                         <span class="mdc-button__label">FAQS</span> 
                     </a> 
-                </div> 
+                </div> -->
                     
                      <div>
-                        <a href="about.html" class="mdc-button">
+                        <a href="{{ route('blog.index') }}" class="mdc-button">
                             <span class="mdc-button__ripple"></span>
                             <span class="mdc-button__label">Blog</span> 
                         </a> 
