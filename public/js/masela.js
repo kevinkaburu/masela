@@ -905,3 +905,33 @@ function refreshSwiper() {
 }
 
 
+const subscribe = document.querySelector('.newsleter-submit');
+subscribe.addEventListener('click', () => {
+                        //get content-ID tabtab
+
+                        var form = document.getElementById("newsletter_email_form");
+                         const data = new FormData(form);
+                         
+                            ajax({
+        method: "POST",
+        url: "/newsletter/subscribe",
+        data: data,
+        processData: false,
+        contentType: false,
+        cache: false,
+        enctype: 'multipart/form-data',
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+    }).then(
+            function fulfillHandler(response) {
+                var msg = JSON.parse(response);
+                console.log(msg);
+
+            },
+            function rejectHandler(jqXHR, textStatus, errorThrown) {
+                
+            }
+    ).catch(function errorHandler(error) {
+
+    });
+                         
+                    });

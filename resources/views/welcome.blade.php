@@ -303,7 +303,7 @@
                                 </div>  
                             </div> 
                             <div class="row start-xs middle-xs py-2 w-100"> 
-                                <div class="mdc-chip-set"> 
+<!--                                <div class="mdc-chip-set"> 
                                     <div class="mdc-chip bg-warn">
                                         <div class="mdc-chip__ripple"></div>
                                         <span>
@@ -346,7 +346,7 @@
                                             <i class="material-icons mdc-chip__icon mdc-chip__icon--trailing" tabindex="-1" role="button">cancel</i>
                                         </span>
                                     </div>
-                                </div> 
+                                </div> -->
                             </div> 
                         <div class="properties-wrapper row mt-0" id="home-property-listing-div">
                        

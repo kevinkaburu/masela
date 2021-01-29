@@ -9,6 +9,8 @@ use Illuminate\Support\MessageBag;
 use App\Models\County;
 use App\Models\PropertyDetail;
 use App\Models\NewsletterContact;
+use Illuminate\Http\Request;
+
 
 class HomeController extends Controller {
 
@@ -22,14 +24,15 @@ class HomeController extends Controller {
     }
     public function newsletter(Request $request){
         $data = $request->all();
-        if(!empty($data['email'])){
-        $newsLetter = NewsletterContact::where("email",$data['email'])->first();
+        if(!empty($data['newsletter_email'])){
+            if(filter_var($data['newsletter_email'], FILTER_VALIDATE_EMAIL)) {
+        $newsLetter = NewsletterContact::where("email",$data['newsletter_email'])->first();
         if(!$newsLetter){
-            $newsLetter = NewsletterContact();
-            $newsLetter->email =$data['email'] ;
+            $newsLetter = new NewsletterContact();
+            $newsLetter->email =$data['newsletter_email'] ;
             $newsLetter->save();
         }
-        
+            }
         }
         return json_encode($data);
     }

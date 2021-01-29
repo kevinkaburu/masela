@@ -76,6 +76,12 @@
                         
                     </a> 
                 </div>  
+                <div> 
+                    <a href="{{ route('property.new') }}" class="mdc-button">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label">submit property</span> 
+                    </a> 
+                </div> 
                 <div>
                     <a href="{{ url('/legal') }}" class="mdc-button">
                         <span class="mdc-button__ripple"></span>
@@ -285,6 +291,7 @@
                             
                         </a> 
                     </div>  
+                     
                    
                     <div>
                         <a href="{{ url('/legal') }}" class="mdc-button">
@@ -311,6 +318,8 @@
                             <span class="mdc-button__label">Blog</span> 
                         </a> 
                     </div>  
+
+
                     
                 </div>
                 <div class="row middle-xs"> 
@@ -342,11 +351,11 @@
                             </p>
                             <p class="row middle-xs mt-1"> 
                                 <i class="material-icons primary-color">mail_outline</i> 
-                                <span class="mx-2">info@masela.co.ke</span>
+                                <span class="mx-2">admin@vinuru.com</span>
                             </p>
                             <p class="row middle-xs mt-1"> 
                                 <i class="material-icons primary-color">schedule</i> 
-                                <span class="mx-2">Mon - Sun / 9:00AM - 8:00PM</span>
+                                <span class="mx-2">24/7</span>
                             </p> 
                             
                         </div> 
@@ -377,11 +386,11 @@
                         <div class="col-xs-12 col-md-4 p-0 location"> 
                             
                         <h2 class="uppercase">Subscribe our Newsletter</h2>
-                        <p class="desc mb-1">Stay up to date with our latest news and properties</p>
+                        <p class="desc mb-1">Stay up to date with the latest land information.</p>
                     
-                    <form action="javascript:void(0);" class="subscribe-form row col-xs-12 col-md-12">
-                        <input type="text" placeholder="Your email address..." class="subscribe-input"> 
-                        <button type="submit" class="mdc-button mdc-button--raised subscribe-btn">
+                        <form action="javascript:void(0);" class="subscribe-form row col-xs-12 col-md-12" id="newsletter_email_form">
+                        <input type="text" placeholder="Your email address..." name="newsletter_email" class="subscribe-input"> 
+                        <button type="button" class="mdc-button mdc-button--raised subscribe-btn newsleter-submit">
                             <span class="mdc-button__ripple"></span>
                             <span class="mdc-button__label">Subscribe</span> 
                         </button>

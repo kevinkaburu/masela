@@ -9,6 +9,7 @@
                 <h1 class="title">Blog</h1>
                 <p class="desc">Learn more about land buying, selling and other awesome stuff.</p> 
             </div>
+            
         </div>
 
        <div class="section agents">
@@ -26,7 +27,7 @@
                                         </div>
                                         <div class="p-3">
                                             <h2 class="fw-600">How to decide on where to buy land.</h2> 
-                                            <p class="mt-3 text-muted fw-500">Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.</p> 
+                                            <p class="mt-3 text-muted fw-500">You've considered all the investments options available and sure you've come to conclusion that land is the way to go.</p> 
                                             <div class="row pb-3">
                                                 <div class="divider"></div>
                                             </div> 
@@ -49,7 +50,7 @@
                                         <div class="p-3">
                                             <h2 class="fw-600">When to invest in land</h2> 
                                             
-                                            <p class="mt-3 text-muted fw-500">Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.</p>                                    
+                                            <p class="mt-3 text-muted fw-500">Like any other venture, you need to have the timing right to maximize on your returns. With land this will separate the winners and the losers...</p>                                    
                                            
                                             <div class="row pb-3">
                                                 <div class="divider"></div>
@@ -72,7 +73,7 @@
                                         </div>
                                         <div class="p-3">
                                             <h2 class="fw-600">No, Land is not gold.</h2> 
-                                            <p class="mt-3 text-muted fw-500">Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.</p>
+                                            <p class="mt-3 text-muted fw-500">Land is not gold, don't be fooled with this line. While gold is traded on the regular land is not and that makes a huge difference....</p>
                                             <div class="row pb-3">
                                                 <div class="divider"></div>
                                             </div> 
@@ -93,7 +94,7 @@
                                         </div>
                                         <div class="p-3">
                                             <h2 class="fw-600">Understand land financing and if it is good for you.</h2>
-                                            <p class="mt-3 text-muted fw-500">Phasellus sed metus leo. Donec laoreet, lacus ut suscipit convallis, erat enim eleifend nulla, at sagittis enim urna et lacus.</p> 
+                                            <p class="mt-3 text-muted fw-500">You want that piece of land NOW, but your pockets are not ready? Let's look at how you can still achieve that dream of owning land...</p> 
                                             <div class="row pb-3">
                                                 <div class="divider"></div>
                                             </div> 

@@ -63,6 +63,7 @@ Route::get('/blog', 'BlogController@index')->name('blog.index');
 Route::post('/property/search', 'PropertyController@search')->name('property.search');
 Route::get('/property/view/{propertyUri}/', 'PropertyController@view')->name('property.view');
 Route::get('/property/view/agent/{agentUri}/', 'PropertyController@agent')->name('property.agent');
+Route::post('/newsletter/subscribe', 'HomeController@newsletter')->name('home.newsleter');
 
 
 
