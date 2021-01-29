@@ -9,7 +9,6 @@ use Illuminate\Support\MessageBag;
 use App\Models\County;
 use App\Models\PropertyDetail;
 use App\Models\NewsletterContact;
-use App\Models\County;
 
 class HomeController extends Controller {
 
