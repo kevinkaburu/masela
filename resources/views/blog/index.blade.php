@@ -22,7 +22,7 @@
                                 <div class="swiper-slide"> 
                                     <div class="mdc-card o-hidden">
                                         <div>
-                                            <img src="{{asset('images/others/transparent-bg.png')}}" height="300" width="300" alt="slide image" data-src="{{asset('images/agents/a-1.jpg')}}" class="swiper-lazy d-block mw-100">
+                                            <img src="{{asset('images/others/transparent-bg.png')}}" height="300" width="300" alt="slide image" data-src="{{asset('images/blog/blog_2.jpg')}}" class="swiper-lazy d-block mw-100">
                                             <div class="swiper-lazy-preloader"></div>
                                         </div>
                                         <div class="p-3">
@@ -44,7 +44,7 @@
                                 <div class="swiper-slide"> 
                                     <div class="mdc-card o-hidden">
                                         <div>
-                                            <img src="{{asset('images/others/transparent-bg.png')}}" height="300" width="300" alt="slide image" data-src="{{asset('images/agents/a-2.jpg')}}" class="swiper-lazy d-block mw-100">
+                                            <img src="{{asset('images/others/transparent-bg.png')}}" height="300" width="300" alt="slide image" data-src="{{asset('images/blog/blog_3.jpg')}}" class="swiper-lazy d-block mw-100">
                                             <div class="swiper-lazy-preloader"></div>
                                         </div>
                                         <div class="p-3">
@@ -68,7 +68,7 @@
                                 <div class="swiper-slide"> 
                                     <div class="mdc-card o-hidden">
                                         <div>
-                                            <img src="{{asset('images/others/transparent-bg.png')}}" height="300" width="300" alt="slide image" data-src="{{asset('images/agents/a-3.jpg')}}" class="swiper-lazy d-block mw-100">
+                                            <img src="{{asset('images/others/transparent-bg.png')}}" height="300" width="300" alt="slide image" data-src="{{asset('images/blog/blog_2.jpg')}}" class="swiper-lazy d-block mw-100">
                                             <div class="swiper-lazy-preloader"></div>
                                         </div>
                                         <div class="p-3">
@@ -89,7 +89,7 @@
                                 <div class="swiper-slide"> 
                                     <div class="mdc-card o-hidden">
                                         <div>
-                                            <img src="{{asset('images/others/transparent-bg.png')}}" height="300" width="300" alt="slide image" data-src="{{asset('images/agents/a-4.jpg')}}" class="swiper-lazy d-block mw-100">
+                                            <img src="{{asset('images/others/transparent-bg.png')}}" height="300" width="300" alt="slide image" data-src="{{asset('images/blog/blog_1.jpg')}}" class="swiper-lazy d-block mw-100">
                                             <div class="swiper-lazy-preloader"></div>
                                         </div>
                                         <div class="p-3">
