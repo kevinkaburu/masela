@@ -28,7 +28,7 @@ s0.parentNode.insertBefore(s1,s0);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Masela - Buy & sell Land safely.</title> 
+    <title>{{$title ?? "Masela - Your Best property investment partner in Kenya!"}}</title> 
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico')}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">  
@@ -106,7 +106,7 @@ s0.parentNode.insertBefore(s1,s0);
                     </a> 
                 </div> 
                 <div>
-                    <a href="{{ url('/legal') }}" class="mdc-button">
+                    <a href="{{ url('/services') }}" class="mdc-button">
                         <span class="mdc-button__ripple"></span>
                         <span class="mdc-button__label">Our Services</span> 
                     </a> 
@@ -311,7 +311,7 @@ s0.parentNode.insertBefore(s1,s0);
                      
                    
                     <div>
-                        <a href="{{ url('/legal') }}" class="mdc-button">
+                        <a href="{{ url('/services') }}" class="mdc-button">
                             <span class="mdc-button__ripple"></span>
                             <span class="mdc-button__label">Our Services</span> 
                         </a> 

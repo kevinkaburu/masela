@@ -5,8 +5,8 @@
             <div class="bg" style="background-image: url('{{asset('images/others/about.jpg')}}');"></div>
             <div class="mask"></div>            
             <div class="header-image-content offset-bottom">
-                <h1 class="title">Legal Services</h1>
-                <p class="desc">We help you validate and transfer the land safely.</p> 
+                <h1 class="title">Our Services</h1>
+                <p class="desc">We help you decide on a property, validate it's authenticity and facilitate the transfer safely.</p> 
             </div>
         </div>  
 <div class="px-3">  
@@ -16,14 +16,14 @@
                         <div class="px-3">
                             <div class="theme-container">
                                 <h1 class="section-title">How it works</h1> 
-                                <p class="px-3">Once you identify a piece of land that you want, contact the seller, view it and are in agreement. It is always good to do your own background checks on the land just to be sure on what you are buying, and adhere to all other legal requirements to be safe. Masela offers these services through partnerships to protect you and make the land buying/selling process easier for you.</p>
+                                <p class="px-3">Once you identify a piece of land that you want, contact the seller, view it and are in agreement. It is always good to do your own background checks on the land just to be sure on what you are buying, and adhere to all other legal requirements to be safe. Masela offers these services through partnerships with verified legal entities to protect you and make the land buying/selling process easier for you.</p>
                                 <div class="row"> 
                                     <div class="col-xs-12 col-sm-12 col-md-6 p-3"> 
                                         <div class="row start-xs middle-xs">
                                             <i class="material-icons mat-icon-xlg primary-color">search</i>
                                             <h2 class="capitalize fw-600 mx-2">Due Diligence</h2>
                                         </div>                            
-                                        <p class="mt-2">This involves search at the lands ministry, Ownership documents verification. This is very important step before committing to any land transaction.</p>
+                                        <p class="mt-2">This involves search at the lands ministry, Ownership documents verification and general historic information of the said property. This is very important step before committing to any land transaction.</p>
                                     </div> 
                                     <div class="col-xs-12 col-sm-12 col-md-6 p-3"> 
                                         <div class="row start-xs middle-xs">
@@ -58,28 +58,28 @@
                             <div class="mdc-card h-100 w-100 text-center middle-xs p-3">     
                                 <i class="material-icons mat-icon-xlg primary-color">format_list_bulleted</i>
                                 <h2 class="capitalize fw-600 my-3">With you all the way</h2>
-                                <p class="text-muted fw-500">We will walk with you through the buying/selling process facilitating all your legal needs at a fee on X% of the land's price.</p>             
+                                <p class="text-muted fw-500">We will walk with you through the buying/selling process facilitating all your legal needs.</p>             
                             </div> 
                         </div>  
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 p-2"> 
                             <div class="mdc-card h-100 w-100 text-center middle-xs p-3">            
                                 <i class="material-icons mat-icon-xlg primary-color">location_on</i>
                                 <h2 class="capitalize fw-600 my-3">Due Diligence</h2>
-                                <p class="text-muted fw-500">We will do due diligence on your behalf and share detailed report on the land's status at a fee of X% of the price.</p>           
+                                <p class="text-muted fw-500">We will do due diligence on your behalf and share detailed report on the land's current status and it's historic data.</p>           
                             </div> 
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 p-2"> 
                             <div class="mdc-card h-100 w-100 text-center middle-xs p-3">     
                                 <i class="material-icons mat-icon-xlg primary-color">supervisor_account</i>
                                 <h2 class="capitalize fw-600 my-3">Sale Agreements</h2>
-                                <p class="text-muted fw-500">Masela will get you all the legal support needed to counter check the fine prints of the sale agreement, and draft changes where need be at a fee of X% of the price.</p>             
+                                <p class="text-muted fw-500">Masela will get you all the legal support needed to counter check the fine prints of the sale agreement, and draft changes where need be.</p>             
                             </div> 
                         </div> 
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 p-2">  
                             <div class="mdc-card h-100 w-100 text-center middle-xs p-3">  
                                 <i class="material-icons mat-icon-xlg primary-color">home</i>
                                 <h2 class="capitalize fw-600 my-3">Transfer</h2>
-                                <p class="text-muted fw-500">We will do the follow up on the transfer requirements and any payments required at the Lands ministry. All this at a fee of X% of the land price. </p>             
+                                <p class="text-muted fw-500">We will do the follow up on the transfer requirements and any payments required at the Lands ministry.  </p>             
                             </div> 
                         </div>  
                        

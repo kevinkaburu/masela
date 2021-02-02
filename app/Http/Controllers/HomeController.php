@@ -40,8 +40,8 @@ class HomeController extends Controller {
     public function pricing() {
         return view('pricing');
     }
-     public function legal() {
-        return view('legal');
+     public function services() {
+        return view('services');
     }
 
     public function landing() {
