@@ -8,7 +8,7 @@
                         <div class="slide-item swiper-lazy" data-background="{{ asset('images/props/house-1/5-big.jpg')}}">
                             <div class="swiper-lazy-preloader"></div> 
                             <span class="d-none" data-slide-title="Importance of a lawyer while buying or selling land"></span>
-                            <span class="d-none" data-slide-location="The easiest way to get conned is to assume the roll of a lawyer.."></span>
+                            <span class="d-none" data-slide-location="The easiest way to get conned is to ignore the role of a lawyer."></span>
                             <span class="d-none" data-slide-price="Read More"></span> 
                         </div> 
                     </div> 
@@ -25,8 +25,8 @@
                         <div class="slide-item swiper-lazy" data-background="{{ asset('images/props/office-2/6-big.jpg')}}">
                             <div class="swiper-lazy-preloader"></div> 
                             <span class="d-none" data-slide-title="Sell your land with us."></span>
-                            <span class="d-none" data-slide-location="Be part of this safe land buying/selling comunity."></span>
-                            <span class="d-none" data-slide-price="Ksh 55M"></span> 
+                            <span class="d-none" data-slide-location="Be part of this safe land buying/selling community."></span>
+                            <span class="d-none" data-slide-price="Read More"></span> 
                         </div> 
                     </div>
                 </div>     
