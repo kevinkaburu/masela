@@ -575,7 +575,7 @@ function imageswiperslidehtml(property, img) {
 }
 function imageswiperhtml(property, img) {
     var image = `<div class="swiper-slide">
-                                            <img style="height: 550px;" style="object-fit: cover;" src="${property.img_placeholder}" alt="slide image" data-src="${img}" class="slide-item swiper-lazy">
+                                            <img style="max-height: 450px;" style="object-fit: cover;" src="${property.img_placeholder}" alt="slide image" data-src="${img}" class="slide-item swiper-lazy">
                                             <div class="swiper-lazy-preloader"></div> 
                                         </div> `;
  
@@ -924,7 +924,8 @@ subscribe.addEventListener('click', () => {
     }).then(
             function fulfillHandler(response) {
                 var msg = JSON.parse(response);
-                console.log(msg);
+                document.getElementById("newsletter_email_input").value="";
+               
 
             },
             function rejectHandler(jqXHR, textStatus, errorThrown) {

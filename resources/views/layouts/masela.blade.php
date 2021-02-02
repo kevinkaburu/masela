@@ -108,7 +108,7 @@ s0.parentNode.insertBefore(s1,s0);
                 <div>
                     <a href="{{ url('/legal') }}" class="mdc-button">
                         <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">Legal Services</span> 
+                        <span class="mdc-button__label">Our Services</span> 
                     </a> 
                 </div> 
                 <div>
@@ -117,12 +117,7 @@ s0.parentNode.insertBefore(s1,s0);
                         <span class="mdc-button__label">Pricing</span> 
                     </a> 
                 </div> 
-<!--                <div>
-                    <a href="faq.html" class="mdc-button">
-                        <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">FAQS</span> 
-                    </a> 
-                </div> -->
+
                 <div>
                     <a href="{{ route('blog.index') }}" class="mdc-button">
                         <span class="mdc-button__ripple"></span>
@@ -149,7 +144,7 @@ s0.parentNode.insertBefore(s1,s0);
                         
                         <span class="d-flex center-xs middle-xs item">
                             <i class="material-icons mat-icon-sm">mail</i>  
-                            <span class="px-1">info@masela.co.ke</span>
+                            <span class="px-1">info@vinuru.com</span>
                         </span>  
                     </div>       
                 </div> 
@@ -231,12 +226,7 @@ s0.parentNode.insertBefore(s1,s0);
                                     
                                     
                                     
-                                    
-                                    
-<!--                                    <a href="login.html" class="mdc-list-item" role="menuitem">
-                                        <i class="material-icons mat-icon-sm text-muted">power_settings_new</i> 
-                                        <span class="mdc-list-item__text px-3">Sign Out</span>
-                                    </a>-->
+
                                 </li> 
                             </ul>
                         </div> 
@@ -323,7 +313,7 @@ s0.parentNode.insertBefore(s1,s0);
                     <div>
                         <a href="{{ url('/legal') }}" class="mdc-button">
                             <span class="mdc-button__ripple"></span>
-                            <span class="mdc-button__label">Legal Services</span> 
+                            <span class="mdc-button__label">Our Services</span> 
                         </a> 
                     </div> 
                     <div>
@@ -332,12 +322,7 @@ s0.parentNode.insertBefore(s1,s0);
                             <span class="mdc-button__label">Pricing</span> 
                         </a> 
                     </div> 
-<!--                    <div>
-                    <a href="faq.html" class="mdc-button">
-                        <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">FAQS</span> 
-                    </a> 
-                </div> -->
+
                     
                      <div>
                         <a href="{{ route('blog.index') }}" class="mdc-button">
@@ -378,7 +363,7 @@ s0.parentNode.insertBefore(s1,s0);
                             </p>
                             <p class="row middle-xs mt-1"> 
                                 <i class="material-icons primary-color">mail_outline</i> 
-                                <span class="mx-2">admin@vinuru.com</span>
+                                <span class="mx-2">info@vinuru.com</span>
                             </p>
                             <p class="row middle-xs mt-1"> 
                                 <i class="material-icons primary-color">schedule</i> 
@@ -416,7 +401,7 @@ s0.parentNode.insertBefore(s1,s0);
                         <p class="desc mb-1">Stay up to date with the latest land information.</p>
                     
                         <form action="javascript:void(0);" class="subscribe-form row col-xs-12 col-md-12" id="newsletter_email_form">
-                        <input type="text" placeholder="Your email address..." name="newsletter_email" class="subscribe-input"> 
+                            <input type="text" placeholder="Your email address..." name="newsletter_email" class="subscribe-input" id="newsletter_email_input"> 
                         <button type="button" class="mdc-button mdc-button--raised subscribe-btn newsleter-submit">
                             <span class="mdc-button__ripple"></span>
                             <span class="mdc-button__label">Subscribe</span> 

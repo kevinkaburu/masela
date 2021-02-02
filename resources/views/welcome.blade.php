@@ -3,36 +3,30 @@
 <div class="header-carousel offset-bottom">
 <div class="swiper-container h-100">
                 <div class="swiper-wrapper h-100">  
-                    <div class="swiper-slide">
-                        <div class="slide-item swiper-lazy" data-background="{{ asset('images/props/flat-1/1-big.jpg')}}">
-                            <div class="swiper-lazy-preloader"></div> 
-                            <span class="d-none" data-slide-title=" 1/8 acre for Residential development"></span>
-                            <span class="d-none" data-slide-location="Kajiado, Kitengela, Milimani"></span>
-                            <span class="d-none" data-slide-price="Ksh 1.5M"></span> 
-                        </div> 
-                    </div>
-                    <div class="swiper-slide">
+                    
+                        <div class="swiper-slide">
                         <div class="slide-item swiper-lazy" data-background="{{ asset('images/props/house-1/5-big.jpg')}}">
                             <div class="swiper-lazy-preloader"></div> 
-                            <span class="d-none" data-slide-title=" 12 acres Nanyuki, sweet waters"></span>
-                            <span class="d-none" data-slide-location="Laikipia, Nanyuki, Sweetwaters"></span>
-                            <span class="d-none" data-slide-price="Ksh 2.5M"></span> 
+                            <span class="d-none" data-slide-title="Importance of a lawyer while buying or selling land"></span>
+                            <span class="d-none" data-slide-location="The easiest way to get conned is to assume the roll of a lawyer.."></span>
+                            <span class="d-none" data-slide-price="Read More"></span> 
                         </div> 
                     </div> 
                     <div class="swiper-slide">
-                        <div class="slide-item swiper-lazy" data-background="{{ asset('images/props/office-2/6-big.jpg')}}">
+                        <div class="slide-item swiper-lazy" data-background="{{ asset('images/props/flat-1/1-big.jpg')}}">
                             <div class="swiper-lazy-preloader"></div> 
-                            <span class="d-none" data-slide-title="Luxury commercial 1/8 acre"></span>
-                            <span class="d-none" data-slide-location="Nairobi,westlands, Woodville"></span>
-                            <span class="d-none" data-slide-price="Ksh 55M"></span> 
+                            <span class="d-none" data-slide-title="Steps to follow while buying land in Kenya."></span>
+                            <span class="d-none" data-slide-location="You've made up your mind to invest in land, what next?"></span>
+                            <span class="d-none" data-slide-price="Read More"></span> 
                         </div> 
                     </div>
+                    
                     <div class="swiper-slide">
-                        <div class="slide-item swiper-lazy" data-background="{{ asset('images/props/apartment/1-big.jpg')}}">
+                        <div class="slide-item swiper-lazy" data-background="{{ asset('images/props/office-2/6-big.jpg')}}">
                             <div class="swiper-lazy-preloader"></div> 
-                            <span class="d-none" data-slide-title="12 Acres farm"></span>
-                            <span class="d-none" data-slide-location="Meru, Nkubu, kanyakine"></span>
-                            <span class="d-none" data-slide-price="Ksh 1M /acre"></span> 
+                            <span class="d-none" data-slide-title="Sell your land with us."></span>
+                            <span class="d-none" data-slide-location="Be part of this safe land buying/selling comunity."></span>
+                            <span class="d-none" data-slide-price="Ksh 55M"></span> 
                         </div> 
                     </div>
                 </div>     
@@ -48,10 +42,10 @@
                     <div id="active-slide-info" class="mdc-card p-4 column center-xs middle-xs">
                         <h1 class="slide-title">Title</h1>
                         <p class="location row center-xs middle-xs"> 
-                            <i class="material-icons mat-icon-lg primary-color">location_on</i>
-                            <span class="px-1">Location</span>
+                            <i class="material-icons mat-icon-lg primary-color">read_more</i>
+                            <span class="px-1">read_more</span>
                         </p> 
-                        <a href="#" class="mdc-button mdc-button--raised price"> 
+                        <a href="{{ route('blog.index') }}" class="mdc-button mdc-button--raised price"> 
                             <span class="mdc-button__ripple"></span>
                             <span class="mdc-button__label">price</span>    
                         </a>                  
