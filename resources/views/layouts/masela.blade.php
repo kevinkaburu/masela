@@ -25,10 +25,23 @@ s0.parentNode.insertBefore(s1,s0);
 </script>
 <!--End of Tawk.to Script-->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-widtsh, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{$title ?? "Masela - Your Best property investment partner in Kenya!"}}</title> 
+    
+    <meta name="description" content="{{$description ?? "Find land for sale from genuine realestate agents and private sellers. Get help with land transfer and search processes. Sell your land fast and efficiently."}}" />
+<meta name="robots" content="INDEX,FOLLOW">
+<link rel="alternate" hreflang="en-ke" href="https://masela.co.ke" />
+<meta property="og:title" content="{{$title ?? "Plots for sale in Kenya.| Nanyuki| Kamulu| Katani| Kitengela| Syokimau."}}" />
+<meta property="og:description" content="{{$description ?? "Find land for sale from genuine realestate agents and private sellers. Get help with land transfer and search processes. Sell your land fast and efficiently."}}" />
+<meta property="og:image" content="{{ asset('images/props/flat-1/cossy-1.jpg')}}" alt="Masela logo" />
+<meta property="og:updated_time" content="{{ date('Y-m-d H:i:s') }}" />
+<meta property="og:url" content="https://masela.co.ke" />
+<meta property="og:type" content="website" />
+<meta name="twitter:title" content="{{$title ?? "Plots for sale in Kenya.| Nanyuki| Kamulu| Katani| Kitengela| Syokimau."}}" />
+<meta name="twitter:description" content="{{$description ?? "Find land for sale from genuine realestate agents and private sellers. Get help with land transfer and search processes. Sell your land fast and efficiently."}}" />
+<title>{{$title ?? "Plots for sale in Kenya.| Nanyuki| Kamulu| Katani| Kitengela| Syokimau."}} - Masela</title>
+
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico')}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">  
@@ -411,7 +424,7 @@ s0.parentNode.insertBefore(s1,s0);
                     </div>  
                 </div> 
                 <div class="row between-xs middle-xs copyright">
-                    <p>Copyright © 2021 All Rights Reserved</p>
+                    <p>Copyright © {{ date('Y') }} All Rights Reserved</p>
                     <p> by 
                         <a class="mdc-button" href="https://masela.co.ke/" target="_blank"> 
                             <span class="mdc-button__ripple"></span>
