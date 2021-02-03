@@ -32,15 +32,15 @@ s0.parentNode.insertBefore(s1,s0);
     <meta name="description" content="{{$description ?? "Find land for sale from genuine realestate agents and private sellers. Get help with land transfer and search processes. Sell your land fast and efficiently."}}" />
 <meta name="robots" content="INDEX,FOLLOW">
 <link rel="alternate" hreflang="en-ke" href="https://masela.co.ke" />
-<meta property="og:title" content="{{$title ?? "Plots for sale in Kenya.| Nanyuki| Kamulu| Katani| Kitengela| Syokimau."}}" />
+<meta property="og:title" content="{{$title ?? "Plots for sale in Nanyuki| Kamulu| Katani| Kitengela| Syokimau."}}" />
 <meta property="og:description" content="{{$description ?? "Find land for sale from genuine realestate agents and private sellers. Get help with land transfer and search processes. Sell your land fast and efficiently."}}" />
 <meta property="og:image" content="{{ asset('images/props/flat-1/cossy-1.jpg')}}" alt="Masela logo" />
 <meta property="og:updated_time" content="{{ date('Y-m-d H:i:s') }}" />
 <meta property="og:url" content="https://masela.co.ke" />
 <meta property="og:type" content="website" />
-<meta name="twitter:title" content="{{$title ?? "Plots for sale in Kenya.| Nanyuki| Kamulu| Katani| Kitengela| Syokimau."}}" />
+<meta name="twitter:title" content="{{$title ?? "Plots for sale in Nanyuki| Kamulu| Katani| Kitengela| Syokimau."}}" />
 <meta name="twitter:description" content="{{$description ?? "Find land for sale from genuine realestate agents and private sellers. Get help with land transfer and search processes. Sell your land fast and efficiently."}}" />
-<title>{{$title ?? "Plots for sale in Kenya.| Nanyuki| Kamulu| Katani| Kitengela| Syokimau."}} - Masela</title>
+<title>{{$title ?? "Plots for sale in Nanyuki| Kamulu| Katani| Kitengela| Syokimau."}}</title>
 
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico')}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700">
