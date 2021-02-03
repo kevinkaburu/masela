@@ -71,5 +71,35 @@ class BlogController extends Controller {
 
         return view('blog.read', compact('blogdata', 'title'));
     }
+    
+    
+     public function list() {
+        $blogs = Blog::all();
+        $blogdata = [];
+
+        foreach ($blogs as $key => $blog) {
+            $imagesData = json_decode($blog->blog_img);
+            $images = [];
+            foreach ($imagesData as $img) {
+                array_push($images, "/media/blog/" . $img);
+            }
+            $once = [
+                "blog_id" => $blog->blog_id,
+                "title" => $blog->blog_title,
+                "url" => "/blog/" . $this->generateUrl($blog->blog_title, $blog->blog_id) . "/",
+                "content" => substr($blog->blog_content, 0, 100),
+                "img" => $images[0],
+            ];
+
+
+            $blogdata[$blog->category][] = $once;
+        }
+
+        return json_encode($blogdata);
+    }
+    
+    
+    
+    
 
 }

@@ -138,6 +138,7 @@ async function GetProperty(data, elementID, elementType) {
 
 }
 
+
 function hometabledata(data, elementID) {
     var tbody = document.getElementById(elementID);
     tbody.innerHTML = "";
@@ -411,7 +412,7 @@ async function GetListingProperty(data, elementID, elementType) {
 
 }
 
-function singleProperty(data){
+function singleProperty(data) {
      for (var i = 0; i < data.length; i++) {
         var property = data[i];
         var imageswippers = '';
@@ -557,10 +558,11 @@ function blogFeatured(data, elementID) {
 
         var card = featurecard(property, imageHtml, commercialNegotiablehtml, featuresHtml);
         parentDiv.insertAdjacentHTML('beforeend', card);
-        refreshSwiper();
+        
 
 
     }
+    refreshSwiper();
 
 
 }
@@ -720,10 +722,11 @@ function blogRelated(data, elementID) {
 
         var card = relatedcard(property, imageHtml, commercialNegotiablehtml, featuresHtml);
         parentDiv.insertAdjacentHTML('beforeend', card);
-        refreshSwiper();
+        
 
 
     }
+    refreshSwiper();
 
 
 }
@@ -761,10 +764,11 @@ function cardsdata(data, elementID) {
 
         var card = cardhtml(property, imageHtml, commercialNegotiablehtml, featuresHtml);
         parentDiv.insertAdjacentHTML('beforeend', card);
-        refreshSwiper();
+        
 
 
     }
+    refreshSwiper();
 
 
 }
@@ -857,6 +861,96 @@ function cardhtml(property, images, commercialNegotiable, features) {
     return html;
 }
 
+async function Getblog(data, elementID, elementType) {
+
+    await ajax({
+        method: "POST",
+        url: "/blog/list",
+        data: data,
+        dataType: 'json',
+        processData: false,
+        contentType: 'application/json',
+        cache: false,
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+    }).then(
+            function processList(response) {
+                
+                if (elementType == 'blog') {
+                    bloglist(response, elementID);
+                }
+
+            },
+            function rejectprocessList(jqXHR, textStatus, errorThrown) {
+                //somehow notify of error
+                console.log(errorThrown);
+            }
+    ).catch(function errorHandler(error) {
+        //somehow notify of error
+        console.log(error);
+    });
+}
+function bloglist(data, elementID) {
+    var parentDiv = document.getElementById(elementID);
+    parentDiv.innerHTML = "";
+    
+    for (var blogcategory in data) {
+var categorylist= '';
+  
+  $.each(data[blogcategory], function (key, value) {
+            categorylist += blogshtml(value);
+        });
+var category = bloglisthtml(blogcategory,categorylist);
+parentDiv.insertAdjacentHTML('beforeend', category);
+}
+
+
+refreshSwiper();
+}
+function blogshtml(data){
+    var html = `<div class="swiper-slide"> 
+                            <div class="mdc-card o-hidden">
+                                <div>
+                                    <img src="/images/others/transparent-bg.png" height="300" width="300" alt="${data['title']}" data-src="${data['img']}" class="swiper-lazy d-block mw-100">
+                                    <div class="swiper-lazy-preloader"></div>
+                                </div>
+                                <div class="p-3">
+                                    <h2 class="fw-600">${data['title']}</h2> 
+                                    <p class="mt-3 text-muted fw-500">${data['content']}</p> 
+                                    <div class="row pb-3">
+                                        <div class="divider"></div>
+                                    </div> 
+                                    <div class="row between-xs middle-xs">
+
+                                        <a href="{{$blog['url']}}" class="mdc-button">
+                                            <span class="mdc-button__ripple"></span>
+                                            <span class="mdc-button__label">Read More</span>
+                                        </a>
+                                    </div> 
+                                </div>  
+                            </div>  
+                        </div> `;
+    
+    return html;
+}
+function bloglisthtml(blogcategory,bloglist){
+    var html = `<h1 class="section-title">${blogcategory}</h1> 
+            <div class="agents-carousel"> 
+                <div class="swiper-container carousel-outer"> 
+                    <div class="swiper-wrapper">  
+                       ${bloglist}
+                    </div>                      
+                    <button class="prop-prev swiper-button-prev swipe-arrow mdc-fab mdc-fab--mini primary">
+                        <span class="mdc-fab__ripple"></span>
+                        <span class="mdc-fab__icon material-icons">keyboard_arrow_left</span> 
+                    </button>
+                    <button class="prop-next swiper-button-next swipe-arrow mdc-fab mdc-fab--mini primary"> 
+                        <span class="mdc-fab__ripple"></span>
+                        <span class="mdc-fab__icon material-icons">keyboard_arrow_right</span> 
+                    </button> 
+                </div>
+            </div>`;
+    return html;
+}
 
 function refreshSwiper() {
     var header_carousel,
