@@ -38,6 +38,8 @@ s0.parentNode.insertBefore(s1,s0);
 <meta property="og:updated_time" content="{{ date('Y-m-d H:i:s') }}" />
 <meta property="og:url" content="https://masela.co.ke" />
 <meta property="og:type" content="website" />
+<meta property="og:site_name" content="Masela Inc" />
+
 <meta name="twitter:title" content="{{$title ?? "Plots for sale in Nanyuki| Kamulu| Katani| Kitengela| Syokimau."}}" />
 <meta name="twitter:description" content="{{$description ?? "Find land for sale from genuine realestate agents and private sellers. Get help with land transfer and search processes. Sell your land fast and efficiently."}}" />
 <title>{{$title ?? "Plots for sale in Nanyuki| Kamulu| Katani| Kitengela| Syokimau."}}</title>

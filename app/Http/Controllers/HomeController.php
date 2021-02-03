@@ -42,6 +42,7 @@ class HomeController extends Controller {
     }
      public function services() {
          $title ="Land sale agreement, search and title deed transfers.";
+         $description = "";
         return view('services', compact('title'));
     }
 
