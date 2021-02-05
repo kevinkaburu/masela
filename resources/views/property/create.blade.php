@@ -867,7 +867,7 @@
                                     </div>  
                                     
                                     <div class="col-xs-12 p-2">
-                                        <div id="property-map" class="col-xs-12 p-2"></div>
+                                        <div id="create-property-map" class="google-map col-xs-12 p-2"></div>
                                     </div> 
                                     
                                     
@@ -931,13 +931,13 @@
 
 @section('jscript')
 <script>
-const data = "{{$propertyImages ?? ''}}";
+const data = "{{$propertyImages ?? '{}'}}";
 var imageslist = JSON.parse(data.replace(/&quot;/g,'"'));
  
 initDropzonePropertyImages(imageslist);
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwn34YxDsAG_m4WHj-KzubB_3NTD-Z8sE&callback=initMap&libraries=geometry,places&callback=initMap"" defer ></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwn34YxDsAG_m4WHj-KzubB_3NTD-Z8sE&callback=initMap&libraries=geometry,places&callback=initMap" defer ></script>
 
 @endsection
 

@@ -131,7 +131,8 @@
                         </div>
                         <div class="mdc-card p-3 mt-3"> 
                             <h2 class="uppercase text-center fw-500 mb-2">Location</h2> 
-                            <div id="single-property-map"></div>
+                            <div class="google-map" id="single-property-map">
+                            </div>
                         </div>
                         
                         
@@ -238,7 +239,9 @@
 @endsection
 @section('jscript')
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwn34YxDsAG_m4WHj-KzubB_3NTD-Z8sE&libraries=geometry,places" ></script>
 <script>
+    
     const elementID = 'home-property-listing-div';
     const elementType = 'single';
     const data = JSON.stringify({limit: 100,property_id: "{{$property_id}}"});
@@ -262,6 +265,5 @@
     }
 
 </script>
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwn34YxDsAG_m4WHj-KzubB_3NTD-Z8sE&callback=initPropertViewMap&libraries=geometry,places" defer ></script>-->
 
 @endsection

@@ -96,7 +96,7 @@ s0.parentNode.insertBefore(s1,s0);
                     
                           <a href="{{ route('home.index') }}" class="mdc-button">
                               <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">Home</span> 
+                        <span class="mdc-button__label">My Account</span> 
                               
                       
                           <?php
@@ -117,7 +117,7 @@ s0.parentNode.insertBefore(s1,s0);
                 <div> 
                     <a href="{{ route('property.new') }}" class="mdc-button">
                         <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">submit property</span> 
+                        <span class="mdc-button__label">Sell Land</span> 
                     </a> 
                 </div> 
                 <div>
@@ -350,9 +350,10 @@ s0.parentNode.insertBefore(s1,s0);
                     
                 </div>
                 <div class="row middle-xs"> 
-                    <a href="{{ route('property.new') }}" class="mdc-button mdc-button--raised d-none d-sm-flex d-md-flex d-lg-flex d-xl-flex">
+            
+                    <a href="{{ route('property.new') }}" class=" sell-land mdc-button mdc-button--raised  d-sm-flex d-md-flex d-lg-flex d-xl-flex">
                         <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">submit property</span> 
+                        <span class="mdc-button__label">Sell Land</span> 
                     </a> 
                 </div>  
             </div>
@@ -374,7 +375,7 @@ s0.parentNode.insertBefore(s1,s0);
                             
                             <p class="row middle-xs mt-1">
                                 <i class="material-icons primary-color">call</i> 
-                                <span class="mx-2">+2547 000 000 000</span>
+                                <span class="mx-2">+254-792-206-776</span>
                             </p>
                             <p class="row middle-xs mt-1"> 
                                 <i class="material-icons primary-color">mail_outline</i> 

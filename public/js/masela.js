@@ -272,8 +272,9 @@ function initMap() {
         lng = Number(latlong[1]);
         zoom = 13;
     }
-
-    const map = new google.maps.Map(document.getElementById("property-map"), {
+    var mapElement = document.getElementById("create-property-map");
+    console.log(mapElement);
+    const map = new google.maps.Map(mapElement, {
         center: {lat: lat, lng: lng},
         zoom: zoom,
     });
@@ -349,22 +350,7 @@ function initMap() {
 }
 
 
-function initPropertViewMap() {
-        let latlong = document.getElementById("single-property-map-data").value.split(',');
-var lat=Number(latlong[0]);
-var lng= Number(latlong[1]);
-var zoom=Number(latlong[2]);
-  const myLatLng = { lat: lat, lng: lng };
-  const mymap = new google.maps.Map(document.getElementById("single-property-map"), {
-    zoom: zoom,
-    center: myLatLng,
-  });
-  new google.maps.Marker({
-    position: myLatLng,
-    mymap,
-    title: "Masela Listed!",
-  });
-}
+
 
 
 
@@ -483,13 +469,39 @@ function singleProperty(data) {
         document.getElementById("single-property-created").innerHTML = property.property_created;
         document.getElementById("single-property-updated").innerHTML = property.property_modified;
         document.getElementById("single-property-views").innerHTML = property.views;
+        document.getElementById('single-property-map').setAttribute('latlng',  property.latlong);
+        google.maps.event.addDomListener(window, 'load', singleMap);
+        singleMap();
         
+        
+       
         
  
         
     }
     refreshSwiper();
+    
+    
+    
 }
+function singleMap() {
+    var mapview =  document.getElementById('single-property-map');
+    var latlngdata = mapview.getAttribute("latlng").split(",");
+ // The location of Uluru
+  const uluru = { lat: parseInt(latlngdata[0]), lng: parseInt(latlngdata[1]) };
+  // The map, centered at Uluru
+  const map = new google.maps.Map(document.getElementById("single-property-map"), {
+    zoom: 10,
+    center: uluru,
+  });
+  // The marker, positioned at Uluru
+  const marker = new google.maps.Marker({
+    position: uluru,
+    map: map,
+  });
+}
+
+
 function installmentlist(key,value){
     var list = `<div class="row col-xs-12 col-sm-6 item">
                                     <span>${key}</span>

@@ -298,7 +298,7 @@ class PropertyController extends Controller {
 
         $where = [
             ['property.status', '=', '1'],
-            ['property_view.viewed', '=', 'details']
+           // ['property_view.viewed', '=', 'details']
         ];
         $orwhere = [];
         $qwhere = [];
@@ -443,7 +443,9 @@ class PropertyController extends Controller {
                     ->offset($offset)->limit($limit)
                     ->get();
         }
-
+//select p.property_id,p.name as property_name, p.created as property_created, p.modified as property_modified, 
+//p.price,p.agent_id,p.description as property_description, p.negotiable,pd.type,pd.size_acre,pd.size_feet,
+//pd.kms_to_tarmac,pd.soil, pd.access_rd_type,pf.electricity,pf.water,pi.images,c.name as country_name,pl.nearest_town,pmt.installment,a.phone_number from property p inner
         foreach ($proprtydata as $key => $data) {
             $property = [];
             //process Images

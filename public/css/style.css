@@ -151,6 +151,7 @@ a{
 .warn-color{
   color: var(--mdc-theme-error) !important;
 }
+
 .divider{
   position: absolute;
   left: 0;
@@ -263,6 +264,8 @@ a{
 /**************************************************************/
 /* MDC override
 /**************************************************************/  
+
+
 .mdc-button, 
 .mdc-form-field, 
 .mdc-chip,
@@ -662,6 +665,11 @@ header.toolbar-1.has-bg-image:not(.main-toolbar-fixed) .horizontal-menu .mdc-men
   background-color: transparent;
   color: var(--mdc-theme-primary);
 } 
+
+.sell-land.mdc-button--raised:not(:disabled), .mdc-button--unelevated:not(:disabled)  {
+  background-color: var(--mdc-theme-error);  
+}
+
 header.toolbar-1.has-bg-image:not(.main-toolbar-fixed) .material-icons{
   color:#fff;
 }
@@ -1369,7 +1377,7 @@ main.content-offset-to-top .main-content-header{
 #contact-map{
   height: 400px;
 }
-#property-map{
+.google-map{
   height: 400px;
 }
 .agents-wrapper{
