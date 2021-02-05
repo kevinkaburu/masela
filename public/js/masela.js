@@ -933,7 +933,7 @@ function blogshtml(data){
                                     </div> 
                                     <div class="row between-xs middle-xs">
 
-                                        <a href="{{$blog['url']}}" class="mdc-button">
+                                        <a href="${data['url']}" class="mdc-button">
                                             <span class="mdc-button__ripple"></span>
                                             <span class="mdc-button__label">Read More</span>
                                         </a>
