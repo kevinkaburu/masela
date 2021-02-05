@@ -91,25 +91,11 @@ s0.parentNode.insertBefore(s1,s0);
         <div class="mdc-drawer__content"> 
             <div class="vertical-menu">
                 <div>
-                     <?php
-                      if (Auth::check()) {?>
                     
-                          <a href="{{ route('home.index') }}" class="mdc-button">
-                              <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">My Account</span> 
-                              
-                      
-                          <?php
-                          
-                      }else{?>
                           <a href="{{ route('welcome') }}" class="mdc-button">
                               <span class="mdc-button__ripple"></span>
                         <span class="mdc-button__label">Property Listing</span> 
 
-                              <?php
-                      
-                      }
-                      ?>
                    
                         
                     </a> 
@@ -278,9 +264,9 @@ s0.parentNode.insertBefore(s1,s0);
                           ?>
                       
                           <div class="row middle-xs"> 
-                    <a href="{{ url('/register') }}" class="mdc-button mdc-button d-none d-sm-flex d-md-flex d-lg-flex d-xl-flex">
+                    <a href="{{ route('welcome') }}#px-3" class="mdc-button mdc-button d-none d-sm-flex d-md-flex d-lg-flex d-xl-flex">
                         <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">Signup</span> 
+                        <span class="mdc-button__label">buy Land</span> 
                     </a> 
                 </div>  
                     
@@ -298,28 +284,27 @@ s0.parentNode.insertBefore(s1,s0);
 
 <img src="{{ asset('favicon.ico')}}" alt="MASELA">
                 </a>  
-                <div class="horizontal-menu d-none d-md-flex d-lg-flex d-xl-flex">  
+                <div class="horizontal-menu d-none d-md-flex d-lg-flex d-xl-flex"> 
+                     <?php
+                      if (Auth::check()) {
+                      ?>
+                   
+                <div> 
+            
+                    <a href="{{ route('home.index') }}" class="mdc-button mdc-button--raised  d-sm-flex d-md-flex d-lg-flex d-xl-flex">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label">Admin</span> 
+                    </a> 
+                </div>  
+                
+                    <?php
+                      }
+                         ?>
                     <div>
-                         <?php
-                      if (Auth::check()) {?>
-                    
-                          <a href="{{ route('home.index') }}" class="mdc-button">
-                              <span class="mdc-button__ripple"></span>
-                            <span class="mdc-button__label">Home</span> 
-                              
-                      
-                          <?php
-                          
-                      }else{?>
+                        
                           <a href="{{ route('welcome') }}" class="mdc-button">
                               <span class="mdc-button__ripple"></span>
                             <span class="mdc-button__label">Property Listing</span> 
-
-                              <?php
-                      
-                      }
-                      ?>
-                       
                             
                         </a> 
                     </div>  
@@ -344,11 +329,15 @@ s0.parentNode.insertBefore(s1,s0);
                             <span class="mdc-button__ripple"></span>
                             <span class="mdc-button__label">Blog</span> 
                         </a> 
-                    </div>  
+                    </div> 
+                    
+                   
 
 
                     
                 </div>
+                
+                
                 <div class="row middle-xs"> 
             
                     <a href="{{ route('property.new') }}" class=" sell-land mdc-button mdc-button--raised  d-sm-flex d-md-flex d-lg-flex d-xl-flex">

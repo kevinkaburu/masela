@@ -26,6 +26,12 @@
                             </div>
                             <hr class="mdc-list-divider m-0">
                             <ul class="mdc-list">
+                                <li>
+                                    <a href="{{ route('home.index') }}" class="mdc-list-item py-1">
+                                        <span class="mdc-list-item__graphic material-icons text-muted mx-3">home</span>
+                                        <span class="mdc-list-item__text">Home</span>
+                                    </a>
+                                </li>
                                  <li>
                                     <a href="{{ route('property.new') }}" class="mdc-list-item py-1">
                                         <span class="mdc-list-item__graphic material-icons text-muted mx-3">add_circle</span>
