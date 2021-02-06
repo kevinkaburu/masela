@@ -641,6 +641,9 @@
                                             </div>
                                         </div> 
                                     </div> 
+                                     <div class="col-xs-12 mb-2 p-0"> 
+                                        <p class="uppercase m-2 fw-500">Check where applicable</p>  
+                                    </div>
                                     
                                           <div class="col-xs-12 mb-2 p-0"> 
                                         <div class="features">
@@ -668,7 +671,7 @@
                                                     </div>
                                                     <div class="mdc-checkbox__ripple"></div>
                                                 </div>
-                                                <label for="installment">Is the price negotiable?</label>
+                                                <label for="installment">negotiable</label>
                                              </div>
                                             
                                             
@@ -697,7 +700,7 @@
                                                     </div>
                                                     <div class="mdc-checkbox__ripple"></div>
                                                 </div>
-                                                <label for="inclusive-title-deed">Is the amount inclusive of title deed transfer?</label>
+                                                <label for="inclusive-title-deed">Inclusive of title deed processing</label>
                                             </div>
                                             
                                             <!-- comment -->
@@ -725,7 +728,7 @@
                                                     </div>
                                                     <div class="mdc-checkbox__ripple"></div>
                                                 </div>
-                                                <label for="installment">Payable in installment?</label>
+                                                <label for="installment">Payable in installments</label>
                                             </div>
                                         </div>
                                           </div>
@@ -895,6 +898,7 @@
                                     <h2 class="mt-3 uppercase">Congratulations!</h2>
                                     <h2 class="my-3">Your property has been submitted</h2>
                                     <p class="text-muted fw-500">Preview the property listing before publishing it. You can publish and view the property listing by clicking here <a href="{{url('/home')}}">Listings</a></p>
+                                    <p class="text-muted fw-500">Click  "<button class="mdc-icon-button material-icons primary-color">backup</button>" to  publish the property to public. </p>
                                 </div>
                                 
                                 <div class="row center-xs middle-xs py-3"> 

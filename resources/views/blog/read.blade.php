@@ -7,7 +7,7 @@
                     <div class="page-sidenav-content">
                        
                         <div class="mdc-card p-3 mt-3"> 
-                            <h2 class="uppercase text-center fw-500 mb-2">{{$blogdata['title']}}</h2>  <p class="text-muted fw-500 mb-2"><small>{{$blogdata['created']}}</small></p>
+                            <h2 class="uppercase text-center fw-500 mb-2">{{$blogdata['title']}}</h2>  <p class="text-muted fw-500 mb-2"><small>{{$blogdata['created']}}</small><div class="sharethis-inline-share-buttons"></div></p>
                            
                             <div class="expansion-panel-wrapper"> 
                                 

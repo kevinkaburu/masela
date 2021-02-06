@@ -149,9 +149,19 @@
                     <aside class="mdc-drawer mdc-drawer--modal page-sidenav">
                         <a href="#" class="h-0"></a>
                         <div class="mdc-card p-3"> 
+                           
+                            <div class="mdc-card o-hidden">
+                                
+                                    <div class="p-3">
+                                        <p class="row middle-xs"><div class="sharethis-inline-share-buttons"></div></p>
+                                        
+                                         
+                                        
+                                    </div>  
+                                </div>  
                             
                             <div class="widget">  
-                                <div class="widget-title bg-primary" id="single-property-agent-name"></div>
+                                <div class="widget-title bg-primary" id="single-property-agent-name">Contact seller</div>
                                 <div class="mdc-card o-hidden">
                                     <div class="p-3">
                                         <p class="mt-3 text-muted fw-500" id="single-property-agent-description"></p> 
@@ -173,32 +183,80 @@
                                     </div>  
                                 </div>  
                             </div>  
-                            <div class="widget">
-                                <div class="widget-title bg-primary">Need help with transfer?</div>
-                                <div class="mdc-card o-hidden">
-                                <form action="javascript:void(0);"> 
-                                    <p>Need help doing search and due diligence? Then send us an email.</p>
-                                    <div class="mdc-text-field mdc-text-field--outlined w-100 custom-field my-2">
-                                        <input class="mdc-text-field__input">
-                                        <div class="mdc-notched-outline">
-                                            <div class="mdc-notched-outline__leading"></div>
-                                            <div class="mdc-notched-outline__notch">
-                                                <label class="mdc-floating-label">Name</label>
+                            <div class="widget"> 
+                            <div class="widget-title bg-primary"> Legal Fees(Estimates)</div>
+                             <div class="mdc-card o-hidden">
+                            <div class="row details">
+                                <div class="row col-12 item">
+                                    <span>
+                                        
+                                        <div class="mdc-form-field">
+                                                <div class="mdc-checkbox">
+                                            <input type="checkbox" class="mdc-checkbox__native-control" name="due_diligence"/>
+                                                   
+                                                    <div class="mdc-checkbox__background">
+                                                        <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                                            <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                                        </svg>
+                                                        <div class="mdc-checkbox__mixedmark"></div>
+                                                    </div>
+                                                    <div class="mdc-checkbox__ripple"></div>
+                                                </div>
+                                                <label for="gated_community">Due Diligence(7K)</label>
                                             </div>
-                                            <div class="mdc-notched-outline__trailing"></div>
-                                        </div>
-                                    </div> 
-                                    <div class="mdc-text-field mdc-text-field--outlined w-100 custom-field my-2">
-                                        <input class="mdc-text-field__input">
-                                        <div class="mdc-notched-outline">
-                                            <div class="mdc-notched-outline__leading"></div>
-                                            <div class="mdc-notched-outline__notch">
-                                                <label class="mdc-floating-label">Email</label>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                    </span>
+                                </div> 
+                                 <div class="row col-12 item">
+                                    <span>
+                                        
+                                        
+                                        <div class="mdc-form-field">
+                                                <div class="mdc-checkbox">
+                                                    <input type="checkbox" class="mdc-checkbox__native-control" id="sale_agreement" name="sale_agreement"/>
+                                                   
+                                                    <div class="mdc-checkbox__background">
+                                                        <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                                            <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                                        </svg>
+                                                        <div class="mdc-checkbox__mixedmark"></div>
+                                                    </div>
+                                                    <div class="mdc-checkbox__ripple"></div>
+                                                </div>
+                                                <label for="sale_agreement">Sale Agreement( TBH)</label>
                                             </div>
-                                            <div class="mdc-notched-outline__trailing"></div>
-                                        </div>
-                                    </div> 
-                                    <div class="mdc-text-field mdc-text-field--outlined w-100 custom-field my-2">
+                                        
+                                        
+                                        
+                                    </span>
+                                </div> 
+                                 <div class="row col-12 item">
+                                    <span>
+                                        
+                                        <div class="mdc-form-field">
+                                                <div class="mdc-checkbox">
+                                                    <input type="checkbox" class="mdc-checkbox__native-control" id="transfer" name="transfer"/>
+                                                   
+                                                    <div class="mdc-checkbox__background">
+                                                        <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                                            <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                                        </svg>
+                                                        <div class="mdc-checkbox__mixedmark"></div>
+                                                    </div>
+                                                    <div class="mdc-checkbox__ripple"></div>
+                                                </div>
+                                                <label for="transfer">Transfer:(12K)</label>
+                                            </div>
+                                    </span>
+                                </div> 
+                                
+                                
+                                  <div class="mdc-text-field mdc-text-field--outlined w-100 custom-field my-2">
                                         <input class="mdc-text-field__input">
                                         <div class="mdc-notched-outline">
                                             <div class="mdc-notched-outline__leading"></div>
@@ -208,12 +266,12 @@
                                             <div class="mdc-notched-outline__trailing"></div>
                                         </div>
                                     </div> 
-                                    <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea w-100 custom-field my-2">
-                                        <textarea class="mdc-text-field__input" rows="5" placeholder="Message is required"></textarea>
+                                <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea w-100 custom-field my-2">
+                                        <textarea class="mdc-text-field__input" rows="5" placeholder="More details"></textarea>
                                         <div class="mdc-notched-outline mdc-notched-outline--upgraded">
                                             <div class="mdc-notched-outline__leading"></div>
                                             <div class="mdc-notched-outline__notch">
-                                                <label for="feedback-message" class="mdc-floating-label">Message</label>
+                                                <label for="feedback-message" class="mdc-floating-label">Anything else we need to know?</label>
                                             </div>
                                             <div class="mdc-notched-outline__trailing"></div>
                                         </div>
@@ -221,13 +279,16 @@
                                     <div class="row around-xs middle-xs p-2 mb-3"> 
                                         <button class="mdc-button mdc-button--raised bg-accent" type="button">
                                             <span class="mdc-button__ripple"></span>
-                                            <span class="mdc-button__label">Send email</span> 
+                                            <span class="mdc-button__label">Submit</span> 
                                         </button> 
-                                    </div> 
-                                </form>  
+                                    </div>  
                             </div>
-                            </div>
+                            </div>   
+                        </div>
                            
+                           <div class="widget" id="view-featured-property-div">
+                                
+                            </div>
                             
                         </div>
                     </aside>

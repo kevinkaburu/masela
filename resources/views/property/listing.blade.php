@@ -5,7 +5,7 @@
             <div class="bg" style="background-image: url('{{asset('images/carousel/slide-3.jpg')}}');"></div>
             <div class="mask"></div>            
             <div class="header-image-content mh-200"> 
-                <p class="desc">{{$agent->description ?? $agent->name}}</p> 
+                <p class="desc"></p> 
             </div>
         </div>  
     <div class="px-3">  
@@ -15,7 +15,6 @@
                         <a href="#" class="h-0"></a>
                         <div class="mdc-card">   
                             <form action="javascript:void(0);" id="filters" class="search-wrapper m-0 o-hidden"> 
-                                <input class="mdc-text-field__input" type="hidden" name="agent_id" value="{{$agent_id}}">
                                 <div class="column p-2">  
                                     <div class="col-xs-12 p-2">  
                                         <div class="mdc-text-field mdc-text-field--outlined">
@@ -283,7 +282,7 @@
 <script>
     const elementID = 'home-property-listing-div';
     const elementType = 'cards';
-    const data = JSON.stringify({agent_id: "{{$agent_id}}"});
+    const data = JSON.stringify({limit: 1000});
     var timeout = null;
 
 
@@ -320,7 +319,7 @@ function searchclicked(){
             clearTimeout(timeout);
         }
         timeout = setTimeout(function () {
-            var data = JSON.stringify({agent_id: "{{$agent->agent_id ?? '' }}",query: val});
+            var data = JSON.stringify({query: val});
             GetProperty(data, elementID, elementType);
         }, 300);
     }

@@ -24,6 +24,7 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=601e98c2502e4d0011f5f23b&product=sop' async='async'></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -94,12 +95,24 @@ s0.parentNode.insertBefore(s1,s0);
                     
                           <a href="{{ route('welcome') }}" class="mdc-button">
                               <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label">Home</span> 
+
+                   
+                        
+                    </a> 
+                </div> 
+                 <div>
+                    
+                          <a href="{{ route('property.listing') }}" class="mdc-button">
+                              <span class="mdc-button__ripple"></span>
                         <span class="mdc-button__label">Property Listing</span> 
 
                    
                         
                     </a> 
-                </div>  
+                </div>
+                
+                
                 <div> 
                     <a href="{{ route('property.new') }}" class="mdc-button">
                         <span class="mdc-button__ripple"></span>
@@ -264,7 +277,7 @@ s0.parentNode.insertBefore(s1,s0);
                           ?>
                       
                           <div class="row middle-xs"> 
-                    <a href="{{ route('welcome') }}#px-3" class="mdc-button mdc-button d-none d-sm-flex d-md-flex d-lg-flex d-xl-flex">
+                    <a href="{{ route('property.listing') }}" class="mdc-button mdc-button d-none d-sm-flex d-md-flex d-lg-flex d-xl-flex">
                         <span class="mdc-button__ripple"></span>
                         <span class="mdc-button__label">buy Land</span> 
                     </a> 
@@ -301,13 +314,25 @@ s0.parentNode.insertBefore(s1,s0);
                       }
                          ?>
                     <div>
-                        
+                    
                           <a href="{{ route('welcome') }}" class="mdc-button">
                               <span class="mdc-button__ripple"></span>
-                            <span class="mdc-button__label">Property Listing</span> 
-                            
-                        </a> 
-                    </div>  
+                        <span class="mdc-button__label">Home</span> 
+
+                   
+                        
+                    </a> 
+                </div> 
+                 <div>
+                    
+                          <a href="{{ route('property.listing') }}" class="mdc-button">
+                              <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label">Property Listing</span> 
+
+                   
+                        
+                    </a> 
+                </div>
                      
                    
                     <div>

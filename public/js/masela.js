@@ -419,10 +419,10 @@ function singleProperty(data) {
         document.getElementById('single-property-swiper-wrapper-view').innerHTML=imageswippersslide;
         document.getElementById("single-property-type").innerHTML = property.type;
         document.getElementById("single-property-description").innerHTML = property.property_description;
-        document.getElementById("single-property-agent-name").innerHTML= property.agent_name;
         document.getElementById("single-property-agent-listing").innerHTML = agentlink(property.agent_url);
         document.getElementById("single-property-agent-description").innerHTML=property.agent_description;
-        document.getElementById("single-property-agent-phone").innerHTML=property.phone_number;
+        var callhtml = `<a href="tel:${property.phone_number}">${property.phone_number}</a>`;
+        document.getElementById("single-property-agent-phone").insertAdjacentHTML('beforeend', callhtml);
         if (property.phone_number_whatsapp == 1) {
             var sms = "Hi, I'm reaching out to inquire more about this piece of land that you have on Masela. "+window.location.href;
             document.getElementById("single-property-agent-whatsApp").innerHTML=agentwhatApp(property.phone_number,sms);

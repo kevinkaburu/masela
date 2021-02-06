@@ -36,6 +36,13 @@ class PropertyController extends Controller {
 
         return view('property.agent', compact('agent_id', 'counties', 'propertydetail', 'agent', 'title'));
     }
+    
+    public function listing() {
+        $counties = County::all();
+        $propertydetail = PropertyDetail::groupBy('type')->get();
+
+        return view('property.listing', compact( 'counties', 'propertydetail'));
+    }
 
     public function view($propertyUri) {
         $explodedUril = explode('-', $propertyUri);

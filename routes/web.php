@@ -57,6 +57,7 @@ Route::middleware(['web', 'auth'])->group(function () {
 
 //No Auth required
 Route::get('/', 'HomeController@landing')->name('welcome');
+Route::get('/listing', 'PropertyController@listing')->name('property.listing');
 Route::get('/pricing', 'HomeController@pricing')->name('pricing');
 Route::get('/services', 'HomeController@services')->name('services');
 Route::get('/blog', 'BlogController@index')->name('blog.index');
