@@ -20,7 +20,7 @@
                 </div> 
             </div> 
             <div class="swiper-slide">
-                <div class="slide-item swiper-lazy" data-background="{{ asset('images/props/flat-1/1-big.jpg')}}">
+                <div class="slide-item swiper-lazy" data-background="{{ asset('images/props/flat-1/2-big.jpg')}}">
                     <div class="swiper-lazy-preloader"></div> 
                     <span class="d-none" data-slide-title="Steps to follow while buying land in Kenya."></span>
                     <span class="d-none" data-slide-location="You've made up your mind to invest in land, what next?"></span>

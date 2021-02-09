@@ -286,26 +286,10 @@ class PropertyController extends Controller {
 
     public function search(Request $request) {
         $requestpayload = $request->all();
-        //agent specific content
-        /*
-          {
-         * "query":"kitengela",
-         * "type":"commercial",//
-         * "county_id":"10",//
-         * "min_price":"10",//
-         * "max_price":"100000",//
-         * "max_kms_to_tarmac":"5",//
-         * "ready_title_deed":"on",//
-         * "controlled_development":"on",//
-         * "gated_community":"on",//
-         * "installments":"on",//
-         * "negotiable":"on"//
-         * }
-         */
+       
 
         $where = [
             ['property.status', '=', '1'],
-           // ['property_view.viewed', '=', 'details']
         ];
         $orwhere = [];
         $qwhere = [];
@@ -700,17 +684,7 @@ class PropertyController extends Controller {
     }
 
     private function featuresForm($requestpayload) {
-        /*
-          {
-         * "property_id":1,
-         * "water":"yes",
-         * "electricity":"within_neighborhood",
-         * "controlled_development":"on",
-         * "gated_community":"on",
-         * "ready_title":"on",
-         * "description":"Some description here...",
-         * }
-         */
+       
         $error_messages = [];
         //PropertyID check
         if (empty($requestpayload['property_id'])) {

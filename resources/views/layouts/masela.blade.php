@@ -45,7 +45,7 @@ s0.parentNode.insertBefore(s1,s0);
 <meta name="twitter:description" content="{{$description ?? "Find land for sale from genuine realestate agents and private sellers. Get help with land transfer and search processes. Sell your land fast and efficiently."}}" />
 <title>{{$title ?? "Plots for sale in Nanyuki| Kamulu| Katani| Kitengela| Syokimau."}}</title>
 
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico')}}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('logo.ico')}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">  
     <link rel="stylesheet" href="{{ asset('css/libs/swiper.min.css')}}">
@@ -295,7 +295,7 @@ s0.parentNode.insertBefore(s1,s0);
                 <a class="logo" href="{{ url('/') }}"> 
 <!--                    logo goes in here-->
 
-<img src="{{ asset('favicon.ico')}}" alt="MASELA">
+<img src="{{ asset('logo-1.png')}}" alt="MASELA">
                 </a>  
                 <div class="horizontal-menu d-none d-md-flex d-lg-flex d-xl-flex"> 
                      <?php
