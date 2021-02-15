@@ -15,7 +15,11 @@ class BlogController extends Controller {
 
     //put your code here
 
-
+public function write(){
+   
+    
+    return view('blog.write');
+}
 
     public function index() {
         $blogs = Blog::all();

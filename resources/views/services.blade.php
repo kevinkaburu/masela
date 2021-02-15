@@ -23,14 +23,18 @@
                                             <i class="material-icons mat-icon-xlg primary-color">search</i>
                                             <h2 class="capitalize fw-600 mx-2">Due Diligence</h2>
                                         </div>                            
-                                        <p class="mt-2">This involves search at the lands ministry, Ownership documents verification and general historic information of the said property. This is very important step before committing to any land transaction.</p>
+                                        <p class="mt-2">If you’re planning on buying land in Kenya or anywhere else, the best decision you’ll make is to conduct thorough due diligence to avoid losing your hard-earned money to real estate fraudsters.
+Due diligence when buying land involves undertaking research to verify the ownership details of the land, uncover possible red flags, and to put in order the paperwork for the transaction. </p>
                                     </div> 
                                     <div class="col-xs-12 col-sm-12 col-md-6 p-3"> 
                                         <div class="row start-xs middle-xs">
                                             <i class="material-icons mat-icon-xlg primary-color">list_alt</i>
                                             <h2 class="capitalize fw-600 mx-2">Sale Agreements</h2>
                                         </div> 
-                                        <p class="mt-2">For any land transaction there needs to be a sale agreement between the seller and the buyer. You want to involve a lawyer to make sure that the terms of sale do favor and offer protection to you as the buyer. </p>
+                                        <p class="mt-2">A sale agreement is a written document between a buyer and a seller. Normally, the sale agreement is drafted by the sellers’ lawyer and presented to the buyers lawyer for approval. The sales agreement will basically include the terms and conditions of the sale.
+Other details included in the sale agreement are, the name of the seller and the buyers, the price agreed by the seller, the terms of payment whether full or instalments, with or without down payment, mortgage or cash. All this information about the purchase agreement should be comprehensive. 
+This will facilitate an orderly transfer of the property. 
+</p>
                                     </div> 
                                     
                                     <div class="col-xs-12 col-sm-12 col-md-6 p-3"> 
@@ -38,7 +42,8 @@
                                             <i class="material-icons mat-icon-xlg primary-color">compare_arrows</i>
                                             <h2 class="capitalize fw-600 mx-2">Transfer</h2>
                                         </div> 
-                                        <p class="mt-2">This facilitates the final land ownership transfer. It will involve stamp duty Payments and capital gains  where applicable.</p>
+                                        <p class="mt-2">A title deed is a document that proves ownership and legit right over a piece of land. This makes it the most fundamental document in any land transaction. The transfer process involves transferring the title deed from the previous owner to the buyer to show transfer of ownership. It will involve stamp duty Payments and capital gains where applicable.
+</p>
                                     </div> 
                                 </div>  
                             </div>
@@ -54,32 +59,31 @@
                 <div class="theme-container">
                     <h1 class="section-title">Where we come in</h1>  
                     <div class="services-wrapper row">
-                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 p-2"> 
-                            <div class="mdc-card h-100 w-100 text-center middle-xs p-3">     
-                                <i class="material-icons mat-icon-xlg primary-color">format_list_bulleted</i>
-                                <h2 class="capitalize fw-600 my-3">With you all the way</h2>
-                                <p class="text-muted fw-500">We will walk with you through the buying/selling process facilitating all your legal needs.</p>             
-                            </div> 
-                        </div>  
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 p-2"> 
+                         
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 p-2"> 
                             <div class="mdc-card h-100 w-100 text-center middle-xs p-3">            
                                 <i class="material-icons mat-icon-xlg primary-color">location_on</i>
                                 <h2 class="capitalize fw-600 my-3">Due Diligence</h2>
-                                <p class="text-muted fw-500">We will do due diligence on your behalf and share detailed report on the land's current status and it's historic data.</p>           
+                                <p class="text-muted fw-500">On your behalf, Masela will conduct thorough research and inspection of the land’s current and historic data. We will ensure the parcel meets all necessary requirements and inform you on any possible caveats. 
+</p>           
                             </div> 
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 p-2"> 
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 p-2"> 
                             <div class="mdc-card h-100 w-100 text-center middle-xs p-3">     
                                 <i class="material-icons mat-icon-xlg primary-color">supervisor_account</i>
                                 <h2 class="capitalize fw-600 my-3">Sale Agreements</h2>
-                                <p class="text-muted fw-500">Masela will get you all the legal support needed to counter check the fine prints of the sale agreement, and draft changes where need be.</p>             
+                                <p class="text-muted fw-500">Masela has vast knowledge and experience when it comes to land. We will offer legal support to assist and guide you through the sale agreement process, provide you with all the necessary details including any after sale follow ups. We will make sure that the terms of the sale favor and offer protection to you as the buyer or seller.
+To avoid any breach of the contract before and after any land transaction we will interpret the agreement to you. 
+</p>             
                             </div> 
                         </div> 
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 p-2">  
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 p-2">  
                             <div class="mdc-card h-100 w-100 text-center middle-xs p-3">  
                                 <i class="material-icons mat-icon-xlg primary-color">home</i>
                                 <h2 class="capitalize fw-600 my-3">Transfer</h2>
-                                <p class="text-muted fw-500">We will do the follow up on the transfer requirements and any payments required at the Lands ministry.  </p>             
+                                <p class="text-muted fw-500">We will do the work for you. The transfer process is clearly complicated, long and seemingly tedious but it doesn’t have to be for you. 
+Masela Inc will facilitate the end to end transfer process on your behalf as the seller or the buyer. We will effectively follow through every process and ensure complete transfer of ownership.
+</p>             
                             </div> 
                         </div>  
                        
