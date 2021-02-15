@@ -36,12 +36,12 @@ class PropertyController extends Controller {
 
         return view('property.agent', compact('agent_id', 'counties', 'propertydetail', 'agent', 'title'));
     }
-    
+
     public function listing() {
         $counties = County::all();
         $propertydetail = PropertyDetail::groupBy('type')->get();
 
-        return view('property.listing', compact( 'counties', 'propertydetail'));
+        return view('property.listing', compact('counties', 'propertydetail'));
     }
 
     public function view($propertyUri) {
@@ -64,12 +64,37 @@ class PropertyController extends Controller {
 
 
         $propertyView = PropertyLocation::where('property_id', $property_id)->first();
-        $latlong = "0.1768,37.9083,13";
+        $latlong = "0.1768,37.9083,15";
         if ($propertyView) {
-            $latlong = $propertyView->latlong . ",8";
+            $latlong = $propertyView->latlong . ",15";
         }
         $title = $property->name;
-        return view('property.view', compact('property_id', 'latlong', 'title'));
+        return view('property.view', compact('property_id', 'latlong', 'propertyUri', 'title'));
+    }
+
+    public function kaziyetu(Request $request) {
+        $data = $request->all();
+        /*
+          due_diligence: "on"
+          more_details: "check check"
+          phone: "0780597919"
+          property: "Homabay-finest-piece-26"
+          sale_agreement: "on"
+          transfer: "on"
+         * 
+         */
+         $desc = "Your mobile number is needed.";
+        if(!empty($data['phone'])){
+            $desc = "We are in reciept of you request. We will call you for a follow up. Thank you.";
+        $sms = "MASELA: request from ".$data['phone']. 
+                "\nservices: \n". (isset($data['due_diligence'])? "Due diligence \n":"").
+                (isset($data['sale_agreement'])? "Sale Agreement \n":""). (isset($data['transfer'])? "Transfer \n":""). 
+                (isset($data['more_details'])? $data['more_details']."\n\n":"").$_SERVER['HTTP_HOST'].'/property/view/'.$data['property']."/";
+        $this->sendsms('254719597919',$sms);
+        }
+
+        $response = ["status" => 200, "description" => $desc];
+        return json_encode($response);
     }
 
     public function list(Request $request) {
@@ -286,7 +311,7 @@ class PropertyController extends Controller {
 
     public function search(Request $request) {
         $requestpayload = $request->all();
-       
+
 
         $where = [
             ['property.status', '=', '1'],
@@ -357,8 +382,6 @@ class PropertyController extends Controller {
             if ($requestpayload['order'] == 'views') {
                 $order_by = $order_by . "property_view.views DESC,";
             }
-            
-            
         }
 
 
@@ -684,7 +707,7 @@ class PropertyController extends Controller {
     }
 
     private function featuresForm($requestpayload) {
-       
+
         $error_messages = [];
         //PropertyID check
         if (empty($requestpayload['property_id'])) {

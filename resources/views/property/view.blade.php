@@ -184,9 +184,11 @@
                                 </div>  
                             </div>  
                             <div class="widget"> 
-                            <div class="widget-title bg-primary"> Legal Fees(Estimates)</div>
+                            <div class="widget-title bg-primary">Need Legal help?</div>
                              <div class="mdc-card o-hidden">
                             <div class="row details">
+                                <form id="kazi-form">
+                                    <input type="hidden" name="property" value="{{$propertyUri}}"/>
                                 <div class="row col-12 item">
                                     <span>
                                         
@@ -202,7 +204,7 @@
                                                     </div>
                                                     <div class="mdc-checkbox__ripple"></div>
                                                 </div>
-                                                <label for="gated_community">Due Diligence(7K)</label>
+                                                <label for="gated_community">Due Diligence</label>
                                             </div>
                                         
                                         
@@ -228,7 +230,7 @@
                                                     </div>
                                                     <div class="mdc-checkbox__ripple"></div>
                                                 </div>
-                                                <label for="sale_agreement">Sale Agreement( TBH)</label>
+                                                <label for="sale_agreement">Sale Agreement</label>
                                             </div>
                                         
                                         
@@ -250,38 +252,40 @@
                                                     </div>
                                                     <div class="mdc-checkbox__ripple"></div>
                                                 </div>
-                                                <label for="transfer">Transfer:(12K)</label>
+                                                <label for="transfer">Ownership Transfer</label>
                                             </div>
                                     </span>
                                 </div> 
                                 
                                 
                                   <div class="mdc-text-field mdc-text-field--outlined w-100 custom-field my-2">
-                                        <input class="mdc-text-field__input">
+                                      <input class="mdc-text-field__input" name="phone" type="number">
                                         <div class="mdc-notched-outline">
                                             <div class="mdc-notched-outline__leading"></div>
                                             <div class="mdc-notched-outline__notch">
-                                                <label class="mdc-floating-label">Phone</label>
+                                                <label class="mdc-floating-label">Your phone number</label>
                                             </div>
                                             <div class="mdc-notched-outline__trailing"></div>
                                         </div>
                                     </div> 
                                 <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea w-100 custom-field my-2">
-                                        <textarea class="mdc-text-field__input" rows="5" placeholder="More details"></textarea>
+                                    <textarea class="mdc-text-field__input" rows="5" placeholder="More details" name="more_details"></textarea>
                                         <div class="mdc-notched-outline mdc-notched-outline--upgraded">
                                             <div class="mdc-notched-outline__leading"></div>
                                             <div class="mdc-notched-outline__notch">
-                                                <label for="feedback-message" class="mdc-floating-label">Anything else we need to know?</label>
+                                                <label for="feedback-message" class="mdc-floating-label">Anything else we can help you with?</label>
                                             </div>
                                             <div class="mdc-notched-outline__trailing"></div>
                                         </div>
                                     </div> 
+                                    <div id="notification-zone"></div>
                                     <div class="row around-xs middle-xs p-2 mb-3"> 
-                                        <button class="mdc-button mdc-button--raised bg-accent" type="button">
+                                        <button class="mdc-button mdc-button--raised bg-accent" type="button" onclick="kaziyetu()">
                                             <span class="mdc-button__ripple"></span>
                                             <span class="mdc-button__label">Submit</span> 
                                         </button> 
                                     </div>  
+                                    </form>
                             </div>
                             </div>   
                         </div>
@@ -324,6 +328,33 @@
             GetProperty(data, elementID, elementType);
         }, 300);
     }
+    function kaziyetu(){
+        var form = document.getElementById("kazi-form");
+        const data = new FormData(form);
+                         
+        ajax({
+        method: "POST",
+        url: "/property/view/kaziyetu/",
+        data: data,
+        processData: false,
+        contentType: false,
+        cache: false,
+        enctype: 'multipart/form-data',
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+    }).then(
+            function fulfillHandler(response) {
+                var msg = JSON.parse(response);
+               elementsuccess("notification-zone", msg['description']);
+
+            },
+            function rejectHandler(jqXHR, textStatus, errorThrown) {
+                
+            }
+    ).catch(function errorHandler(error) {
+
+    });
+    }
+    
 
 </script>
 
