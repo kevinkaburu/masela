@@ -485,19 +485,16 @@ function singleProperty(data) {
     
 }
 function singleMap() {
-    var mapview =  document.getElementById('single-property-map');
-    var latlngdata = mapview.getAttribute("latlng").split(",");
- // The location of Uluru
-  const uluru = { lat: parseInt(latlngdata[0]), lng: parseInt(latlngdata[1]) };
-  // The map, centered at Uluru
-  const map = new google.maps.Map(document.getElementById("single-property-map"), {
-    zoom: 10,
-    center: uluru,
+    var latlangdata = document.getElementById('single-property-map-data').value;
+    var latlngdata = latlangdata.split(",");
+  const locoordinates = { lat: parseFloat(latlngdata[0]), lng: parseFloat(latlngdata[1]) };
+  const singleviewmap = new google.maps.Map(document.getElementById("single-property-map"), {
+    zoom: 15,
+    center: locoordinates,
   });
-  // The marker, positioned at Uluru
   const marker = new google.maps.Marker({
-    position: uluru,
-    map: map,
+    position: locoordinates,
+    map: singleviewmap,
   });
 }
 
