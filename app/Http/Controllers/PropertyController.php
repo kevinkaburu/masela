@@ -89,7 +89,7 @@ class PropertyController extends Controller {
         $sms = "MASELA: request from ".$data['phone']. 
                 "\nservices: \n". (isset($data['due_diligence'])? "Due diligence \n":"").
                 (isset($data['sale_agreement'])? "Sale Agreement \n":""). (isset($data['transfer'])? "Transfer \n":""). 
-                (isset($data['more_details'])? $data['more_details']."\n\n":"").$_SERVER['HTTP_HOST'].'/property/view/'.$data['property']."/";
+                (isset($data['more_details'])? $data['more_details']."\n\n":"").'https://'.$_SERVER['HTTP_HOST'].'/property/view/'.$data['property']."/";
         $this->sendsms('254719597919',$sms);
         }
 
