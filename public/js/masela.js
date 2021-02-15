@@ -488,6 +488,7 @@ function singleMap() {
     var latlangdata = document.getElementById('single-property-map-data').value;
     var latlngdata = latlangdata.split(",");
   const locoordinates = { lat: parseFloat(latlngdata[0]), lng: parseFloat(latlngdata[1]) };
+  console.log(locoordinates);
   const singleviewmap = new google.maps.Map(document.getElementById("single-property-map"), {
     zoom: 15,
     center: locoordinates,
