@@ -521,7 +521,7 @@ function featurelisting(name){
     return featurehtml;
 }
 function agentlink(url){
-    var url = `<a href="${url}" class="mdc-button mdc-button--raised d-none d-sm-flex d-md-flex d-lg-flex d-xl-flex bg-accent">
+    var url = `<a href="${url}" class="mdc-button mdc-button--outlined">
                         <span class="mdc-button__ripple"></span>
                         <span class="mdc-button__label">Other listings</span> 
                     </a> `;
@@ -552,9 +552,9 @@ function blogFeatured(data, elementID) {
 
         //commercial/ negotiable setup  
         if (property.negotiable == 1) {
-            commercialNegotiablehtml += moneyed("green", "Negotiable");
+            commercialNegotiablehtml += moneyed("gray", "Negotiable");
         }
-        commercialNegotiablehtml += moneyed("blue", property.type);
+        commercialNegotiablehtml += moneyed("gray", property.type);
         
 
         // Features time
@@ -603,17 +603,17 @@ function featurecard(property, images, commercialNegotiable, features){
                                     <div class="property-content-wrapper"> 
                                         <div class="property-content">
                                             <div class="content">
-                                                <h4><a href="${property.url}" >${property.property_name}</a></h4>
+                                                <h4>${property.property_name}</h4>
                                                 <p class="row address flex-nowrap">
                                                     <i class="material-icons text-muted">location_on</i>
                                                    <span>${property.location}</span>
                                                 </p>
                                                 <div class="row between-xs middle-xs">
-                                                    <h3 class="primary-color price">
+                                                    <h3 class="price">
                                                        <span>Ksh ${property.kmb}</span> 
                                                     </h3> 
-                                                    <div class="row start-xs middle-xs ratings" title="29">      
-                                                       ${property.agent_name}
+                                                    <div class="row start-xs middle-xs" title="29">      
+                                                       By: ${property.agent_name}
                                                     </div>
                                                 </div>
                                                 <div class="features mt-3">                    
@@ -663,17 +663,17 @@ function relatedcard(property, images, commercialNegotiable, features){
                                         <div class="property-content-wrapper"> 
                                             <div class="property-content">
                                                 <div class="content">
-                                                    <h4><a href="${property.url}" >${property.property_name}</a></h4>
+                                                    <h4>${property.property_name}</h4>
                                                     <p class="row address flex-nowrap">
                                                         <i class="material-icons text-muted">location_on</i>
                                                         <span>${property.location}</span>
                                                     </p>
                                                     <div class="row between-xs middle-xs">
-                                                        <h3 class="primary-color price">
+                                                        <h3 class="price">
                                                             <span>Ksh ${property.kmb}</span> 
                                                         </h3> 
-                                                        <div class="row start-xs middle-xs ratings" title="29">      
-                                                            ${property.agent_name}
+                                                        <div class="row start-xs middle-xs" title="29">      
+                                                            By: ${property.agent_name}
                                                         </div>
                                                     </div>
                                                     <div class="features mt-3">                    
@@ -716,9 +716,9 @@ function blogRelated(data, elementID) {
 
         //commercial/ negotiable setup  
         if (property.negotiable == 1) {
-            commercialNegotiablehtml += moneyed("green", "Negotiable");
+            commercialNegotiablehtml += moneyed("gray", "Negotiable");
         }
-        commercialNegotiablehtml += moneyed("blue", property.type);
+        commercialNegotiablehtml += moneyed("gray", property.type);
         
 
         // Features time
@@ -758,9 +758,9 @@ function cardsdata(data, elementID) {
 
         //commercial/ negotiable setup  
         if (property.negotiable == 1) {
-            commercialNegotiablehtml += moneyed("green", "Negotiable");
+            commercialNegotiablehtml += moneyed("gray", "Negotiable");
         }
-        commercialNegotiablehtml += moneyed("blue", property.type);
+        commercialNegotiablehtml += moneyed("gray", property.type);
         
 
         // Features time
@@ -835,17 +835,17 @@ function cardhtml(property, images, commercialNegotiable, features) {
                                     <div class="property-content-wrapper"> 
                                         <div class="property-content">
                                             <div class="content">
-                                                <h4><a href="${property.url}" >${property.property_name}</a></h4>
+                                                <h4>${property.property_name}</h4>
                                                 <p class="row address flex-nowrap">
                                                     <i class="material-icons text-muted">location_on</i>
                                                     <span>${property.location}</span>
                                                 </p>
                                                 <div class="row between-xs middle-xs">
-                                                    <h3 class="primary-color price">
+                                                    <h3 class="price">
                                                         <span>Ksh ${property.kmb}</span> 
                                                     </h3> 
-                                                    <div class="row start-xs middle-xs ratings" title="29">      
-                                                     ${property.agent_name}
+                                                    <div class="row start-xs middle-xs" title="29">      
+                                                     By: ${property.agent_name}
                                                     </div>
                                                 </div>
                                                 <div class="features mt-3">                    

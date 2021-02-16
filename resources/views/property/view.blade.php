@@ -16,10 +16,10 @@
                                 </p>
                             </div>
                             <div class="column mx-3"> 
-                                <h2 class="primary-color price">
+                                <h2 class="price">
                                     <span id="single-property-price"></span> 
                                 </h2> 
-                                <div class="row start-xs middle-xs ratings" title="29">      
+                                <div class="row start-xs middle-xs" title="29">      
                                                         <span id="single-property-negotiable"></span>
                                                     </div>
                                
@@ -60,7 +60,8 @@
 
                         </div>
                         <div class="mdc-card p-3 mt-3"> 
-                            <h2 class="uppercase text-center fw-500 mb-2">Details</h2>  
+<!--                            <h2 class="uppercase text-center fw-500 mb-2">Details</h2> -->
+                            <div class="widget-title bg-primary">Details</div>
                             <div class="row details">
                                 <div class="row col-xs-12 col-sm-6 item">
                                     <span>Property Type:</span>
@@ -111,7 +112,8 @@
                             </div>   
                         </div>
                         <div class="mdc-card p-3 mt-3"> 
-                            <h2 class="uppercase text-center fw-500 mb-2">Features</h2>  
+<!--                            <h2 class="uppercase text-center fw-500 mb-2">Features</h2>  -->
+                            <div class="widget-title bg-primary">Features</div>
                             <div class="row" id="single-property-features-list">
                                 
                             </div> 
@@ -126,11 +128,13 @@
                         
                         
                         <div class="mdc-card p-3 mt-3"> 
-                            <h2 class="uppercase text-center fw-500 mb-2">Description</h2>  
+<!--                            <h2 class="uppercase text-center fw-500 mb-2">Description</h2>-->
+                            <div class="widget-title bg-primary">Description</div>
                             <p id="single-property-description"></p>
                         </div>
                         <div class="mdc-card p-3 mt-3"> 
-                            <h2 class="uppercase text-center fw-500 mb-2">Location</h2> 
+<!--                            <h2 class="uppercase text-center fw-500 mb-2">Location</h2> -->
+                            <div class="widget-title bg-primary">Location</div>
                             <div class="google-map" id="single-property-map">
                             </div>
                         </div>
@@ -149,29 +153,19 @@
                     <aside class="mdc-drawer mdc-drawer--modal page-sidenav">
                         <a href="#" class="h-0"></a>
                         <div class="mdc-card p-3"> 
-                           
-                            <div class="mdc-card o-hidden">
-                                
-                                    <div class="p-3">
-                                        <p class="row middle-xs"><div class="sharethis-inline-share-buttons"></div></p>
-                                        
-                                         
-                                        
-                                    </div>  
-                                </div>  
                             
                             <div class="widget">  
-                                <div class="widget-title bg-primary" id="single-property-agent-name">Contact seller</div>
+                                
                                 <div class="mdc-card o-hidden">
                                     <div class="p-3">
+                                        <p class="row middle-xs"><div class="sharethis-inline-share-buttons"></div></p>
+                                    <div class="widget-title" id="single-property-agent-name">Contact seller</div>
                                         <p class="mt-3 text-muted fw-500" id="single-property-agent-description"></p> 
                                         <p class="row middle-xs"><i class="material-icons primary-color">call</i><span class="mx-2 text-muted fw-500" id="single-property-agent-phone"></span></p>
                                         <p class="row middle-xs primary-color" id="single-property-agent-whatsApp">
                                            
                                         </p>
-                                        <div class="row pb-3 p-relative">
-                                            <div class="divider"></div>
-                                        </div> 
+
                                         
                                         <div class="row around-xs middle-xs p-2 mb-3" id="single-property-agent-listing"> 
                     
@@ -280,7 +274,7 @@
                                     </div> 
                                     <div id="notification-zone"></div>
                                     <div class="row around-xs middle-xs p-2 mb-3"> 
-                                        <button class="mdc-button mdc-button--raised bg-accent" type="button" onclick="kaziyetu()">
+                                        <button class="mdc-button mdc-button--outlined" type="button" onclick="kaziyetu()">
                                             <span class="mdc-button__ripple"></span>
                                             <span class="mdc-button__label">Submit</span> 
                                         </button> 

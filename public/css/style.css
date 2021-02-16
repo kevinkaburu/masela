@@ -1786,7 +1786,10 @@ main.content-offset-to-top .main-content-header{
 }
 .property-status span.dark{ 
   background: #000;
-} 
+}
+.property-status span.gray{ 
+  background: #0000004a;
+}
 .property-item .control-icons{ 
   position: absolute;
   z-index: 2; 
