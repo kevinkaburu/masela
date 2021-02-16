@@ -524,7 +524,7 @@ function agentlink(url){
     var url = `<a href="${url}" class="mdc-button mdc-button--outlined">
                         <span class="mdc-button__ripple"></span>
                         <span class="mdc-button__label">Other listings</span> 
-                    </a> `;
+                    </a>`;
     return url;
 }
 function agentwhatApp(phone,current){

@@ -303,7 +303,7 @@
     
     const elementID = 'home-property-listing-div';
     const elementType = 'single';
-    const data = JSON.stringify({limit: 100,property_id: "{{$property_id}}"});
+    const data = JSON.stringify({limit: 1,property_id: "{{$property_id}}"});
     var timeout = null;
 
 
