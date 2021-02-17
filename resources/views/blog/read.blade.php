@@ -6,26 +6,39 @@
                 <div class="page-drawer-container single-property mt-3"> 
                     <div class="page-sidenav-content">
                        
-                        <div class="mdc-card p-3 mt-3"> 
-                            <h2 class="uppercase text-center fw-500 mb-2">{{$blogdata['title']}}</h2>  <p class="text-muted fw-500 mb-2"><small>{{$blogdata['created']}}</small><div class="sharethis-inline-share-buttons"></div></p>
-                           
-                            <div class="expansion-panel-wrapper"> 
-                                
-                                    <div class="expansion-panel-body text-center">
-                                        <img src="{{asset($blogdata['img'])}}" alt="{{$blogdata['title']}}" class="mw-100">
-                                        <div><?php echo $blogdata['content']; ?></div>
-                                    </div>
-                                
-                                
-                            </div>
-                            <div class="row">
-                             <button id="page-sidenav-toggle" class="mdc-icon-button material-icons text-muted d-md-none d-lg-none d-xl-none warn-color"> 
-                                local_fire_department 
-                            </button>
-                            
-                            </div>
-                        </div>
                        
+                        
+                         <h2 class="uppercase text-center fw-500 mb-2">{{$blogdata['title']}}</h2>  <p class="text-muted fw-500 mb-2"><small>{{$blogdata['created']}}</small><div class="sharethis-inline-share-buttons"></div></p>
+                    <div class=" my-5">
+                        <div class="mdc-card p-5 my-3">
+                                <div class="col-xs-12 col-sm-12 col-md-12 p-3">
+                                    <img src="{{asset($blogdata['img'])}}" alt="{{$blogdata['title']}}" class="col-xs-12 col-sm-6 col-md-6 mw-100" style="float: left; margin: 10px;">
+                                    <?php echo $blogdata['content']; ?>
+                                     <p class="text-right">By: Masela </p>
+                        
+                                    </div>
+                            <div class="row">
+                        <button id="page-sidenav-toggle" class="mdc-icon-button material-icons text-muted d-md-none d-lg-none d-xl-none warn-color"> 
+                            local_fire_department 
+                        </button>
+
+                    </div>
+                        </div> 
+                    </div> 
+
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                     </div>  
                     <aside class="mdc-drawer mdc-drawer--modal page-sidenav">
                         <a href="#" class="h-0"></a>
