@@ -58,7 +58,7 @@
             <div class="mask"></div>            
             <div class="header-image-content home-page offset-bottom">
                 <h1 class="title">Buy Land safely.</h1>
-                <p class="desc">We confirm the authenticity/ownership of the land & the terms of sale agreement.</p>
+                <p class="desc">We run background checks to confirm authenticity/ownership of the land & the check on terms of sale agreement.</p>
                 <div class="mt-4">
                     <a href="{{ url('/contact') }}" class="mdc-button mdc-button--raised">
                         <span class="mdc-button__ripple"></span>
