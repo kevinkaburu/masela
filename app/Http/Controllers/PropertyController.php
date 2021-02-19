@@ -14,6 +14,7 @@ use App\Models\PropertyLocation;
 use App\Models\PropertyFeature;
 use App\Models\PropertyPaymentTerms;
 use App\Models\PropertyImage;
+use App\Models\Contact;
 use App\Models\PropertyView;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
@@ -72,20 +73,20 @@ class PropertyController extends Controller {
         $title = $property->name;
         $propertyImg = PropertyImage::where('property_id', $property_id)->first();
         $images = [];
-            if ($propertyImg) {
-                $imagesData = json_decode($propertyImg->images);
-                $images = [];
-                foreach ($imagesData as $img) {
-                    array_push($images, "/media/property/" . $img);
-                }
+        if ($propertyImg) {
+            $imagesData = json_decode($propertyImg->images);
+            $images = [];
+            foreach ($imagesData as $img) {
+                array_push($images, "/media/property/" . $img);
             }
-            
+        }
+
         if (!empty($images[0])) {
             $image = $images[0];
         }
         //TO-DO: formulate a general description capturing most of the land details fir the og:description and the meta-data descriptions
-        
-        return view('property.view', compact('property_id', 'latlong', 'propertyUri', 'title','image'));
+
+        return view('property.view', compact('property_id', 'latlong', 'propertyUri', 'title', 'image'));
     }
 
     public function kaziyetu(Request $request) {
@@ -94,19 +95,34 @@ class PropertyController extends Controller {
           due_diligence: "on"
           more_details: "check check"
           phone: "0780597919"
+          name:
           property: "Homabay-finest-piece-26"
           sale_agreement: "on"
           transfer: "on"
          * 
          */
-         $desc = "Your mobile number is needed.";
-        if(!empty($data['phone'])){
+        $desc = "Your mobile number is needed.";
+        if (!empty($data['phone'])) {
+
+            $contact = Contact::create([
+                        'name' => (isset($data['name']) ? $data['name'] . "\n" : ""),
+                        'property' => $data['property'],
+                        'phone' => $data['phone'],
+                        'message' => (isset($data['more_details']) ? $data['more_details'] : ""),
+                        'due_diligence' => (isset($data['due_diligence']) ? 1 : 0),
+                        'sale_agreement' => (isset($data['sale_agreement']) ? 1 : 0),
+                        'transfer' => (isset($data['transfer']) ? 1 : 0),
+                        'status' => 1,
+            ]);
+
+            $contact->save();
+
             $desc = "We are in reciept of you request. We will call you for a follow up. Thank you.";
-        $sms = "MASELA: request from ".$data['phone']. 
-                "\nservices: \n". (isset($data['due_diligence'])? "Due diligence \n":"").
-                (isset($data['sale_agreement'])? "Sale Agreement \n":""). (isset($data['transfer'])? "Transfer \n":""). 
-                (isset($data['more_details'])? $data['more_details']."\n\n":"").'https://'.$_SERVER['HTTP_HOST'].'/property/view/'.$data['property']."/";
-        $this->sendsms('254719597919',$sms);
+            $sms = "MASELA: request from: " . (isset($data['name']) ? $data['name'] . "\n" : "") . $data['phone'] .
+                    "\nservices: \n" . (isset($data['due_diligence']) ? "Due diligence \n" : "") .
+                    (isset($data['sale_agreement']) ? "Sale Agreement \n" : "") . (isset($data['transfer']) ? "Transfer \n\n" : "") .
+                    (isset($data['more_details']) ? $data['more_details'] . "\n\n" : "") . 'https://' . $_SERVER['HTTP_HOST'] . '/property/view/' . $data['property'] . "/";
+            $this->sendsms('254719597919', $sms);
         }
 
         $response = ["status" => 200, "description" => $desc];

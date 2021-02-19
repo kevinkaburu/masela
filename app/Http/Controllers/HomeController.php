@@ -40,6 +40,11 @@ class HomeController extends Controller {
     public function pricing() {
         return view('pricing');
     }
+    public function contact() {
+        $counties = County::all();
+        
+        return view('contact', compact('counties'));
+    }
      public function services() {
          $title ="Land sale agreement, search and title deed transfers.";
          $description = "";

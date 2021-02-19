@@ -141,9 +141,9 @@ if(strpos($fullPath, '/blog/') !== false){
                     </a> 
                 </div> 
                 <div>
-                    <a href="{{ route('pricing') }}" class="mdc-button">
+                    <a href="{{ route('contact') }}" class="mdc-button">
                         <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">Pricing</span> 
+                        <span class="mdc-button__label">Contact</span> 
                     </a> 
                 </div> 
 
@@ -161,7 +161,7 @@ if(strpos($fullPath, '/blog/') !== false){
         </div>  
     </aside>
     <div class="mdc-drawer-scrim sidenav-scrim"></div>  
-    <header class="toolbar-1">  
+    <header class="toolbar-1 has-bg-image">  
         <div id="top-toolbar" class="mdc-top-app-bar"> 
             <div class="theme-container row between-xs middle-xs h-100">
                 <div class="row start-xs middle-xs">  
@@ -357,9 +357,9 @@ if(strpos($fullPath, '/blog/') !== false){
                         </a> 
                     </div> 
                     <div>
-                        <a href="{{ route('pricing') }}" class="mdc-button">
+                        <a href="{{ route('contact') }}" class="mdc-button">
                             <span class="mdc-button__ripple"></span>
-                            <span class="mdc-button__label">Pricing</span> 
+                            <span class="mdc-button__label">Contact</span> 
                         </a> 
                     </div> 
 

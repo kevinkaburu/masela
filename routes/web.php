@@ -60,6 +60,7 @@ Route::get('/', 'HomeController@landing')->name('welcome');
 Route::get('/listing', 'PropertyController@listing')->name('property.listing');
 Route::get('/pricing', 'HomeController@pricing')->name('pricing');
 Route::get('/services', 'HomeController@services')->name('services');
+Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/blog', 'BlogController@index')->name('blog.index');
 Route::get('/blog/{blogUri}/', 'BlogController@read')->name('blog.read'); 
 Route::get('/blog/bnv/1', 'BlogController@write')->name('blog.write');

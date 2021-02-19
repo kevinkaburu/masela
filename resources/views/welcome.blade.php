@@ -1,6 +1,6 @@
 @extends('layouts.masela')
 @section('carousel')
-<div class="header-carousel offset-bottom">
+<!--<div class="header-carousel offset-bottom">
     <div class="swiper-container h-100">
         <div class="swiper-wrapper h-100">  
             <div class="swiper-slide">
@@ -52,7 +52,21 @@
             </div>  
         </div>  
     </div>
-</div>
+</div>-->
+<div class="header-image-wrapper">
+            <div class="bg bg-anime"></div>
+            <div class="mask"></div>            
+            <div class="header-image-content home-page offset-bottom">
+                <h1 class="title">Buy Land safely.</h1>
+                <p class="desc">We confirm the authenticity/ownership of the land & the terms of sale agreement.</p>
+                <div class="mt-4">
+                    <a href="{{ url('/contact') }}" class="mdc-button mdc-button--raised">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label">Get intouch</span> 
+                    </a>
+                </div>
+            </div>
+        </div>  
 @endsection
 
 @section('main')<!-- comment -->

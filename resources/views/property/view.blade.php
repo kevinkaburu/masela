@@ -183,6 +183,16 @@
                             <div class="row details">
                                 <form id="kazi-form">
                                     <input type="hidden" name="property" value="{{$propertyUri}}"/>
+                                    <div class="mdc-text-field mdc-text-field--outlined w-100 custom-field my-2">
+                                      <input class="mdc-text-field__input" name="name">
+                                        <div class="mdc-notched-outline">
+                                            <div class="mdc-notched-outline__leading"></div>
+                                            <div class="mdc-notched-outline__notch">
+                                                <label class="mdc-floating-label">Name is required</label>
+                                            </div>
+                                            <div class="mdc-notched-outline__trailing"></div>
+                                        </div>
+                                    </div> 
                                 <div class="row col-12 item">
                                     <span>
                                         
@@ -198,7 +208,7 @@
                                                     </div>
                                                     <div class="mdc-checkbox__ripple"></div>
                                                 </div>
-                                                <label for="gated_community">Due Diligence</label>
+                                                <label for="due_diligence">Due Diligence</label>
                                             </div>
                                         
                                         
