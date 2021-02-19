@@ -48,6 +48,7 @@ class PropertyController extends Controller {
         $explodedUril = explode('-', $propertyUri);
         $property_id = end($explodedUril);
         $property = Property::find($property_id);
+        $image = "/logo-1.png";
         if (!$property) {
             return redirect('/');
         }
@@ -69,7 +70,22 @@ class PropertyController extends Controller {
             $latlong = $propertyView->latlong . ",15";
         }
         $title = $property->name;
-        return view('property.view', compact('property_id', 'latlong', 'propertyUri', 'title'));
+        $propertyImg = PropertyImage::where('property_id', $property_id)->first();
+        $images = [];
+            if ($propertyImg) {
+                $imagesData = json_decode($propertyImg->images);
+                $images = [];
+                foreach ($imagesData as $img) {
+                    array_push($images, "/media/property/" . $img);
+                }
+            }
+            
+        if (!empty($images[0])) {
+            $image = $images[0];
+        }
+        //TO-DO: formulate a general description capturing most of the land details fir the og:description and the meta-data descriptions
+        
+        return view('property.view', compact('property_id', 'latlong', 'propertyUri', 'title','image'));
     }
 
     public function kaziyetu(Request $request) {

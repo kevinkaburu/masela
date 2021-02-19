@@ -37,15 +37,26 @@ s0.parentNode.insertBefore(s1,s0);
 <meta property="og:description" content="{{$description ?? "Find land for sale from genuine realestate agents and private sellers. Get help with land transfer and search processes. Sell your land fast and efficiently."}}" />
 <meta property="og:image" content="{{ asset($image ??'images/props/flat-1/cossy-1.jpg')}}" alt="Masela.co.ke" />
 <meta property="og:updated_time" content="{{ date('Y-m-d H:i:s') }}" />
-<meta property="og:url" content="https://masela.co.ke" />
-<meta property="og:type" content="website" />
+<?php
+$fullPath =\Request::fullUrl();
+$ogtype = 'website';
+if(strpos($fullPath, '/blog/') !== false){
+    $ogtype = 'article';
+}else if (strpos($fullPath, '/blog') !== false){
+    $ogtype = 'blog';
+    
+}
+
+?>
+<meta property="og:url" content="{{$fullPath}}" />
+<meta property="og:type" content="{{$ogtype}}" />
 <meta property="og:site_name" content="Masela Inc" />
 
 <meta name="twitter:title" content="{{$title ?? "Plots for sale in Nanyuki| Kamulu| Katani| Kitengela| Syokimau."}}" />
 <meta name="twitter:description" content="{{$description ?? "Find land for sale from genuine realestate agents and private sellers. Get help with land transfer and search processes. Sell your land fast and efficiently."}}" />
 <title>{{$title ?? "Plots for sale in Nanyuki| Kamulu| Katani| Kitengela| Syokimau."}}</title>
 
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon')}}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon/favicon.ico')}}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicon/apple-touch-icon.png')}}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon/favicon-32x32.png')}}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon/favicon-16x16.png')}}">

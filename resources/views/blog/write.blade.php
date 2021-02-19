@@ -7,7 +7,7 @@
             <div class="page-sidenav-content">
                     <h2 class="uppercase text-center fw-500 mb-2">7 THINGS YOU NEED TO KNOW BEFORE BUYING LAND IN KENYA.</h2>  <p class="text-muted fw-500 mb-2"><small>02 Feb, 2021</small><div class="sharethis-inline-share-buttons"></div></p>
                     <div class=" my-5">
-                        <div class="mdc-card p-5 my-3">
+                        <div class="p-5 my-3">
                                 <div class="col-xs-12 col-sm-12 col-md-12 p-3">
                                     <img src="{{asset('/media/blog/factors_to_consider.jpg')}}" alt="agent-image" class="col-xs-12 col-sm-6 col-md-6 mw-100" style="float: left; margin: 10px;">
                                     

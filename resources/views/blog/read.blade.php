@@ -10,7 +10,7 @@
                         
                          <h2 class="uppercase text-center fw-500 mb-2">{{$blogdata['title']}}</h2>  <p class="text-muted fw-500 mb-2"><small>{{$blogdata['created']}}</small><div class="sharethis-inline-share-buttons"></div></p>
                     <div class=" my-5">
-                        <div class="mdc-card p-5 my-3">
+                       
                                 <div class="col-xs-12 col-sm-12 col-md-12 p-3">
                                     <img src="{{asset($blogdata['img'])}}" alt="{{$blogdata['title']}}" class="col-xs-12 col-sm-6 col-md-6 mw-100" style="float: left; margin: 10px;">
                                     <?php echo $blogdata['content']; ?>
@@ -23,7 +23,7 @@
                         </button>
 
                     </div>
-                        </div> 
+                       
                     </div> 
 
                         
