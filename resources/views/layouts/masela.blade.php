@@ -125,7 +125,7 @@ if(strpos($fullPath, '/blog/') !== false){
                     
                           <a href="{{ route('property.listing') }}" class="mdc-button">
                               <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">Property Listing</span> 
+                        <span class="mdc-button__label">Land Listing</span> 
 
                    
                         
@@ -347,7 +347,7 @@ if(strpos($fullPath, '/blog/') !== false){
                     
                           <a href="{{ route('property.listing') }}" class="mdc-button">
                               <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">Property Listing</span> 
+                        <span class="mdc-button__label">Land Listing</span> 
 
                    
                         
