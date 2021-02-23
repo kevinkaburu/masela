@@ -27,7 +27,7 @@
                              
                             <div class="text-center py-3"> 
                                  
-                    <a href="{{ url('/auth/facebook') }}" class="mdc-button mdc-button--raised d-none d-sm-flex d-md-flex d-lg-flex d-xl-flex">
+                    <a href="{{ url('/auth/facebook') }}" class="mdc-button mdc-button--raised">
                         <span class="mdc-fab__ripple"></span>
                         <span class="mdc-fab__ripple"></span>
                                     <svg class="material-icons mat-icon-md" viewBox="0 0 24 24">
