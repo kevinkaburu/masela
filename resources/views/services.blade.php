@@ -1,14 +1,14 @@
 @extends('layouts.masela')
 
 @section('main')
-<div class="header-image-wrapper">
+<!--<div class="header-image-wrapper">
             <div class="bg" style="background-image: url('{{asset('images/others/about.jpg')}}');"></div>
             <div class="mask"></div>            
             <div class="header-image-content offset-bottom">
                 <h1 class="title">Our Services</h1>
                 <p class="desc">We help you decide on a property, validate it's authenticity and facilitate the transfer safely.</p> 
             </div>
-        </div>  
+        </div>  -->
 <div class="px-3">  
             <div class="theme-container"> 
                 <div class="mdc-card main-content-header pt-0"> 
