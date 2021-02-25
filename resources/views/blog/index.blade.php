@@ -2,6 +2,16 @@
 
 @section('main')
 
+<div class="header-image-wrapper">
+    <div class="bg" style="background-image: url('{{asset('images/others/about.jpg')}}');"></div>
+    <div class="mask"></div>            
+    <div class="header-image-content offset-bottom">
+       
+    </div>
+
+
+</div>
+
 
 @foreach($blogdata as $blogcategory => $blogs)
 <div class="section agents">

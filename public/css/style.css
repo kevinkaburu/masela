@@ -718,8 +718,8 @@ header.toolbar-2 .horizontal-menu .mdc-button{
   align-items: center;
 }
 .header-image-wrapper .header-image-content.offset-bottom{
-  padding-bottom: 80px;
-  min-height: 400px;
+  padding-bottom: 10px;
+  min-height: 50px;
 }
 .header-image-wrapper .header-image-content.home-page{
   min-height: 480px;

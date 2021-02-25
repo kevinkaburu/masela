@@ -6,12 +6,12 @@
             <div class="bg" style="background-image: url('{{asset('images/others/contact.jpg')}}');"></div>
             <div class="mask"></div>            
             <div class="header-image-content offset-bottom">
-                <h1 class="title">Contact us</h1>
-                <p class="desc">Buying land and need us to help with legal & paper work? We are happy to help.</p> 
+               
             </div>
         </div>  
-        <div class="px-3">  
+        <div class="section px-3">  
             <div class="theme-container"> 
+                <h1 class="section-title">Contact us</h1> 
                 <div class="mdc-card main-content-header mb-5"> 
                     <div class="row around-xs">
                        
