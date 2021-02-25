@@ -20,6 +20,7 @@
     .header-image-wrapper .header-image-content{
         min-height: 240px;
     }
+    
     .header-image-wrapper .header-image-content.offset-bottom{
         min-height: 320px;
     }
