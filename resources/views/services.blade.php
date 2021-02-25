@@ -4,53 +4,10 @@
 <div class="header-image-wrapper">
             <div class="bg" style="background-image: url('{{asset('images/others/about.jpg')}}');"></div>
             <div class="mask"></div>            
-            <div class="header-image-content offset-bottom">
+            <div class="header-image-content offset-custom">
                 
             </div>
 </div> 
-
-<div class="section px-3">  
-            <div class="theme-container"> 
-                <div class="mdc-card main-content-header pt-0"> 
-                    <div class="section pt-0">
-                        <div class="px-3">
-                            <div class="theme-container">
-                                <h1 class="section-title">Our services</h1> 
-                                <div class="row"> 
-                                    <div class="col-xs-12 col-sm-12 col-md-6 p-3"> 
-                                        <div class="row start-xs middle-xs">
-                                            <i class="material-icons mat-icon-xlg primary-color">search</i>
-                                            <h2 class="capitalize fw-600 mx-2">Due Diligence</h2>
-                                        </div>                            
-                                        <p class="mt-2">If you’re planning on buying land in Kenya or anywhere else, the best decision you’ll make is to conduct thorough due diligence to avoid losing your hard-earned money to real estate fraudsters.
-Due diligence when buying land involves undertaking research to verify the ownership details of the land, uncover possible red flags, and to put in order the paperwork for the transaction. </p>
-                                    </div> 
-                                    <div class="col-xs-12 col-sm-12 col-md-6 p-3"> 
-                                        <div class="row start-xs middle-xs">
-                                            <i class="material-icons mat-icon-xlg primary-color">list_alt</i>
-                                            <h2 class="capitalize fw-600 mx-2">Sale Agreements</h2>
-                                        </div> 
-                                        <p class="mt-2">A sale agreement is a written document between a buyer and a seller. Normally, the sale agreement is drafted by the sellers’ lawyer and presented to the buyers lawyer for approval. The sales agreement will basically include the terms and conditions of the sale.
-Other details included in the sale agreement are, the name of the seller and the buyers, the price agreed by the seller, the terms of payment whether full or instalments, with or without down payment, mortgage or cash. All this information about the purchase agreement should be comprehensive. 
-This will facilitate an orderly transfer of the property. 
-</p>
-                                    </div> 
-                                    
-                                    <div class="col-xs-12 col-sm-12 col-md-6 p-3"> 
-                                        <div class="row start-xs middle-xs">
-                                            <i class="material-icons mat-icon-xlg primary-color">compare_arrows</i>
-                                            <h2 class="capitalize fw-600 mx-2">Transfer</h2>
-                                        </div> 
-                                        <p class="mt-2">A title deed is a document that proves ownership and legit right over a piece of land. This makes it the most fundamental document in any land transaction. The transfer process involves transferring the title deed from the previous owner to the buyer to show transfer of ownership. It will involve stamp duty Payments and capital gains where applicable.
-</p>
-                                    </div> 
-                                </div>  
-                            </div>
-                        </div>   
-                    </div>  
-                </div>
-            </div>  
-        </div> 
 
 
 <div class="section mt-3">
