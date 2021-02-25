@@ -15,8 +15,7 @@
                     <div class="section pt-0">
                         <div class="px-3">
                             <div class="theme-container">
-                                <h1 class="section-title">How it works</h1> 
-                                <p class="px-3">Once you identify a piece of land that you want, contact the seller, view it and are in agreement. It is always good to do your own background checks on the land just to be sure on what you are buying, and adhere to all other legal requirements to be safe. Masela offers these services through partnerships with verified legal entities to protect you and make the land buying/selling process easier for you.</p>
+                                <h1 class="section-title">Our services</h1> 
                                 <div class="row"> 
                                     <div class="col-xs-12 col-sm-12 col-md-6 p-3"> 
                                         <div class="row start-xs middle-xs">
