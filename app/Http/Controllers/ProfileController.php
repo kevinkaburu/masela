@@ -44,13 +44,13 @@ class ProfileController extends Controller {
          }
          
          if(trim($agent->phone_number) != trim($data['phone_number']) || $agent->status==0){
-             if($agent->phone_number_otp != (isset($data['phone_number_otp'])?$data['phone_number_otp']:0)){
-                 
-
-                 $errors = new MessageBag();
-                 $errors->add('otp_error', 'OTP code sent is not correct.');
-                 return redirect('/profile/update')->withErrors($errors);
-             }
+//             if($agent->phone_number_otp != (isset($data['phone_number_otp'])?$data['phone_number_otp']:0)){
+//                 
+//
+//                 $errors = new MessageBag();
+//                 $errors->add('otp_error', 'OTP code sent is not correct.');
+//                 return redirect('/profile/update')->withErrors($errors);
+//             }
          }
          $user = User::where('id', '=', Auth::user()->id)->first();
          $user->name = $data['name'];

@@ -139,12 +139,34 @@ if(strpos($fullPath, '/blog/') !== false){
                         <span class="mdc-button__label">Sell Land</span> 
                     </a> 
                 </div> 
-                <div>
-                    <a href="{{ url('/services') }}" class="mdc-button">
-                        <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">Our Services</span> 
-                    </a> 
-                </div> 
+                
+                
+                <div class="mdc-menu-surface--anchor"> 
+                    <a href="javascript:void(0);" class="mdc-button menu-item-has-children"> 
+                        <span class="mdc-button__ripple"></span> 
+                        <span class="mdc-button__label">Our Services</span>
+                    </a>  
+                    <div class="mdc-menu mdc-menu-surface">
+                        <div class="mdc-list"> 
+                            <div> 
+                                <a href="{{ url('/services') }}" class="mdc-button"> 
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label">Land verification</span> 
+                                </a>  
+                            </div>
+                            <div> 
+                                <a href="{{ url('/services') }}" class="mdc-button"> 
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label">Marketplace</span> 
+                                </a>  
+                            </div>  
+                           
+                            
+                        </div>
+                    </div>  
+                </div>
+                
+                
                 <div>
                     <a href="{{ route('contact') }}" class="mdc-button">
                         <span class="mdc-button__ripple"></span>
@@ -353,14 +375,39 @@ if(strpos($fullPath, '/blog/') !== false){
                         
                     </a> 
                 </div>
-                     
-                   
-                    <div>
-                        <a href="{{ url('/services') }}" class="mdc-button">
-                            <span class="mdc-button__ripple"></span>
-                            <span class="mdc-button__label">Our Services</span> 
-                        </a> 
-                    </div> 
+                    
+                    
+                    
+                    
+                    <div class="mdc-menu-surface--anchor"> 
+                    <a href="javascript:void(0);" class="mdc-button menu-item-has-children"> 
+                        <span class="mdc-button__ripple"></span> 
+                        <span class="mdc-button__label">Our Services</span>
+                    </a>  
+                    <div class="mdc-menu mdc-menu-surface">
+                        <div class="mdc-list"> 
+                            <div> 
+                                <a href="{{ url('/services') }}" class="mdc-button"> 
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label">Land verification</span> 
+                                </a>  
+                            </div>
+                            <div> 
+                                <a href="{{ url('/services') }}" class="mdc-button"> 
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label">Marketplace</span> 
+                                </a>  
+                            </div>  
+                           
+                            
+                        </div>
+                    </div>  
+                </div>
+                
+                    
+                    
+                    
+                    
                     <div>
                         <a href="{{ route('contact') }}" class="mdc-button">
                             <span class="mdc-button__ripple"></span>

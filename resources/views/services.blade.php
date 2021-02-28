@@ -13,13 +13,13 @@
 <div class="section mt-3">
             <div class="px-3">
                 <div class="theme-container">
-                    <h1 class="section-title">Where we come in</h1>  
+                    <h1 class="section-title">Need help</h1>  
                     <div class="services-wrapper row">
                          
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 p-2"> 
                             <div class="mdc-card h-100 w-100 text-center middle-xs p-3">            
                                 <i class="material-icons mat-icon-xlg primary-color">location_on</i>
-                                <h2 class="capitalize fw-600 my-3">Due Diligence</h2>
+                                <h2 class="capitalize fw-600 my-3">Land verification</h2>
                                 <p class="text-muted fw-500">On your behalf, Masela will conduct thorough research and inspection of the land’s current and historic data. We will ensure the parcel meets all necessary requirements and inform you on any possible caveats. 
 </p>           
                             </div> 
@@ -74,26 +74,7 @@ Masela Inc will facilitate the end to end transfer process on your behalf as the
                                         <p>Agents</p> 
                                     </div>  
                                 </div>  
-                                <div class="swiper-slide"> 
-                                    <div class="content text-center">
-                                        <img src="assets/images/profile/bruno.jpg" alt="bruno">
-                                        <div class="quote open text-left primary-color">“</div>
-                                        <p class="text">Donec molestie turpis ut mollis efficitur. Nam fringilla libero vel dictum vulputate. In malesuada, ligula non ornare consequat, augue nibh luctus nisl, et lobortis justo ipsum nec velit. Praesent lacinia quam ut nulla gravida, at viverra libero euismod. Sed tincidunt tempus augue vitae malesuada. Vestibulum eu lectus nisi. Aliquam erat volutpat.</p>
-                                        <div class="quote close text-right primary-color">”</div> 
-                                        <h3 class="author">Bruno Vespa</h3>
-                                        <p>Blogger</p> 
-                                    </div>  
-                                </div>  
-                                <div class="swiper-slide"> 
-                                    <div class="content text-center">
-                                        <img src="assets/images/profile/julia.jpg" alt="julia">
-                                        <div class="quote open text-left primary-color">“</div>
-                                        <p class="text">Donec molestie turpis ut mollis efficitur. Nam fringilla libero vel dictum vulputate. In malesuada, ligula non ornare consequat, augue nibh luctus nisl, et lobortis justo ipsum nec velit. Praesent lacinia quam ut nulla gravida, at viverra libero euismod. Sed tincidunt tempus augue vitae malesuada. Vestibulum eu lectus nisi. Aliquam erat volutpat.</p>
-                                        <div class="quote close text-right primary-color">”</div> 
-                                        <h3 class="author">Mrs. Julia Aniston</h3>
-                                        <p>Marketing Manager</p> 
-                                    </div>  
-                                </div> 
+                              
                             </div>  
                             <div class="swiper-pagination"></div> 
                         </div>  

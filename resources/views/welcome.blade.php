@@ -1,58 +1,6 @@
 @extends('layouts.masela')
 @section('carousel')
-<!--<div class="header-carousel offset-bottom">
-    <div class="swiper-container h-100">
-        <div class="swiper-wrapper h-100">  
-            <div class="swiper-slide">
-                <div class="slide-item swiper-lazy" data-background="{{ asset('images/props/flat-1/cossy-1.jpg')}}">
-                    <div class="swiper-lazy-preloader"></div> 
-                    <span class="d-none" data-slide-title="Sell your land with us."></span>
-                    <span class="d-none" data-slide-location="Be part of this safe land buying/selling community."></span>
-                    <span class="d-none" data-slide-price="Read More"></span> 
-                </div> 
-            </div>
-            <div class="swiper-slide">
-                <div class="slide-item swiper-lazy" data-background="{{ asset('images/props/flat-1/6-big.jpg')}}">
-                    <div class="swiper-lazy-preloader"></div> 
-                    <span class="d-none" data-slide-title="Importance of a lawyer while buying or selling land"></span>
-                    <span class="d-none" data-slide-location="The easiest way to get conned is to ignore the role of a lawyer."></span>
-                    <span class="d-none" data-slide-price="Read More"></span> 
-                </div> 
-            </div> 
-            <div class="swiper-slide">
-                <div class="slide-item swiper-lazy" data-background="{{ asset('images/props/flat-1/2-big.jpg')}}">
-                    <div class="swiper-lazy-preloader"></div> 
-                    <span class="d-none" data-slide-title="Steps to follow while buying land in Kenya."></span>
-                    <span class="d-none" data-slide-location="You've made up your mind to invest in land, what next?"></span>
-                    <span class="d-none" data-slide-price="Read More"></span> 
-                </div> 
-            </div>
 
-
-        </div>     
-        <button class="swiper-button-prev swipe-arrow mdc-fab mdc-fab--mini primary">
-            <span class="mdc-fab__ripple"></span>
-            <span class="mdc-fab__icon material-icons">keyboard_arrow_left</span> 
-        </button>
-        <button class="swiper-button-next swipe-arrow mdc-fab mdc-fab--mini primary"> 
-            <span class="mdc-fab__ripple"></span>
-            <span class="mdc-fab__icon material-icons">keyboard_arrow_right</span> 
-        </button>  
-        <div class="slide-info column center-xs middle-xs">
-            <div id="active-slide-info" class="mdc-card p-4 column center-xs middle-xs">
-                <h1 class="slide-title">Title</h1>
-                <p class="location row center-xs middle-xs"> 
-                    <i class="material-icons mat-icon-lg primary-color">read_more</i>
-                    <span class="px-1">read_more</span>
-                </p> 
-                <a href="{{ route('blog.index') }}" class="mdc-button mdc-button--raised price"> 
-                    <span class="mdc-button__ripple"></span>
-                    <span class="mdc-button__label">price</span>    
-                </a>                  
-            </div>  
-        </div>  
-    </div>
-</div>-->
 <div class="header-image-wrapper">
             <div class="bg bg-anime"></div>
             <div class="mask"></div>            

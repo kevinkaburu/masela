@@ -4,8 +4,8 @@
    <div class="header-image-wrapper">
             <div class="bg" style="background-image: url('{{asset('images/carousel/slide-3.jpg')}}');"></div>
             <div class="mask"></div>            
-            <div class="header-image-content mh-200"> 
-                <p class="desc"></p> 
+            <div class="header-image-content offset-custom">
+                
             </div>
         </div>  
     <div class="px-3">  
