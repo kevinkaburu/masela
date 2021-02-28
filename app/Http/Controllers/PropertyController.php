@@ -260,11 +260,10 @@ class PropertyController extends Controller {
     }
 
     public function create() {
-        //is email verified?
-        if (Auth::user()->email_verified_at == null) {
-            return $this->pending();
-        }
+     $agent_id = "";
+        if (Auth::check()) {
         //does the account has an agent account created?
+          
         $UserAgent = UserAgent::where('user_id', Auth::user()->id)->first();
         if (!isset($UserAgent) || !$UserAgent) {
             return redirect('/home');
@@ -272,16 +271,13 @@ class PropertyController extends Controller {
 
         //has the mobile No been verified?
         $agent = Agent::where('agent_id', '=', $UserAgent->agent_id)->first();
-        if ($agent->status == 0) {
-            $errors = new MessageBag();
-            $errors->add('otp_error', 'Verify your mobile number to proceed.');
-            return redirect('/profile/update')->withErrors($errors);
+        $agent_id = $agent->agent_id;
         }
-
+        
         $counties = County::all();
         //Let's do the thing
 
-        return view('property.create', compact('counties'));
+        return view('property.create', compact('counties','agent_id'));
     }
 
     public function delete(Request $requestdata) {
@@ -617,10 +613,61 @@ class PropertyController extends Controller {
     }
 
     private function basicForm($requestpayload) {
+        $error_messages = [];
+         if (Auth::check()) {
         $UserAgent = UserAgent::where('user_id', Auth::user()->id)->first();
         if (!isset($UserAgent) || !$UserAgent) {
             return redirect('/home');
         }
+        $agent_id = $UserAgent->agent_id;
+         }else{
+             if (empty($requestpayload['agent_name'])) {
+            array_push($error_messages, "Your Name is required!");
+        }
+        //validate type
+        if (empty($requestpayload['agent_phone'])) {
+            array_push($error_messages, "Your number is required!");
+        }
+        if (count($error_messages) > 0) {
+            $response['error'] = 1;
+            $response['messages'] = $error_messages;
+            $response['property_id'] = "";
+            return $response;
+        }
+        
+        preg_match('/^(254|0)?(1|7)(\d{8})$/', $requestpayload['agent_phone'], $mobilearray);
+
+        if (!isset($mobilearray) || empty($mobilearray)) {
+            array_push($error_messages, "The mobile number provided is incorrect. ".$requestpayload['agent_phone']);
+        }
+        
+         if (count($error_messages) > 0) {
+            $response['error'] = 1;
+            $response['messages'] = $error_messages;
+            $response['property_id'] = "";
+            return $response;
+        }
+
+        $msisdn = "254" . $mobilearray[2] . $mobilearray[3];
+        
+        
+        
+        
+        
+        
+        $agent = Agent::create([
+                        'phone_number' => $msisdn,
+                        'phone_number_otp' => strtoupper($this->generateRandomString(4)),
+                        'name' => $requestpayload['agent_name'],
+                        'phone_number_whatsapp' =>  1,
+                        'description' => "Public account.",
+                        'status' => 1,
+            ]);
+
+            $agent->save();
+            $agent_id = $agent->agent_id;
+            
+         }
         /*
           {
          * "property_id":1,
@@ -637,7 +684,7 @@ class PropertyController extends Controller {
          * "neighborhood":"Milimani",
           }
          */
-        $error_messages = [];
+        
         //validate title
         if (empty($requestpayload['title'])) {
             array_push($error_messages, "Property title is required!");
@@ -693,7 +740,7 @@ class PropertyController extends Controller {
 
         //first things first let's create or get the property
         if (isset($requestpayload['property_id']) && ($requestpayload['property_id'] + 0) > 0) {
-            $property = Property::where('property_id', $requestpayload['property_id'])->where('agent_id', $UserAgent->agent_id)->first();
+            $property = Property::where('property_id', $requestpayload['property_id'])->where('agent_id', $agent_id)->first();
             //if not property redirect you back to create property
             if (!$property) {
                 return redirect('/property/new');
@@ -704,7 +751,7 @@ class PropertyController extends Controller {
             $property = Property::create([
                         'name' => $requestpayload['title'],
                         'description' => "",
-                        'agent_id' => $UserAgent->agent_id,
+                        'agent_id' => $agent_id,
                         'price' => 0,
                         'status' => 0,
                         'negotiable' => 0,

@@ -61,6 +61,43 @@
                             </div>
                             <div class="tab-content tab-content--active">  
                                 <form action="" id="sp-basic-form" enctype="multipart/form-data" class="row property-create-form">
+                                    <?php
+                                    if(empty($agent_id)){
+                                        ?>
+                                        
+                                   <div class="col-xs-6 p-2">  
+                                        <div class="mdc-text-field mdc-text-field--outlined">
+                                            <input class="mdc-text-field__input" name="agent_name" required>
+                                            <div class="mdc-notched-outline">
+                                                <div class="mdc-notched-outline__leading"></div>
+                                                <div class="mdc-notched-outline__notch">
+                                                    <label class="mdc-floating-label">Your name</label>
+                                                </div>
+                                                <div class="mdc-notched-outline__trailing"></div>
+                                            </div>
+                                        </div> 
+                                    </div>  
+                                    
+                                    <div class="col-xs-6 p-2">  
+                                        <div class="mdc-text-field mdc-text-field--outlined">
+                                            <input class="mdc-text-field__input" name="agent_phone" required>
+                                            <div class="mdc-notched-outline">
+                                                <div class="mdc-notched-outline__leading"></div>
+                                                <div class="mdc-notched-outline__notch">
+                                                    <label class="mdc-floating-label">Your phone number</label>
+                                                </div>
+                                                <div class="mdc-notched-outline__trailing"></div>
+                                            </div>
+                                        </div> 
+                                    </div>  
+                                    
+                                    
+                                    <?php
+                                    
+                                    }
+                                    
+                                    
+                                    ?>
 <!--                                    on edit push the ID to the page and set it's value here-->
 <input type="hidden" name="property_id" id="input_propety_id" value="{{ $property_id ?? '' }}">
 <input type="hidden" name="current_tab"  value="sp-basic-form">
@@ -898,13 +935,24 @@
                                     <h2 class="mt-3 uppercase">Congratulations!</h2>
                                     <p class="text-muted fw-500">Your property has been submitted. Pending approval.</p>
                                 </div>
-                                
-                                <div class="row center-xs middle-xs py-3"> 
+                                <?php
+                      if (Auth::check()) {
+                         
+                      ?>
+                                <div class="row center-xs middle-xs py-3" id="preiview-property-button"> 
                     <a href="{{ route('home.index') }}" class="mdc-button  bg-accent mdc-button--raised">
                         <span class="mdc-button__ripple"></span>
                         <span class="mdc-button__label">View All</span> 
                     </a> 
                 </div> 
+                                <?php
+                      } else{
+                          ?>
+                           <p class="text-muted fw-500">You will receive sms with the property Link once it is approved</p>
+                          
+                      <?php
+                                }
+                                ?>
                      
                             </div>
                         </div>  
@@ -935,8 +983,9 @@
 <script>
 const data = "{{$propertyImages ?? '{}'}}";
 var imageslist = JSON.parse(data.replace(/&quot;/g,'"'));
- 
+ //input_propety_id
 initDropzonePropertyImages(imageslist);
+
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwn34YxDsAG_m4WHj-KzubB_3NTD-Z8sE&callback=initMap&libraries=geometry,places&callback=initMap" defer ></script>
