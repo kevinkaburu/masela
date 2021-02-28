@@ -196,7 +196,7 @@ class PropertyController extends Controller {
             $property['property_link'] = "/property/view/" . $this->generateUrl($data->name, $data->property_id);
             //get IMG
             $propertyImages = PropertyImage::where('property_id', $property_id)->first();
-            $images = ["/images/others/transparent-bg.png"];
+            $images = ["/images/others/transparent-marked.png"];
             if ($propertyImages) {
                 $imagesData = json_decode($propertyImages->images);
                 $images = [];
@@ -560,7 +560,7 @@ class PropertyController extends Controller {
         foreach ($proprtydata as $key => $data) {
             $property = [];
             //process Images
-            $images = ["/images/others/transparent-bg.png"];
+            $images = ["/images/others/transparent-marked.png"];
             if (!empty($data->images)) {
                 $imagesData = json_decode($data->images);
                 $images = [];
@@ -569,7 +569,7 @@ class PropertyController extends Controller {
                 }
             }
             $property['images'] = $images;
-            $property['img_placeholder'] = "/images/others/transparent-bg.png";
+            $property['img_placeholder'] = "/images/others/transparent-marked.png";
             $property['property_id'] = $data->property_id;
             $property['property_name'] = substr($data->property_name, 0, 70) . (strlen($data->property_name) > 70 ? "..." : "");
             $property['property_description'] = $data->property_description;

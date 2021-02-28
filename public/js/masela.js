@@ -922,7 +922,7 @@ function blogshtml(data){
     var html = `<div class="swiper-slide"> 
                             <div class="mdc-card o-hidden">
                                 <div>
-                                    <img src="/images/others/transparent-bg.png" height="300" width="300" alt="${data['title']}" data-src="${data['img']}" class="swiper-lazy d-block mw-100">
+                                    <img src="/images/others/transparent-marked.png" height="300" width="300" alt="${data['title']}" data-src="${data['img']}" class="swiper-lazy d-block mw-100">
                                     <div class="swiper-lazy-preloader"></div>
                                 </div>
                                 <div class="p-3">

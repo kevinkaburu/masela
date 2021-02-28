@@ -338,23 +338,23 @@
                                 <div class="swiper-container">
                                     <div class="swiper-wrapper"> 
                                         <div class="swiper-slide">
-                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/flat-2/1-medium.jpg" class="slide-item swiper-lazy">
+                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/flat-2/1-medium.jpg" class="slide-item swiper-lazy">
                                             <div class="swiper-lazy-preloader"></div> 
                                         </div> 
                                         <div class="swiper-slide">
-                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/flat-2/2-medium.jpg" class="slide-item swiper-lazy">
+                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/flat-2/2-medium.jpg" class="slide-item swiper-lazy">
                                             <div class="swiper-lazy-preloader"></div> 
                                         </div> 
                                         <div class="swiper-slide">
-                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/flat-2/3-medium.jpg" class="slide-item swiper-lazy">
+                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/flat-2/3-medium.jpg" class="slide-item swiper-lazy">
                                             <div class="swiper-lazy-preloader"></div> 
                                         </div> 
                                         <div class="swiper-slide">
-                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/flat-2/4-medium.jpg" class="slide-item swiper-lazy">
+                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/flat-2/4-medium.jpg" class="slide-item swiper-lazy">
                                             <div class="swiper-lazy-preloader"></div> 
                                         </div> 
                                         <div class="swiper-slide">
-                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/flat-2/5-medium.jpg" class="slide-item swiper-lazy">
+                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/flat-2/5-medium.jpg" class="slide-item swiper-lazy">
                                             <div class="swiper-lazy-preloader"></div> 
                                         </div>   
                                     </div>  
@@ -439,27 +439,27 @@
                                                 <div class="swiper-container">
                                                     <div class="swiper-wrapper"> 
                                                         <div class="swiper-slide">
-                                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/office/1-medium.jpg" class="slide-item swiper-lazy">
+                                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/office/1-medium.jpg" class="slide-item swiper-lazy">
                                                             <div class="swiper-lazy-preloader"></div> 
                                                         </div> 
                                                         <div class="swiper-slide">
-                                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/office/2-medium.jpg" class="slide-item swiper-lazy">
+                                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/office/2-medium.jpg" class="slide-item swiper-lazy">
                                                             <div class="swiper-lazy-preloader"></div> 
                                                         </div> 
                                                         <div class="swiper-slide">
-                                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/office/3-medium.jpg" class="slide-item swiper-lazy">
+                                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/office/3-medium.jpg" class="slide-item swiper-lazy">
                                                             <div class="swiper-lazy-preloader"></div> 
                                                         </div> 
                                                         <div class="swiper-slide">
-                                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/office/4-medium.jpg" class="slide-item swiper-lazy">
+                                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/office/4-medium.jpg" class="slide-item swiper-lazy">
                                                             <div class="swiper-lazy-preloader"></div> 
                                                         </div> 
                                                         <div class="swiper-slide">
-                                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/office/5-medium.jpg" class="slide-item swiper-lazy">
+                                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/office/5-medium.jpg" class="slide-item swiper-lazy">
                                                             <div class="swiper-lazy-preloader"></div> 
                                                         </div> 
                                                         <div class="swiper-slide">
-                                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/office/6-medium.jpg" class="slide-item swiper-lazy">
+                                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/office/6-medium.jpg" class="slide-item swiper-lazy">
                                                             <div class="swiper-lazy-preloader"></div> 
                                                         </div> 
                                                     </div>  
@@ -535,23 +535,23 @@
                                                 <div class="swiper-container">
                                                     <div class="swiper-wrapper"> 
                                                         <div class="swiper-slide">
-                                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/flat-2/1-medium.jpg" class="slide-item swiper-lazy">
+                                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/flat-2/1-medium.jpg" class="slide-item swiper-lazy">
                                                             <div class="swiper-lazy-preloader"></div> 
                                                         </div> 
                                                         <div class="swiper-slide">
-                                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/flat-2/2-medium.jpg" class="slide-item swiper-lazy">
+                                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/flat-2/2-medium.jpg" class="slide-item swiper-lazy">
                                                             <div class="swiper-lazy-preloader"></div> 
                                                         </div> 
                                                         <div class="swiper-slide">
-                                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/flat-2/3-medium.jpg" class="slide-item swiper-lazy">
+                                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/flat-2/3-medium.jpg" class="slide-item swiper-lazy">
                                                             <div class="swiper-lazy-preloader"></div> 
                                                         </div> 
                                                         <div class="swiper-slide">
-                                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/flat-2/4-medium.jpg" class="slide-item swiper-lazy">
+                                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/flat-2/4-medium.jpg" class="slide-item swiper-lazy">
                                                             <div class="swiper-lazy-preloader"></div> 
                                                         </div> 
                                                         <div class="swiper-slide">
-                                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/flat-2/5-medium.jpg" class="slide-item swiper-lazy">
+                                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/flat-2/5-medium.jpg" class="slide-item swiper-lazy">
                                                             <div class="swiper-lazy-preloader"></div> 
                                                         </div>   
                                                     </div>  
@@ -627,19 +627,19 @@
                                                 <div class="swiper-container">
                                                     <div class="swiper-wrapper"> 
                                                         <div class="swiper-slide">
-                                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/house-3/1-medium.jpg" class="slide-item swiper-lazy">
+                                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/house-3/1-medium.jpg" class="slide-item swiper-lazy">
                                                             <div class="swiper-lazy-preloader"></div> 
                                                         </div> 
                                                         <div class="swiper-slide">
-                                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/house-3/2-medium.jpg" class="slide-item swiper-lazy">
+                                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/house-3/2-medium.jpg" class="slide-item swiper-lazy">
                                                             <div class="swiper-lazy-preloader"></div> 
                                                         </div> 
                                                         <div class="swiper-slide">
-                                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/house-3/3-medium.jpg" class="slide-item swiper-lazy">
+                                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/house-3/3-medium.jpg" class="slide-item swiper-lazy">
                                                             <div class="swiper-lazy-preloader"></div> 
                                                         </div> 
                                                         <div class="swiper-slide">
-                                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/house-3/4-medium.jpg" class="slide-item swiper-lazy">
+                                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/house-3/4-medium.jpg" class="slide-item swiper-lazy">
                                                             <div class="swiper-lazy-preloader"></div> 
                                                         </div>    
                                                     </div>  
@@ -715,19 +715,19 @@
                                                 <div class="swiper-container">
                                                     <div class="swiper-wrapper"> 
                                                         <div class="swiper-slide">
-                                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/house-2/1-medium.jpg" class="slide-item swiper-lazy">
+                                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/house-2/1-medium.jpg" class="slide-item swiper-lazy">
                                                             <div class="swiper-lazy-preloader"></div> 
                                                         </div> 
                                                         <div class="swiper-slide">
-                                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/house-2/2-medium.jpg" class="slide-item swiper-lazy">
+                                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/house-2/2-medium.jpg" class="slide-item swiper-lazy">
                                                             <div class="swiper-lazy-preloader"></div> 
                                                         </div> 
                                                         <div class="swiper-slide">
-                                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/house-2/3-medium.jpg" class="slide-item swiper-lazy">
+                                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/house-2/3-medium.jpg" class="slide-item swiper-lazy">
                                                             <div class="swiper-lazy-preloader"></div> 
                                                         </div> 
                                                         <div class="swiper-slide">
-                                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/house-2/4-medium.jpg" class="slide-item swiper-lazy">
+                                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/house-2/4-medium.jpg" class="slide-item swiper-lazy">
                                                             <div class="swiper-lazy-preloader"></div> 
                                                         </div>    
                                                     </div>  
@@ -803,23 +803,23 @@
                                                 <div class="swiper-container">
                                                     <div class="swiper-wrapper"> 
                                                         <div class="swiper-slide">
-                                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/apartment/1-medium.jpg" class="slide-item swiper-lazy">
+                                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/apartment/1-medium.jpg" class="slide-item swiper-lazy">
                                                             <div class="swiper-lazy-preloader"></div> 
                                                         </div> 
                                                         <div class="swiper-slide">
-                                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/apartment/2-medium.jpg" class="slide-item swiper-lazy">
+                                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/apartment/2-medium.jpg" class="slide-item swiper-lazy">
                                                             <div class="swiper-lazy-preloader"></div> 
                                                         </div> 
                                                         <div class="swiper-slide">
-                                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/apartment/3-medium.jpg" class="slide-item swiper-lazy">
+                                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/apartment/3-medium.jpg" class="slide-item swiper-lazy">
                                                             <div class="swiper-lazy-preloader"></div> 
                                                         </div> 
                                                         <div class="swiper-slide">
-                                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/apartment/4-medium.jpg" class="slide-item swiper-lazy">
+                                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/apartment/4-medium.jpg" class="slide-item swiper-lazy">
                                                             <div class="swiper-lazy-preloader"></div> 
                                                         </div> 
                                                         <div class="swiper-slide">
-                                                            <img src="assets/images/others/transparent-bg.png" alt="slide image" data-src="assets/images/props/apartment/5-medium.jpg" class="slide-item swiper-lazy">
+                                                            <img src="assets/images/others/transparent-marked.png" alt="slide image" data-src="assets/images/props/apartment/5-medium.jpg" class="slide-item swiper-lazy">
                                                             <div class="swiper-lazy-preloader"></div> 
                                                         </div>   
                                                     </div>  
