@@ -14,14 +14,13 @@
                         
                         <div class="column center-xs middle-xs text-center">  
                             <h1 class="uppercase">Register</h1>
-                            <a href="{{url('login')}}" class="mdc-button mdc-ripple-surface mdc-ripple-surface--accent accent-color normal w-100">
-                                Already have an account? Sign in!
-                            </a>  
                         </div>
+                       
+                            
                         
                          <div class="row flex-nowrap between-xs middle-xs mt-3">
                                 <div class="divider p-relative w-100"></div>
-                                <h3 class="text-muted ws-nowrap fw-500 p-2">Signup with one click</h3>                       
+                                <h3 class="text-muted ws-nowrap fw-500 p-2">Register with Facebook</h3>                       
                                 <div class="divider p-relative w-100"></div>
                             </div> 
                              
@@ -33,13 +32,13 @@
                                     <svg class="material-icons mat-icon-md" viewBox="0 0 24 24">
                                         <path d="M17,2V2H17V6H15C14.31,6 14,6.81 14,7.5V10H14L17,10V14H14V22H10V14H7V10H10V6A4,4 0 0,1 14,2H17Z" />
                                     </svg>
-                        <span class="mdc-button__label"> Signup with Facebook</span> 
+                        <span class="mdc-button__label"> Register with Facebook</span> 
                     </a>      
                             </div> 
                         
                          <div class="row flex-nowrap between-xs middle-xs mt-3">
                                 <div class="divider p-relative w-100"></div>
-                                <h3 class="text-muted ws-nowrap fw-500 p-2">or Signup with email</h3>                       
+                                <h3 class="text-muted ws-nowrap fw-500 p-2">or Register with email</h3>                       
                                 <div class="divider p-relative w-100"></div>
                             </div> 
                         
@@ -101,9 +100,28 @@
                             <div class="text-center mt-2"> 
                                 <button class="mdc-button mdc-button--raised bg-accent" type="submit">
                                     <span class="mdc-button__ripple"></span>
-                                    <span class="mdc-button__label">Create an Account</span> 
+                                    <span class="mdc-button__label">Create Account</span> 
                                 </button>
-                            </div>  
+                            </div> 
+            
+             <div class="row flex-nowrap between-xs middle-xs mt-3">
+                                <div class="divider p-relative w-100"></div>
+                                <h3 class="text-muted ws-nowrap fw-500 p-2">Already have an account?</h3>                       
+                                <div class="divider p-relative w-100"></div>
+                            </div> 
+                             
+                            <div class="text-center py-3"> 
+                                 
+                   <a href="{{url('/login')}}" class="mdc-button mdc-button--raised">
+                        <span class="mdc-fab__ripple"></span>
+                        <span class="mdc-fab__ripple"></span>
+                        <span class="mdc-button__label">Log in</span> 
+                    </a>   
+                            </div> 
+            
+            
+            
+            
                         </form>
                         <div class="row my-4 px-3 p-relative">
                             <div class="divider w-100"></div> 

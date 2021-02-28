@@ -144,9 +144,9 @@ function hometabledata(data, elementID) {
     tbody.innerHTML = "";
     for (var i = 0; i < data.length; i++) {
         var property = data[i];
-        var status = "pending";
-        var published = '<button class="mdc-icon-button material-icons primary-color" onclick="publishProperty(' + property.property_id + ')">backup</button>';
-        if (property.property_status == '1') {
+        var status = "pending Approval";
+        var published = '';
+        if (property.property_status === '1') {
             status = "Active";
             published = '';
         }
@@ -273,7 +273,7 @@ function initMap() {
         zoom = 13;
     }
     var mapElement = document.getElementById("create-property-map");
-    console.log(mapElement);
+    
     const map = new google.maps.Map(mapElement, {
         center: {lat: lat, lng: lng},
         zoom: zoom,

@@ -11,15 +11,14 @@
                         
                         
                         <div class="column center-xs middle-xs text-center">  
-                            <h1 class="uppercase">Sign In</h1>
-                            <a href="{{url('/register')}}" class="mdc-button mdc-ripple-surface mdc-ripple-surface--accent accent-color normal w-100">
-                                Don't have an account? Sign up now!
-                            </a>  
+                            <h1 class="uppercase">Log In</h1>
+                           
+                              
                         </div>
                         
                         <div class="row flex-nowrap between-xs middle-xs mt-3">
                                 <div class="divider p-relative w-100"></div>
-                                <h3 class="text-muted ws-nowrap fw-500 p-2">Sign in with one click</h3>                       
+                                <h3 class="text-muted ws-nowrap fw-500 p-2">With Facebook</h3>                       
                                 <div class="divider p-relative w-100"></div>
                             </div> 
                              
@@ -37,7 +36,7 @@
                         
                         <div class="row flex-nowrap between-xs middle-xs mt-3">
                                 <div class="divider p-relative w-100"></div>
-                                <h3 class="text-muted ws-nowrap fw-500 p-2">or Sign in with email</h3>                       
+                                <h3 class="text-muted ws-nowrap fw-500 p-2">or Log in with email</h3>                       
                                 <div class="divider p-relative w-100"></div>
                             </div> 
                         
@@ -99,9 +98,12 @@
                                     <span class="mdc-button__ripple"></span>
                                     <span class="mdc-button__label">Sign to My Account</span> 
                                 </button>
-                            </div>  
+                                
+                            </div> 
+             
                             
                         </form>
+
                         <div class="row end-xs middle-xs"> 
                             <a href="{{url('/forgot')}}" class="mdc-button normal">
                                 <span class="mdc-button__ripple"></span>
@@ -109,6 +111,20 @@
                                 <span class="mdc-button__label">Reset Password</span> 
                             </a>  
                         </div>
+<div class="row flex-nowrap between-xs middle-xs mt-3">
+                                <div class="divider p-relative w-100"></div>
+                                <h3 class="text-muted ws-nowrap fw-500 p-2">Or Create new Account.</h3>                       
+                                <div class="divider p-relative w-100"></div>
+                            </div> 
+                             
+                            <div class="text-center py-3"> 
+                                 
+                   <a href="{{url('/register')}}" class="mdc-button mdc-button--raised">
+                        <span class="mdc-fab__ripple"></span>
+                        <span class="mdc-fab__ripple"></span>
+                        <span class="mdc-button__label">Create new Account</span> 
+                    </a>   
+                            </div> 
                     </div>                    
                 </div>  
             </div>  

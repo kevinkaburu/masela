@@ -21,6 +21,11 @@ use Illuminate\Support\Carbon;
 use File;
 
 class PropertyController extends Controller {
+    
+    public function pending() {
+
+        return view('pending');
+    }
 
     public function agent($agentUri) {
         $explodedUril = explode('-', $agentUri);
@@ -343,13 +348,23 @@ class PropertyController extends Controller {
 
     public function search(Request $request) {
         $requestpayload = $request->all();
+        $where = [];
 
 
-        $where = [
-            ['property.status', '=', '1'],
-        ];
+        
         $orwhere = [];
         $qwhere = [];
+        if (Auth::check() && !empty($requestpayload['property_id']) ) {
+//           $where = [
+//            ['property.status', '=', '1'],
+//        ];   
+            
+        }else{
+          $where = [
+            ['property.status', '=', '1'],
+        ];  
+        }
+                    
         //agent specific content
         if (!empty($requestpayload['agent_id'])) {
             array_push($where, ['property.agent_id', '=', $requestpayload['agent_id']]);

@@ -896,15 +896,13 @@
                                         <span class="mdc-fab__icon material-icons mat-icon-lg">check</span>
                                     </button>  
                                     <h2 class="mt-3 uppercase">Congratulations!</h2>
-                                    <h2 class="my-3">Your property has been submitted</h2>
-                                    <p class="text-muted fw-500">Preview the property listing before publishing it. You can publish and view the property listing by clicking here <a href="{{url('/home')}}">Listings</a></p>
-                                    <p class="text-muted fw-500">Click  "<button class="mdc-icon-button material-icons primary-color">backup</button>" to  publish the property to public. </p>
+                                    <p class="text-muted fw-500">Your property has been submitted. Pending approval.</p>
                                 </div>
                                 
                                 <div class="row center-xs middle-xs py-3"> 
-                    <a href="{{ route('property.new') }}" class="mdc-button  bg-accent mdc-button--raised d-none d-sm-flex d-md-flex d-lg-flex d-xl-flex">
+                    <a href="{{ route('home.index') }}" class="mdc-button  bg-accent mdc-button--raised">
                         <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">Return to submit new property</span> 
+                        <span class="mdc-button__label">View All</span> 
                     </a> 
                 </div> 
                      
