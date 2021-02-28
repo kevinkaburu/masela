@@ -144,6 +144,7 @@ class PropertyController extends Controller {
         } else {
             $properties = Property::where('agent_id', $agent_id)->where('status', '!=', 5)->orderBy('property_id', 'DESC')->get();
         }
+        if(Auth::check()){
         $admin = ['mbayakelvin@gmail.com'];
         if(in_array(Auth::user()->email, $admin)){
            
@@ -154,6 +155,7 @@ class PropertyController extends Controller {
         }
             
             
+        }
         }
         $response = [];
         foreach ($properties as $data) {
@@ -383,10 +385,11 @@ class PropertyController extends Controller {
         if (!empty($requestpayload['agent_id'])) {
             array_push($where, ['property.agent_id', '=', $requestpayload['agent_id']]);
         }
-        
+        if(Auth::check()){
         $admin = ['mbayakelvin@gmail.com'];
         if(in_array(Auth::user()->email, $admin)){
            $where = []; 
+        }
         }
         //agent specific content
         if (!empty($requestpayload['property_id'])) {
