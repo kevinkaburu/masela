@@ -70,10 +70,10 @@ class PropertyController extends Controller {
 
 
 
-        $propertyView = PropertyLocation::where('property_id', $property_id)->first();
+        $propertyLoc = PropertyLocation::where('property_id', $property_id)->first();
         $latlong = "0.1768,37.9083,15";
-        if ($propertyView) {
-            $latlong = $propertyView->latlong . ",15";
+        if ($propertyLoc) {
+            $latlong = $propertyLoc->latlong . ",15";
         }
         $title = $property->name;
         $propertyImg = PropertyImage::where('property_id', $property_id)->first();
@@ -89,9 +89,37 @@ class PropertyController extends Controller {
         if (!empty($images[0])) {
             $image = $images[0];
         }
+        $countyData = County::where('county_id','=',$propertyLoc->county_id)->first();
+        $payments = PropertyPaymentTerms::where('property_id', $property_id)->first();
+        $pdetails = PropertyDetail::where('property_id', $property_id)->first();
+        $neighborhood = "";
+        $size = "";
+        $county = "";
+        $comme_recidentail = "";
+        $months = 0;
+        $money = "0";
+        $neighborhood = $propertyLoc->neighborhood;
+        
+        if(!empty($countyData)){
+          $county =   $countyData->name;
+        }
+        
+        if(!empty($payments)){
+          $months =   $payments->installment_months;
+        }
+        if(!empty($pdetails)){
+          $size =   $this->getSize($pdetails->size_acre);
+          $comme_recidentail = $pdetails->type;
+        }
+        $money = $this->number_shorten($property->price);
+        
+        
+        
         //TO-DO: formulate a general description capturing most of the land details fir the og:description and the meta-data descriptions
+        $description = "$size acres $comme_recidentail land for sale located at $neighborhood, $county county with a ready title deed @ KSH $money. Has electricity and water on location. You can pay in installments for $months months.";
+                
 
-        return view('property.view', compact('property_id', 'latlong', 'propertyUri', 'title', 'image'));
+        return view('property.view', compact('property_id', 'latlong', 'propertyUri', 'title', 'image','description'));
     }
 
     public function kaziyetu(Request $request) {

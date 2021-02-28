@@ -2,6 +2,13 @@
 @extends('layouts.masela')
 
 @section('main')
+ <div class="header-image-wrapper">
+            <div class="bg" style="background-image: url('{{asset('images/carousel/slide-3.jpg')}}');"></div>
+            <div class="mask"></div>            
+            <div class="header-image-content offset-custom">
+                
+            </div>
+        </div> 
  <div class="px-3"> 
      <input type="hidden" id="single-property-map-data" value="{{$latlong}}"/>
             <div class="theme-container">  
