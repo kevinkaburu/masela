@@ -294,8 +294,8 @@ class PropertyController extends Controller {
         
         $counties = County::all();
         //Let's do the thing
-
-        return view('property.create', compact('counties','agent_id'));
+        $title = "Publish new land for sale on masela.";
+        return view('property.create', compact('counties','agent_id','title'));
     }
 
     public function delete(Request $requestdata) {
