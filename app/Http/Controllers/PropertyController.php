@@ -138,16 +138,29 @@ class PropertyController extends Controller {
         $requestpayload = $request->all();
         $agent_id = $requestpayload['agent_id'];
         $query = !empty($requestpayload['query']) ? $requestpayload['query'] : false;
+        
         if ($query) {
             $properties = Property::where('agent_id', $agent_id)->where('status', '!=', 5)->where('name', 'like', '%' . $query . '%')->orWhere('description', 'like', '%' . $query . '%')->orderBy('property_id', 'DESC')->get();
         } else {
             $properties = Property::where('agent_id', $agent_id)->where('status', '!=', 5)->orderBy('property_id', 'DESC')->get();
+        }
+        $admin = ['mbayakelvin@gmail.com'];
+        if(in_array(Auth::user()->email, $admin)){
+           
+            if ($query) {
+            $properties = Property::where('status', '!=', 5)->where('name', 'like', '%' . $query . '%')->orWhere('description', 'like', '%' . $query . '%')->orderBy('property_id', 'DESC')->get();
+        } else {
+            $properties = Property::where('status', '!=', 5)->orderBy('property_id', 'DESC')->get();
+        }
+            
+            
         }
         $response = [];
         foreach ($properties as $data) {
             $property = [];
             $property_id = $data->property_id;
             $property['property_id'] = $property_id;
+            $property['queue_type'] = (in_array(Auth::user()->email, $admin)? 1: 0);
             $property['property_name'] = $data->name;
             $property['property_status'] = $data->status;
             $property['property_link'] = "/property/view/" . $this->generateUrl($data->name, $data->property_id);
@@ -245,7 +258,7 @@ class PropertyController extends Controller {
         $property_id = !empty($request['property_id']) ? $request['property_id'] : false;
 
         if ($property_id) {
-            $property = Property::where('agent_id', $UserAgent->agent_id)->where('property_id', $property_id)->where('status', '!=', 5)->first();
+            $property = Property::where('property_id', $property_id)->where('status', '!=', 5)->first();
 
             if ($property) {
                 $property->status = 1;
@@ -255,7 +268,12 @@ class PropertyController extends Controller {
         $response['error'] = 0;
         $response['messages'] = ["Property Published"];
         $response['property_id'] = '';
-        $response['url'] = "/property/view/" . $this->generateUrl($property->name, $property->property_id);
+        $url = "/property/view/" . $this->generateUrl($property->name, $property->property_id);
+        $response['url'] = $url;
+        $fullUri = 'https://' . $_SERVER['HTTP_HOST'] .$url;
+        $sms = "Congratulations your property has been approved.\nShare it on social Media to reach even more possible buyers.\n $fullUri";
+        $agent = Agent::where('agent_id','=',$property->agent_id)->first();
+        $this->sendsms($agent->phone_number, $sms);
         return json_encode($response);
     }
 
@@ -345,11 +363,9 @@ class PropertyController extends Controller {
     public function search(Request $request) {
         $requestpayload = $request->all();
         $where = [];
-
-
-        
         $orwhere = [];
         $qwhere = [];
+        
         if (Auth::check() && !empty($requestpayload['property_id']) ) {
 //           $where = [
 //            ['property.status', '=', '1'],
@@ -360,10 +376,17 @@ class PropertyController extends Controller {
             ['property.status', '=', '1'],
         ];  
         }
+        
+        
                     
         //agent specific content
         if (!empty($requestpayload['agent_id'])) {
             array_push($where, ['property.agent_id', '=', $requestpayload['agent_id']]);
+        }
+        
+        $admin = ['mbayakelvin@gmail.com'];
+        if(in_array(Auth::user()->email, $admin)){
+           $where = []; 
         }
         //agent specific content
         if (!empty($requestpayload['property_id'])) {

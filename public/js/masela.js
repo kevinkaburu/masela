@@ -146,7 +146,10 @@ function hometabledata(data, elementID) {
         var property = data[i];
         var status = "pending Approval";
         var published = '';
-        if (property.property_status === '1') {
+        if(property.queue_type == 1){
+               published = '<button class="mdc-icon-button material-icons primary-color" onclick="publishProperty(' + property.property_id + ')">backup</button>';
+    }
+        if (property.property_status == '1') {
             status = "Active";
             published = '';
         }
@@ -273,7 +276,7 @@ function initMap() {
         zoom = 13;
     }
     var mapElement = document.getElementById("create-property-map");
-    
+    console.log(mapElement);
     const map = new google.maps.Map(mapElement, {
         center: {lat: lat, lng: lng},
         zoom: zoom,
