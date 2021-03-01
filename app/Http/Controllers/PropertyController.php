@@ -571,7 +571,7 @@ class PropertyController extends Controller {
             $property['images'] = $images;
             $property['img_placeholder'] = "/images/others/transparent-marked.png";
             $property['property_id'] = $data->property_id;
-            $property['property_name'] = substr($data->property_name, 0, 70) . (strlen($data->property_name) > 70 ? "..." : "");
+            $property['property_name'] = substr($data->property_name, 0, 60) . (strlen($data->property_name) > 60 ? "..." : "");
             $property['property_description'] = $data->property_description;
             $property['price'] = $data->price;
             $property['kmb'] = $this->number_shorten($data->price);
