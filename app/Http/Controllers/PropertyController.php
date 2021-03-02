@@ -707,8 +707,9 @@ class PropertyController extends Controller {
         
         
         
+        $agent = Agent::where('phone_number','=',$msisdn)->first();
         
-        
+        if(empty($agent)){
         $agent = Agent::create([
                         'phone_number' => $msisdn,
                         'phone_number_otp' => strtoupper($this->generateRandomString(4)),
@@ -719,6 +720,7 @@ class PropertyController extends Controller {
             ]);
 
             $agent->save();
+        }
             $agent_id = $agent->agent_id;
             
          }
