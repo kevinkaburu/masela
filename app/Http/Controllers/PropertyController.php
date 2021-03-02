@@ -173,7 +173,7 @@ class PropertyController extends Controller {
             $properties = Property::where('agent_id', $agent_id)->where('status', '!=', 5)->orderBy('property_id', 'DESC')->get();
         }
         if(Auth::check()){
-        $admin = ['mbayakelvin@gmail.com'];
+        $admin = ['mbayakelvin@gmail.com','kaburu@vinuru.com'];
         if(in_array(Auth::user()->email, $admin)){
            
             if ($query) {
@@ -414,7 +414,7 @@ class PropertyController extends Controller {
             array_push($where, ['property.agent_id', '=', $requestpayload['agent_id']]);
         }
         if(Auth::check()){
-        $admin = ['mbayakelvin@gmail.com'];
+        $admin = ['mbayakelvin@gmail.com','kaburu@vinuru.com'];
         if(in_array(Auth::user()->email, $admin)){
            $where = []; 
         }
