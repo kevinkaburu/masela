@@ -558,6 +558,7 @@ public function viewContact($propertyID,$type){
                         ->orWhere('agent.name', 'like', "%" . $requestpayload['query'] . "%")
                         ->orWhere('agent.description', 'like', "%" . $requestpayload['query'] . "%");
                     })
+                    ->groupBy('property.property_id')
                     ->orderByRaw($order_by)
                     ->offset($offset)->limit($limit)
                     ->get();
@@ -581,6 +582,7 @@ public function viewContact($propertyID,$type){
                             'property_payment_terms.installment_price', 'property_view.views', 'property_payment_terms.inclusive_titledeed_processing', 'agent.phone_number_whatsapp', 'agent.name AS agent_name', 'agent.description AS agent_description', 'agent.phone_number')
                     ->where($where)
                     ->orwhere($orwhere)
+                    ->groupBy('property.property_id')
                     ->orderByRaw($order_by)
                     ->offset($offset)->limit($limit)
                     ->get();
