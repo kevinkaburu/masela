@@ -69,6 +69,7 @@ Route::get('/blog/bnv/1', 'BlogController@write')->name('blog.write');
 Route::post('/blog/list', 'BlogController@list')->name('blog.list');
 Route::post('/property/search', 'PropertyController@search')->name('property.search');
 Route::get('/property/view/{propertyUri}/', 'PropertyController@view')->name('property.view');
+Route::get('/property/view/contact/{propertyID}/{type}/', 'PropertyController@viewContact')->name('property.viewContact');
 Route::post('/property/view/kaziyetu/', 'PropertyController@kaziyetu')->name('property.kazi');
 Route::get('/property/view/agent/{agentUri}/', 'PropertyController@agent')->name('property.agent');
 Route::post('/newsletter/subscribe', 'HomeController@newsletter')->name('home.newsleter');

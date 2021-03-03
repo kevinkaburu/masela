@@ -49,7 +49,34 @@ class PropertyController extends Controller {
 
         return view('property.listing', compact('counties', 'propertydetail'));
     }
+public function viewContact($propertyID,$type){
+    $property = Property::find($propertyID);
+        if (!$property) {
+            return "Done";
+        }
+        $viewed = "";
+        if($type==1){
+            $viewed = "contact";
+        }else if ($type==2){
+            $viewed = "whatsapp";
+        }
+        if($viewed==""){
+            return "done";
+        }
+        
+        $propertyView = PropertyView::where('property_id', $propertyID)->where('viewed', $viewed)->first();
 
+        if (!$propertyView) {
+            $propertyView = new PropertyView();
+            $propertyView->property_id = $propertyID;
+        }
+        $propertyView->viewed = $viewed;
+        $propertyView->views = $propertyView->views + 1;
+        $propertyView->save();
+        
+        return "done";
+
+}
     public function view($propertyUri) {
         $explodedUril = explode('-', $propertyUri);
         $property_id = end($explodedUril);

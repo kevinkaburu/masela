@@ -404,13 +404,31 @@ function callseller(phone_number,property_id){
     var callhtml = `<i class="material-icons primary-color">call</i> <a href="tel:${phone_number}">${phone_number}</a>`;
     document.getElementById('single-property-agent-phone').innerHTML=callhtml;
     //make call to view_property call
-    console.log(phone_number,property_id);
+    contactviewed(property_id,1)
 }
 function whatsappseller(phone_number,property_id){
     var sms = "Hi, I'm reaching out to inquire more about this piece of land that you have on Masela. "+window.location.href;
     document.getElementById("single-property-agent-whatsApp").innerHTML=agentwhatApp(phone_number,sms);
     //make call to view_property call
-    console.log(phone_number,property_id);
+    contactviewed(property_id,2)
+    var URL="https://api.whatsapp.com/send?phone=+"+phone_number+"&text="+sms+"&"
+    $('<a href="'+ URL +'" target="_blank">Open whatsApp messager</a>')[0].click();
+}
+
+async function contactviewed(propertyID,type){
+    
+     await ajax({
+        method: "GET",
+        url: "/property/view/contact/"+propertyID+"/"+type+"/",
+        processData: false,
+        cache: false,
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+    }).then(
+            
+    ).catch(function errorHandler(error) {
+        //somehow notify of error
+        console.log(error);
+    });
 }
 
 function singleProperty(data) {
@@ -548,11 +566,11 @@ function featurelisting(name){
     return featurehtml;
 }
 function agentlink(url){
-    var url = `<a href="${url}" class="mdc-button mdc-button--outlined">
-                        <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">Other listings</span> 
-                    </a>`;
-    return url;
+//    var url = `<a href="${url}" class="mdc-button mdc-button--outlined">
+//                        <span class="mdc-button__ripple"></span>
+//                        <span class="mdc-button__label">Other listings</span> 
+//                    </a>`;
+    return '';
 }
 function agentwhatApp(phone,current){
     var url = `<svg style="width:24px;height:24px" viewBox="0 0 24 24">
