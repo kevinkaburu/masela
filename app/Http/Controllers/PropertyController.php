@@ -434,6 +434,7 @@ public function viewContact($propertyID,$type){
         }else{
           $where = [
             ['property.status', '=', '1'],
+            ['property_view.viewed','=','details'],
         ];  
         }
         
