@@ -168,7 +168,7 @@
                                         <p class="row middle-xs"><div class="sharethis-inline-share-buttons"></div></p>
                                     <div class="widget-title" id="single-property-agent-name">Contact seller</div>
                                         <p class="mt-3 text-muted fw-500" id="single-property-agent-description"></p> 
-                                        <p class="row middle-xs"><i class="material-icons primary-color">call</i><span class="mx-2 text-muted fw-500" id="single-property-agent-phone"></span></p>
+                                        <p class="row middle-xs"><span class="mx-2 text-muted fw-500" id="single-property-agent-phone"></span></p>
                                         <p class="row middle-xs primary-color" id="single-property-agent-whatsApp">
                                            
                                         </p>

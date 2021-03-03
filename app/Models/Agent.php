@@ -14,7 +14,7 @@ class Agent extends Model
 
 
     protected $fillable = [
-        'name', 'phone_number','description','phone_number_otp', 'logo_url','status','created',
+        'name', 'phone_number','description','phone_number_whatsapp','phone_number_otp', 'logo_url','status','created',
     ];
 
 }

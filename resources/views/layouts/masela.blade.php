@@ -10,7 +10,7 @@
 
   gtag('config', 'G-SDQ0G14XX3');
 </script>
-
+<script data-ad-client="ca-pub-6003791715361668" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

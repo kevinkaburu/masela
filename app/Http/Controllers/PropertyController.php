@@ -335,10 +335,13 @@ class PropertyController extends Controller {
         }
         $request = $requestdata->all();
         $property_id = !empty($request['property_id']) ? $request['property_id'] : false;
-
         if ($property_id) {
             $agent_id = $request['agent_id'];
             $property = Property::where('agent_id', $UserAgent->agent_id)->where('property_id', $property_id)->where('status', '!=', 5)->first();
+            $admin = ['mbayakelvin@gmail.com','kaburu@vinuru.com'];
+        if(in_array(Auth::user()->email, $admin)){
+           $property = Property::where('property_id', $property_id)->where('status', '!=', 5)->first();
+        }
 
             if ($property) {
                 $property->status = 5;
