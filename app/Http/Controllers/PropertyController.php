@@ -883,7 +883,7 @@ public function viewContact($propertyID,$type){
 
     private function convertToDecimal($fraction) {
         $numbers = explode("/", $fraction);
-        return round($numbers[0] / $numbers[1], 6);
+        return round(trim($numbers[0]) / trim($numbers[1]), 6);
     }
 
     private function featuresForm($requestpayload) {
