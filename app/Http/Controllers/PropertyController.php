@@ -890,7 +890,10 @@ public function viewContact($propertyID,$type){
 
     private function convertToDecimal($fraction) {
         $numbers = explode("/", $fraction);
-        return round(trim($numbers[0]) / trim($numbers[1]), 6);
+        $x = preg_replace('/[a-zA-Z]/', '', $numbers[0]);
+        $y = preg_replace('/[a-zA-Z]/', '', $numbers[1]);
+       
+        return round(trim($x) / trim($y), 6);
     }
 
     private function featuresForm($requestpayload) {
