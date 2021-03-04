@@ -819,6 +819,10 @@ public function viewContact($propertyID,$type){
         if (empty($requestpayload['nearest_town'])) {
             array_push($error_messages, "Nearest town  is required!");
         }
+        //validate nearest_town
+        if (empty($requestpayload['neighborhood'])) {
+            array_push($error_messages, "Neighborhood  is required!");
+        }
         //if we caught any error we return
         if (count($error_messages) > 0) {
             $response['error'] = 1;
