@@ -407,7 +407,7 @@ function callseller(phone_number,property_id){
     contactviewed(property_id,1)
 }
 function whatsappseller(phone_number,property_id){
-    var sms = "Hi, I'm reaching out to inquire more about this piece of land that you have on Masela. "+window.location.href;
+    var sms = window.location.href+"\n Hey, I'm reaching out to inquire on this piece of land that you are selling on Masela. ";
     document.getElementById("single-property-agent-whatsApp").innerHTML=agentwhatApp(phone_number,sms);
     //make call to view_property call
     contactviewed(property_id,2)
