@@ -19,7 +19,187 @@
 
 @section('main')<!-- comment -->
 <div class="px-3" id="px-3">  
-    <div class="theme-container">  
+    <div class="theme-container">
+        
+        
+        
+<!--          <div class="mdc-card main-content-header">  
+                    <form action="javascript:void(0);" id="filters" class="search-wrapper"> 
+                        <div class="row">  
+                            <div class="col-xs-12 col-sm-6 col-md-4 p-2">
+                                <div class="mdc-select mdc-select--outlined">
+                                    <div class="mdc-select__anchor">
+                                        <i class="mdc-select__dropdown-icon"></i>
+                                        <div class="mdc-select__selected-text"></div>
+                                        <div class="mdc-notched-outline">
+                                            <div class="mdc-notched-outline__leading"></div>
+                                            <div class="mdc-notched-outline__notch">
+                                                <label class="mdc-floating-label">Which County?</label>
+                                            </div>
+                                            <div class="mdc-notched-outline__trailing"></div>
+                                        </div>
+                                    </div>
+                                    <div class="mdc-select__menu mdc-menu mdc-menu-surface">
+                                        <ul class="mdc-list">
+                                            <li class="mdc-list-item mdc-list-item--selected" data-value=""></li>
+                                            <li class="mdc-list-item" data-value="1">Office</li>
+                                            <li class="mdc-list-item" data-value="2">House</li>
+                                            <li class="mdc-list-item" data-value="3">Apartment</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>   
+                            
+                            <div class="col-xs-6 col-md-3 p-2">
+                                <div class="mdc-text-field mdc-text-field--outlined">
+                                    <input class="mdc-text-field__input">
+                                    <div class="mdc-notched-outline">
+                                    <div class="mdc-notched-outline__leading"></div>
+                                    <div class="mdc-notched-outline__notch">
+                                        <label class="mdc-floating-label">Price From</label>
+                                    </div>
+                                    <div class="mdc-notched-outline__trailing"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-3 p-2 to">
+                                <div class="mdc-text-field mdc-text-field--outlined">
+                                    <input class="mdc-text-field__input">
+                                    <div class="mdc-notched-outline">
+                                    <div class="mdc-notched-outline__leading"></div>
+                                    <div class="mdc-notched-outline__notch">
+                                        <label class="mdc-floating-label">Price To</label>
+                                    </div>
+                                    <div class="mdc-notched-outline__trailing"></div>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>    
+                        <div class="row d-none" id="more-filters"> 
+                           
+                            <div class="col-xs-12 col-sm-6 col-md-4 p-2">  
+                                <div class="mdc-text-field mdc-text-field--outlined">
+                                    <input class="mdc-text-field__input">
+                                    <div class="mdc-notched-outline">
+                                        <div class="mdc-notched-outline__leading"></div>
+                                        <div class="mdc-notched-outline__notch">
+                                            <label class="mdc-floating-label">Max KMs to tarmac</label>
+                                        </div>
+                                        <div class="mdc-notched-outline__trailing"></div>
+                                    </div>
+                                </div> 
+                            </div> 
+                            
+                            
+                            <div class="col-xs-6 col-md-2 p-2"> 
+                                <div class="mdc-select mdc-select--outlined">
+                                    <div class="mdc-select__anchor">
+                                        <i class="mdc-select__dropdown-icon"></i>
+                                        <div class="mdc-select__selected-text"></div>
+                                        <div class="mdc-notched-outline">
+                                            <div class="mdc-notched-outline__leading"></div>
+                                            <div class="mdc-notched-outline__notch">
+                                                <label class="mdc-floating-label">Land type</label>
+                                            </div>
+                                            <div class="mdc-notched-outline__trailing"></div>
+                                        </div>
+                                    </div>
+                                    <div class="mdc-select__menu mdc-menu mdc-menu-surface">
+                                        <ul class="mdc-list">
+                                            <li class="mdc-list-item mdc-list-item--selected" data-value=""></li>
+                                            <li class="mdc-list-item" data-value="1">Commercial</li>
+                                            <li class="mdc-list-item" data-value="2">Residential</li>
+                                            <li class="mdc-list-item" data-value="3">Mixed Use</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-xs-6 col-md-2 p-2"> 
+                                <div class="mdc-select mdc-select--outlined">
+                                    <div class="mdc-select__anchor">
+                                        <i class="mdc-select__dropdown-icon"></i>
+                                        <div class="mdc-select__selected-text"></div>
+                                        <div class="mdc-notched-outline">
+                                            <div class="mdc-notched-outline__leading"></div>
+                                            <div class="mdc-notched-outline__notch">
+                                                <label class="mdc-floating-label">Access RD type</label>
+                                            </div>
+                                            <div class="mdc-notched-outline__trailing"></div>
+                                        </div>
+                                    </div>
+                                    <div class="mdc-select__menu mdc-menu mdc-menu-surface">
+                                        <ul class="mdc-list">
+                                            <li class="mdc-list-item mdc-list-item--selected" data-value=""></li>
+                                            <li class="mdc-list-item" data-value="1">Commercial</li>
+                                            <li class="mdc-list-item" data-value="2">Residential</li>
+                                            <li class="mdc-list-item" data-value="3">Mixed Use</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="col-xs-12 mb-2 p-0"> 
+                                <p class="uppercase m-2 fw-500">Features</p>  
+                                <div class="features">
+                                    <div class="mdc-form-field">
+                                        <div class="mdc-checkbox">
+                                            <input type="checkbox" class="mdc-checkbox__native-control" id="air-conditioning"/>
+                                            <div class="mdc-checkbox__background">
+                                                <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                                    <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                                </svg>
+                                                <div class="mdc-checkbox__mixedmark"></div>
+                                            </div>
+                                            <div class="mdc-checkbox__ripple"></div>
+                                        </div>
+                                        <label for="air-conditioning">Ready type Deed</label>
+                                    </div>    
+                                    <div class="mdc-form-field">
+                                        <div class="mdc-checkbox">
+                                            <input type="checkbox" class="mdc-checkbox__native-control" id="barbeque"/>
+                                            <div class="mdc-checkbox__background">
+                                                <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                                    <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                                </svg>
+                                                <div class="mdc-checkbox__mixedmark"></div>
+                                            </div>
+                                            <div class="mdc-checkbox__ripple"></div>
+                                        </div>
+                                        <label for="barbeque">Pay in installments</label>
+                                    </div>
+                                    
+                                    
+                                </div> 
+                            </div> 
+                        </div>   
+                        <div class="row center-xs middle-xs p-2"> 
+                            <button class="mdc-button mdc-button--raised bg-warn" type="button" id="clear-filter">
+                                <span class="mdc-button__ripple"></span>
+                                <span class="mdc-button__label">Clear</span> 
+                            </button>
+                            <button class="mdc-button mdc-button--raised mx-2" type="button" id="show-more-filters">
+                                <span class="mdc-button__ripple"></span>
+                                <span class="mdc-button__label">Advanced</span> 
+                            </button>
+                            <button class="mdc-button mdc-button--raised mx-2 d-none" type="button" id="hide-more-filters">
+                                <span class="mdc-button__ripple"></span>
+                                <span class="mdc-button__label">Hide</span> 
+                            </button>
+                            <button class="mdc-button mdc-button--raised" type="submit">
+                                <span class="mdc-button__ripple"></span>
+                                <i class="material-icons mdc-button__icon">search</i>
+                                <span class="mdc-button__label">Search</span> 
+                            </button>  
+                        </div>
+                    </form> 
+                </div> -->
+        
+        
+        
+        
+        
         <div class="page-drawer-container mt-3">
             <aside class="mdc-drawer mdc-drawer--modal page-sidenav end-xs start-md">
                 <a href="#" class="h-0"></a>

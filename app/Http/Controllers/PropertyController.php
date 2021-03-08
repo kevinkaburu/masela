@@ -890,9 +890,9 @@ public function viewContact($propertyID,$type){
 
     private function convertToDecimal($fraction) {
         $numbers = explode("/", $fraction);
-        $x = preg_replace('/[a-zA-Z]/', '', $numbers[0]);
-        $y = preg_replace('/[a-zA-Z]/', '', $numbers[1]);
-       
+        $x = preg_replace('/[^0-9]/', '', $numbers[0]);
+        $y = preg_replace('/[^0-9]/', '', $numbers[1]);
+        logger("convertToDecimal X is [$x] and Y is [$y]");
         return round(trim($x) / trim($y), 6);
     }
 
