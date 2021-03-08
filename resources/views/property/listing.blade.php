@@ -282,7 +282,7 @@
 <script>
     const elementID = 'home-property-listing-div';
     const elementType = 'cards';
-    const data = JSON.stringify({limit: 1000});
+    const data = JSON.stringify({limit: 1000,order: 'views'});
     var timeout = null;
 
 
