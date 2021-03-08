@@ -2,7 +2,21 @@
 <html lang="en">
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SDQ0G14XX3"></script>
+<!--<script async src="https://www.googletagmanager.com/gtag/js?id=G-SDQ0G14XX3"></script>-->
+<!-- Global site tag (gtag.js) - Google Ads: 974622069 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-974622069"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-974622069');
+</script>
+<!-- Event snippet for Website traffic conversion page -->
+<script>
+  gtag('event', 'conversion', {'send_to': 'AW-974622069/xYRiCIDju_oBEPWa3tAD'});
+</script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
