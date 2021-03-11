@@ -44,7 +44,13 @@ class PropertyController extends Controller {
     }
 
     public function listing() {
-        $counties = County::all();
+         $counties = DB::table('county')
+                    ->join('property_location', 'county.county_id', '=', 'property_location.county_id')
+                     ->join('property', 'property.property_id', '=', 'property_location.property_id')
+                    ->select('county.county_id','county.name',DB::raw('count(property_location.property_id) as total_property'))
+                    ->where('property.status','=',1)
+                    ->groupBy('county.county_id')
+                   ->get();
         $propertydetail = PropertyDetail::groupBy('type')->get();
 
         return view('property.listing', compact('counties', 'propertydetail'));
@@ -223,7 +229,7 @@ public function viewContact($propertyID,$type){
             $property['property_link'] = "/property/view/" . $this->generateUrl($data->name, $data->property_id);
             //get IMG
             $propertyImages = PropertyImage::where('property_id', $property_id)->first();
-            $images = ["/images/others/transparent-marked.png"];
+            $images = ["/images/others/transparent-marked.jpg"];
             if ($propertyImages) {
                 $imagesData = json_decode($propertyImages->images);
                 $images = [];
@@ -593,7 +599,7 @@ public function viewContact($propertyID,$type){
         foreach ($proprtydata as $key => $data) {
             $property = [];
             //process Images
-            $images = ["/images/others/transparent-marked.png"];
+            $images = ["/images/others/transparent-marked.jpg"];
             if (!empty($data->images)) {
                 $imagesData = json_decode($data->images);
                 $images = [];
@@ -602,7 +608,7 @@ public function viewContact($propertyID,$type){
                 }
             }
             $property['images'] = $images;
-            $property['img_placeholder'] = "/images/others/transparent-marked.png";
+            $property['img_placeholder'] = "/images/others/transparent-marked.jpg";
             $property['property_id'] = $data->property_id;
             $property['property_name'] = substr($data->property_name, 0, 60) . (strlen($data->property_name) > 60 ? "..." : "");
             $property['property_description'] = $data->property_description;

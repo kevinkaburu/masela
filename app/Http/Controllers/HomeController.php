@@ -10,6 +10,8 @@ use App\Models\County;
 use App\Models\PropertyDetail;
 use App\Models\NewsletterContact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 
 class HomeController extends Controller {
@@ -41,7 +43,8 @@ class HomeController extends Controller {
         return view('pricing');
     }
     public function contact() {
-        $counties = County::all();
+       $counties = County::all();
+               
         
         return view('contact', compact('counties'));
     }
@@ -52,7 +55,13 @@ class HomeController extends Controller {
     }
 
     public function landing() {
-        $counties = County::all();
+       $counties = DB::table('county')
+                    ->join('property_location', 'county.county_id', '=', 'property_location.county_id')
+                     ->join('property', 'property.property_id', '=', 'property_location.property_id')
+                    ->select('county.county_id','county.name',DB::raw('count(property_location.property_id) as total_property'))
+                    ->where('property.status','=',1)
+                    ->groupBy('county.county_id')
+                   ->get();
         $propertydetail = PropertyDetail::groupBy('type')->get();
 
 
