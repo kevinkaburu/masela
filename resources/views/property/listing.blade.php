@@ -282,9 +282,15 @@
 <script>
     const elementID = 'home-property-listing-div';
     const elementType = 'cards';
-    const data = JSON.stringify({limit: 1000,order: 'views'});
-    var timeout = null;
+     var searchdt = <?php echo json_encode(isset($data)?$data:[]); ?>;
+   
+    var data = JSON.stringify({limit: 1000});
+    if(searchdt !== ""){
+        data= JSON.stringify(searchdt);
+    }
 
+    
+    var timeout = null;
 
     function init() {
         GetListingProperty(data, elementID, elementType);

@@ -855,8 +855,8 @@ function imageshtml(property, img) {
     return image;
 }
 function cardhtml(property, images, commercialNegotiable, features) {
-    var html = `                            <div class="row item col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4"> 
-                                <div class="mdc-card property-item grid-item column-3"> 
+    var html = `                            <div class="row item col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"> 
+                                <div class="mdc-card property-item list-item column-1"> 
                                     <div class="thumbnail-section">
                                         <div class="row property-status">
                                             ${commercialNegotiable}

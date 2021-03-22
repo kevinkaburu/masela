@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use App\Models\Agent;
+use App\Models\Property;
+use \App\Models\PropertyView;
 use App\Models\UserAgent;
 use Illuminate\Support\MessageBag;
 use App\Models\County;
@@ -63,11 +65,17 @@ class HomeController extends Controller {
                     ->groupBy('county.county_id')
                    ->get();
         $propertydetail = PropertyDetail::groupBy('type')->get();
+        
+        $agents = Agent::groupBy('phone_number')->get();
+        $properties = Property::get();
+        $views = PropertyView::sum('views');
+
+        
 
 
 
 
-        return view('welcome', compact('counties', 'propertydetail'));
+        return view('welcome', compact('counties', 'propertydetail','agents','properties','views'));
     }
 
     /**

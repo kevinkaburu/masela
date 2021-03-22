@@ -1322,6 +1322,20 @@ main.main-toolbar-fixed{
   margin-top: 24px;
   padding: 24px !important; 
 }
+.main-content-header-landing{
+  position: relative; 
+  z-index: 2;
+  opacity: .9;
+  color: #000000;
+  margin-top: 10px;
+  padding: 38px !important; 
+}
+
+main.content-offset-to-top .main-content-header-landing{
+  margin-top: 80px;  
+  border-top: 5px solid var(--mdc-theme-primary);
+}
+
 main.content-offset-to-top .main-content-header{
   margin-top: -80px;  
   border-top: 5px solid var(--mdc-theme-primary);

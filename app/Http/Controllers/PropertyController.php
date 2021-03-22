@@ -55,6 +55,58 @@ class PropertyController extends Controller {
 
         return view('property.listing', compact('counties', 'propertydetail'));
     }
+    
+    public function listings(Request $request) {
+        $rdata = $request->all();
+        $data = [];
+        
+        if(!empty($rdata['county_id'])){
+           $data['county_id']= $rdata['county_id'];
+        }
+        if(!empty($rdata['query'])){
+           $data['query']= $rdata['query'];
+        }
+        if(!empty($rdata['max_price'])){
+           $data['max_price']= $rdata['max_price'];
+        }
+        if(!empty($rdata['max_kms_to_tarmac'])){
+           $data['max_kms_to_tarmac']= $rdata['max_kms_to_tarmac'];
+        }
+        if(!empty($rdata['property_type'])){
+           $data['property_type']= $rdata['property_type'];
+        }
+        if(!empty($rdata['min_price'])){
+           $data['min_price']= $rdata['min_price'];
+        }
+        if(!empty($rdata['ready_title_deed'])){
+           $data['ready_title_deed']= $rdata['ready_title_deed'];
+        }
+        if(!empty($rdata['controlled_development'])){
+           $data['controlled_development']= $rdata['controlled_development'];
+        }
+        if(!empty($rdata['gated_community'])){
+           $data['gated_community']= $rdata['gated_community'];
+        }
+        if(!empty($rdata['installments'])){
+           $data['installments']= $rdata['installments'];
+        }
+        if(!empty($rdata['negotiable'])){
+           $data['negotiable']= $rdata['negotiable'];
+        }
+        
+        
+         $counties = DB::table('county')
+                    ->join('property_location', 'county.county_id', '=', 'property_location.county_id')
+                     ->join('property', 'property.property_id', '=', 'property_location.property_id')
+                    ->select('county.county_id','county.name',DB::raw('count(property_location.property_id) as total_property'))
+                    ->where('property.status','=',1)
+                    ->groupBy('county.county_id')
+                   ->get();
+        $propertydetail = PropertyDetail::groupBy('type')->get();
+
+        return view('property.listing', compact('counties', 'propertydetail','data'));
+    }
+    
 public function viewContact($propertyID,$type){
     $property = Property::find($propertyID);
         if (!$property) {
@@ -498,6 +550,9 @@ public function viewContact($propertyID,$type){
 
         if (!empty($requestpayload['negotiable'])) {
             array_push($where, ['property.negotiable', '=', 1]);
+        }
+        if (!empty($requestpayload['status'])) {
+            array_push($where, ['property.status', '=', $requestpayload['status']]);
         }
 
 
