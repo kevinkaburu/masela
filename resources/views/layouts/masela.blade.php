@@ -449,7 +449,7 @@ if(strpos($fullPath, '/blog/') !== false){
             
                     <a href="{{ route('property.listing') }}" class="mdc-button mdc-button--raised  d-sm-flex">
                         <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">Listings</span> 
+                        <span class="mdc-button__label">Buy Land</span> 
                     </a> 
                 </div>
                 
