@@ -147,6 +147,7 @@ if(strpos($fullPath, '/blog/') !== false){
                 </div>
                 
                 
+                
                 <div> 
                     <a href="{{ route('property.new') }}" class="mdc-button">
                         <span class="mdc-button__ripple"></span>
@@ -443,8 +444,17 @@ if(strpos($fullPath, '/blog/') !== false){
                     
                 </div>
                 
+               
+                <div class="row  d-md-none d-lg-none d-xl-none"> 
+            
+                    <a href="{{ route('property.listing') }}" class="mdc-button mdc-button--raised  d-sm-flex">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label">Listings</span> 
+                    </a> 
+                </div>
                 
                 <div class="row middle-xs"> 
+                     
             
                     <a href="{{ route('property.new') }}" class=" sell-land mdc-button mdc-button--raised  d-sm-flex d-md-flex d-lg-flex d-xl-flex">
                         <span class="mdc-button__ripple"></span>
