@@ -485,13 +485,11 @@ public function viewContact($propertyID,$type){
         $qwhere = [];
         
         if (Auth::check() && !empty($requestpayload['property_id']) ) {
-//           $where = [
-//            ['property.status', '=', '1'],
-//        ];   
+ 
             
         }else{
           $where = [
-            ['property.status', '=', '1'],
+            ['property.status', '!=', '5'],
             ['property_view.viewed','=','details'],
         ];  
         }
@@ -551,9 +549,7 @@ public function viewContact($propertyID,$type){
         if (!empty($requestpayload['negotiable'])) {
             array_push($where, ['property.negotiable', '=', 1]);
         }
-        if (!empty($requestpayload['status'])) {
-            array_push($where, ['property.status', '=', $requestpayload['status']]);
-        }
+        
 
 
         if (!empty($requestpayload['query'])) {
