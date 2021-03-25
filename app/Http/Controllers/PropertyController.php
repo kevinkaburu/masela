@@ -852,11 +852,15 @@ public function viewContact($propertyID,$type){
             array_push($error_messages, "Size in Acres  is required!");
         }
 
-        //validate size_acre number or fraction
+        
+        if (!empty($requestpayload['size_acre'])) {
+           //validate size_acre number or fraction
         $size_in_acres = $requestpayload['size_acre'];
         if ((!is_numeric($size_in_acres)) && !str_contains($size_in_acres, '/')) {
             array_push($error_messages, "Size in Acres  can only be a fraction, EG 1/8 or a number EG: 1.");
         }
+        }
+        
 
         //validate size in feets
         if (empty($requestpayload['size_feet_1']) != empty($requestpayload['size_feet_2'])) {
