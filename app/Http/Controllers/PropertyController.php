@@ -559,7 +559,7 @@ public function viewContact($propertyID,$type){
         }
         
         if(!empty($requestpayload['tag_id'])){
-           array_push($where, ['property_tag.property_tag_id', '=', $requestpayload['tag_id']]);
+           array_push($where, ['property_tag.tag_code', '=', $requestpayload['tag_id']]);
         }
 
 
