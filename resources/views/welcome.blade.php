@@ -6,8 +6,8 @@
             <div class="mask"></div>            
             <div class="header-image-content home-page offset-bottom">
                         <div class="mdc-card main-content-header-landing col-xs-12 col-sm-8 col-md-7">  
-                            <form action="/listing" method="POST" id="filters" class="search-wrapper"> 
-                                @csrf
+                            <form action="/listing" method="GET" id="filters" class="search-wrapper"> 
+<!--                                @csrf-->
                         <div class="row" >  
                             <div class="col-xs-12 col-sm-6 col-md-3 p-2">
                                 <div class="mdc-select mdc-select--outlined" id="search_county_id">

@@ -59,8 +59,10 @@ Route::get('/property/new', 'PropertyController@create')->name('property.new');
 Route::post('/property/create', 'PropertyController@write')->name('property.write');
 
 Route::get('/', 'HomeController@landing')->name('welcome');
-Route::get('/listing', 'PropertyController@listing')->name('property.listing');
-Route::post('/listing', 'PropertyController@listings')->name('property.listing.search');
+
+//Route::get('/listing', 'PropertyController@listing')->name('property.listing');
+Route::get('/listing', 'PropertyController@listings')->name('property.listing');
+
 Route::get('/pricing', 'HomeController@pricing')->name('pricing');
 Route::get('/services', 'HomeController@services')->name('services');
 Route::get('/contact', 'HomeController@contact')->name('contact');

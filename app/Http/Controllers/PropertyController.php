@@ -93,6 +93,9 @@ class PropertyController extends Controller {
         if(!empty($rdata['negotiable'])){
            $data['negotiable']= $rdata['negotiable'];
         }
+        if(!empty($rdata['tag_id'])){
+           $data['tag_id']= $rdata['tag_id'];
+        }
         
         
          $counties = DB::table('county')
@@ -554,6 +557,10 @@ public function viewContact($propertyID,$type){
         if (!empty($requestpayload['status'])) {
             array_push($where, ['property.status', '=', $requestpayload['status']]);
         }
+        
+        if(!empty($requestpayload['tag_id'])){
+           array_push($where, ['property_tag.property_tag_id', '=', $requestpayload['tag_id']]);
+        }
 
 
         if (!empty($requestpayload['query'])) {
@@ -600,6 +607,7 @@ public function viewContact($propertyID,$type){
                     ->leftjoin('property_view', 'property.property_id', '=', 'property_view.property_id')
                     ->join('property_payment_terms', 'property.property_id', '=', 'property_payment_terms.property_id')
                     ->leftjoin('property_image', 'property.property_id', '=', 'property_image.property_id')
+                    ->leftjoin('property_tag', 'property.property_id', '=', 'property_tag.property_id')
                     ->leftjoin('county', 'property_location.county_id', '=', 'county.county_id')
                     ->join('agent', 'property.agent_id', '=', 'agent.agent_id')
                     ->select('property.property_id', 'property.name as property_name', 'property.created as property_created', 'property.modified as property_modified', 'property.price', 'property.agent_id', 'property.description AS property_description',
@@ -631,6 +639,7 @@ public function viewContact($propertyID,$type){
                     ->leftjoin('property_view', 'property.property_id', '=', 'property_view.property_id')
                     ->join('property_payment_terms', 'property.property_id', '=', 'property_payment_terms.property_id')
                     ->leftjoin('property_image', 'property.property_id', '=', 'property_image.property_id')
+                    ->leftjoin('property_tag', 'property.property_id', '=', 'property_tag.property_id')
                     ->leftjoin('county', 'property_location.county_id', '=', 'county.county_id')
                     ->join('agent', 'property.agent_id', '=', 'agent.agent_id')
                     ->select('property.property_id', 'property.name as property_name', 'property.created as property_created', 'property.modified as property_modified', 'property.price', 'property.agent_id', 'property.description AS property_description',
