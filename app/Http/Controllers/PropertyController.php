@@ -107,9 +107,11 @@ class PropertyController extends Controller {
                    ->get();
         $propertydetail = PropertyDetail::groupBy('type')->get();
         if(!empty($data['tag_id'])){
+            
              $metadata = DB::table('property_tag')
                     ->join('property_image', 'property_tag.property_id', '=', 'property_image.property_id')
                     ->select('property_tag.name','property_image.images')
+                     ->where('property_tag.tag_code','=',$data['tag_id'])
                     ->groupBy('property_image.property_id')
                    ->get();
             $images = [];
