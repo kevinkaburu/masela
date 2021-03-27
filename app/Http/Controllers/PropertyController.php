@@ -21,7 +21,7 @@ use Illuminate\Support\Carbon;
 use File;
 
 class PropertyController extends Controller {
-    
+
     public function pending() {
 
         return view('pending');
@@ -44,120 +44,118 @@ class PropertyController extends Controller {
     }
 
     public function listing() {
-         $counties = DB::table('county')
-                    ->join('property_location', 'county.county_id', '=', 'property_location.county_id')
-                     ->join('property', 'property.property_id', '=', 'property_location.property_id')
-                    ->select('county.county_id','county.name',DB::raw('count(property_location.property_id) as total_property'))
-                    ->where('property.status','=',1)
-                    ->groupBy('county.county_id')
-                   ->get();
+        $counties = DB::table('county')
+                ->join('property_location', 'county.county_id', '=', 'property_location.county_id')
+                ->join('property', 'property.property_id', '=', 'property_location.property_id')
+                ->select('county.county_id', 'county.name', DB::raw('count(property_location.property_id) as total_property'))
+                ->where('property.status', '=', 1)
+                ->groupBy('county.county_id')
+                ->get();
         $propertydetail = PropertyDetail::groupBy('type')->get();
 
         return view('property.listing', compact('counties', 'propertydetail'));
     }
-    
+
     public function listings(Request $request) {
         $rdata = $request->all();
         $data = [];
-        
-        if(!empty($rdata['county_id'])){
-           $data['county_id']= $rdata['county_id'];
+
+        if (!empty($rdata['county_id'])) {
+            $data['county_id'] = $rdata['county_id'];
         }
-        if(!empty($rdata['query'])){
-           $data['query']= $rdata['query'];
+        if (!empty($rdata['query'])) {
+            $data['query'] = $rdata['query'];
         }
-        if(!empty($rdata['max_price'])){
-           $data['max_price']= $rdata['max_price'];
+        if (!empty($rdata['max_price'])) {
+            $data['max_price'] = $rdata['max_price'];
         }
-        if(!empty($rdata['max_kms_to_tarmac'])){
-           $data['max_kms_to_tarmac']= $rdata['max_kms_to_tarmac'];
+        if (!empty($rdata['max_kms_to_tarmac'])) {
+            $data['max_kms_to_tarmac'] = $rdata['max_kms_to_tarmac'];
         }
-        if(!empty($rdata['property_type'])){
-           $data['property_type']= $rdata['property_type'];
+        if (!empty($rdata['property_type'])) {
+            $data['property_type'] = $rdata['property_type'];
         }
-        if(!empty($rdata['min_price'])){
-           $data['min_price']= $rdata['min_price'];
+        if (!empty($rdata['min_price'])) {
+            $data['min_price'] = $rdata['min_price'];
         }
-        if(!empty($rdata['ready_title_deed'])){
-           $data['ready_title_deed']= $rdata['ready_title_deed'];
+        if (!empty($rdata['ready_title_deed'])) {
+            $data['ready_title_deed'] = $rdata['ready_title_deed'];
         }
-        if(!empty($rdata['controlled_development'])){
-           $data['controlled_development']= $rdata['controlled_development'];
+        if (!empty($rdata['controlled_development'])) {
+            $data['controlled_development'] = $rdata['controlled_development'];
         }
-        if(!empty($rdata['gated_community'])){
-           $data['gated_community']= $rdata['gated_community'];
+        if (!empty($rdata['gated_community'])) {
+            $data['gated_community'] = $rdata['gated_community'];
         }
-        if(!empty($rdata['installments'])){
-           $data['installments']= $rdata['installments'];
+        if (!empty($rdata['installments'])) {
+            $data['installments'] = $rdata['installments'];
         }
-        if(!empty($rdata['negotiable'])){
-           $data['negotiable']= $rdata['negotiable'];
+        if (!empty($rdata['negotiable'])) {
+            $data['negotiable'] = $rdata['negotiable'];
         }
-        if(!empty($rdata['tag_id'])){
-           $data['tag_id']= $rdata['tag_id'];
-        }
-        
-        
-         $counties = DB::table('county')
-                    ->join('property_location', 'county.county_id', '=', 'property_location.county_id')
-                     ->join('property', 'property.property_id', '=', 'property_location.property_id')
-                    ->select('county.county_id','county.name',DB::raw('count(property_location.property_id) as total_property'))
-                    ->where('property.status','!=',5)
-                    ->groupBy('county.county_id')
-                   ->get();
-        $propertydetail = PropertyDetail::groupBy('type')->get();
-        if(!empty($data['tag_id'])){
-            
-             $metadata = DB::table('property_tag')
-                    ->join('property_image', 'property_tag.property_id', '=', 'property_image.property_id')
-                    ->select('property_tag.name','property_image.images')
-                     ->where('property_tag.tag_code','=',$data['tag_id'])
-                    ->groupBy('property_image.property_id')
-                   ->get();
-            $images = [];
-             foreach ($metadata as $mdata) {
-            $title = $mdata->name;
-            
-            //get IMG
-            $propertyImages = $mdata->images;
-            $images = ["/images/others/transparent-marked.jpg"];
-            if ($propertyImages) {
-                $imagesData = json_decode($propertyImages);
-                $images = [];
-                foreach ($imagesData as $img) {
-                    array_push($images, "/media/property/" . $img);
-                }
-            }
-            $property['property_image'] = $images[0];
-            
-             }
-             
-             
-           $image =  $images[0];
-            
-           return view('property.listing', compact('counties', 'propertydetail','data','title','image')); 
-            
-            
+        if (!empty($rdata['tag_id'])) {
+            $data['tag_id'] = $rdata['tag_id'];
         }
 
-        return view('property.listing', compact('counties', 'propertydetail','data'));
+
+        $counties = DB::table('county')
+                ->join('property_location', 'county.county_id', '=', 'property_location.county_id')
+                ->join('property', 'property.property_id', '=', 'property_location.property_id')
+                ->select('county.county_id', 'county.name', DB::raw('count(property_location.property_id) as total_property'))
+                ->where('property.status', '!=', 5)
+                ->groupBy('county.county_id')
+                ->get();
+        $propertydetail = PropertyDetail::groupBy('type')->get();
+        if (!empty($data['tag_id'])) {
+
+            $metadata = DB::table('property_tag')
+                    ->join('property_image', 'property_tag.property_id', '=', 'property_image.property_id')
+                    ->select('property_tag.meta_content', 'property_tag.name', 'property_image.images')
+                    ->where('property_tag.tag_code', '=', $data['tag_id'])
+                    ->groupBy('property_image.property_id')
+                    ->get();
+            $images = [];
+            foreach ($metadata as $mdata) {
+                $title = $mdata->name;
+                $description = $mdata->meta_content;
+
+                //get IMG
+                $propertyImages = $mdata->images;
+                $images = ["/images/others/transparent-marked.jpg"];
+                if ($propertyImages) {
+                    $imagesData = json_decode($propertyImages);
+                    $images = [];
+                    foreach ($imagesData as $img) {
+                        array_push($images, "/media/property/" . $img);
+                    }
+                }
+                $property['property_image'] = $images[0];
+            }
+
+
+            $image = $images[0];
+
+            return view('property.listing', compact('counties', 'description', 'propertydetail', 'data', 'title', 'image'));
+        }
+
+        return view('property.listing', compact('counties', 'propertydetail', 'data'));
     }
-    
-public function viewContact($propertyID,$type){
-    $property = Property::find($propertyID);
+
+    public function viewContact($propertyID, $type) {
+        $property = Property::find($propertyID);
         if (!$property) {
             return "Done";
         }
         $viewed = "";
-        if($type==1){
+        if ($type == 1) {
             $viewed = "contact";
-        }else if ($type==2){
+        } else if ($type == 2) {
             $viewed = "whatsapp";
         }
-        if($viewed==""){
+        if ($viewed == "") {
             return "done";
         }
-        
+
         $propertyView = PropertyView::where('property_id', $propertyID)->where('viewed', $viewed)->first();
 
         if (!$propertyView) {
@@ -167,10 +165,10 @@ public function viewContact($propertyID,$type){
         $propertyView->viewed = $viewed;
         $propertyView->views = $propertyView->views + 1;
         $propertyView->save();
-        
-        return "done";
 
-}
+        return "done";
+    }
+
     public function view($propertyUri) {
         $explodedUril = explode('-', $propertyUri);
         $property_id = end($explodedUril);
@@ -210,7 +208,7 @@ public function viewContact($propertyID,$type){
         if (!empty($images[0])) {
             $image = $images[0];
         }
-        $countyData = County::where('county_id','=',$propertyLoc->county_id)->first();
+        $countyData = County::where('county_id', '=', $propertyLoc->county_id)->first();
         $payments = PropertyPaymentTerms::where('property_id', $property_id)->first();
         $pdetails = PropertyDetail::where('property_id', $property_id)->first();
         $neighborhood = "";
@@ -220,27 +218,27 @@ public function viewContact($propertyID,$type){
         $months = 0;
         $money = "0";
         $neighborhood = $propertyLoc->neighborhood;
-        
-        if(!empty($countyData)){
-          $county =   $countyData->name;
+
+        if (!empty($countyData)) {
+            $county = $countyData->name;
         }
-        
-        if(!empty($payments)){
-          $months =   $payments->installment_months;
+
+        if (!empty($payments)) {
+            $months = $payments->installment_months;
         }
-        if(!empty($pdetails)){
-          $size =   $this->getSize($pdetails->size_acre);
-          $comme_recidentail = $pdetails->type;
+        if (!empty($pdetails)) {
+            $size = $this->getSize($pdetails->size_acre);
+            $comme_recidentail = $pdetails->type;
         }
         $money = $this->number_shorten($property->price);
-        
-        
-        
+
+
+
         //TO-DO: formulate a general description capturing most of the land details fir the og:description and the meta-data descriptions
         $description = "$size acres $comme_recidentail land for sale located at $neighborhood, $county county with a ready title deed @ KSH $money. Has electricity and water on location. You can pay in installments for $months months.";
-                
 
-        return view('property.view', compact('property_id', 'latlong', 'propertyUri', 'title', 'image','description'));
+
+        return view('property.view', compact('property_id', 'latlong', 'propertyUri', 'title', 'image', 'description'));
     }
 
     public function kaziyetu(Request $request) {
@@ -287,31 +285,29 @@ public function viewContact($propertyID,$type){
         $requestpayload = $request->all();
         $agent_id = $requestpayload['agent_id'];
         $query = !empty($requestpayload['query']) ? $requestpayload['query'] : false;
-        
+
         if ($query) {
             $properties = Property::where('agent_id', $agent_id)->where('status', '!=', 5)->where('name', 'like', '%' . $query . '%')->orWhere('description', 'like', '%' . $query . '%')->orderBy('property_id', 'DESC')->get();
         } else {
             $properties = Property::where('agent_id', $agent_id)->where('status', '!=', 5)->orderBy('property_id', 'DESC')->get();
         }
-        if(Auth::check()){
-        $admin = ['mbayakelvin@gmail.com','kaburu@vinuru.com'];
-        if(in_array(Auth::user()->email, $admin)){
-           
-            if ($query) {
-            $properties = Property::where('status', '!=', 5)->where('name', 'like', '%' . $query . '%')->orWhere('description', 'like', '%' . $query . '%')->orderBy('property_id', 'DESC')->get();
-        } else {
-            $properties = Property::where('status', '!=', 5)->orderBy('property_id', 'DESC')->get();
-        }
-            
-            
-        }
+        if (Auth::check()) {
+            $admin = ['mbayakelvin@gmail.com', 'kaburu@vinuru.com'];
+            if (in_array(Auth::user()->email, $admin)) {
+
+                if ($query) {
+                    $properties = Property::where('status', '!=', 5)->where('name', 'like', '%' . $query . '%')->orWhere('description', 'like', '%' . $query . '%')->orderBy('property_id', 'DESC')->get();
+                } else {
+                    $properties = Property::where('status', '!=', 5)->orderBy('property_id', 'DESC')->get();
+                }
+            }
         }
         $response = [];
         foreach ($properties as $data) {
             $property = [];
             $property_id = $data->property_id;
             $property['property_id'] = $property_id;
-            $property['queue_type'] = (in_array(Auth::user()->email, $admin)? 1: 0);
+            $property['queue_type'] = (in_array(Auth::user()->email, $admin) ? 1 : 0);
             $property['property_name'] = $data->name;
             $property['property_status'] = $data->status;
             $property['property_link'] = "/property/view/" . $this->generateUrl($data->name, $data->property_id);
@@ -421,32 +417,32 @@ public function viewContact($propertyID,$type){
         $response['property_id'] = '';
         $url = "/property/view/" . $this->generateUrl($property->name, $property->property_id);
         $response['url'] = $url;
-        $fullUri = 'https://' . $_SERVER['HTTP_HOST'] .$url;
+        $fullUri = 'https://' . $_SERVER['HTTP_HOST'] . $url;
         $sms = "Congratulations your property has been approved.\nShare it on social Media to reach even more possible buyers.\n $fullUri";
-        $agent = Agent::where('agent_id','=',$property->agent_id)->first();
+        $agent = Agent::where('agent_id', '=', $property->agent_id)->first();
         $this->sendsms($agent->phone_number, $sms);
         return json_encode($response);
     }
 
     public function create() {
-     $agent_id = "";
+        $agent_id = "";
         if (Auth::check()) {
-        //does the account has an agent account created?
-          
-        $UserAgent = UserAgent::where('user_id', Auth::user()->id)->first();
-        if (!isset($UserAgent) || !$UserAgent) {
-            return redirect('/home');
+            //does the account has an agent account created?
+
+            $UserAgent = UserAgent::where('user_id', Auth::user()->id)->first();
+            if (!isset($UserAgent) || !$UserAgent) {
+                return redirect('/home');
+            }
+
+            //has the mobile No been verified?
+            $agent = Agent::where('agent_id', '=', $UserAgent->agent_id)->first();
+            $agent_id = $agent->agent_id;
         }
 
-        //has the mobile No been verified?
-        $agent = Agent::where('agent_id', '=', $UserAgent->agent_id)->first();
-        $agent_id = $agent->agent_id;
-        }
-        
         $counties = County::all();
         //Let's do the thing
         $title = "Publish new land for sale on masela.";
-        return view('property.create', compact('counties','agent_id','title'));
+        return view('property.create', compact('counties', 'agent_id', 'title'));
     }
 
     public function delete(Request $requestdata) {
@@ -459,10 +455,10 @@ public function viewContact($propertyID,$type){
         if ($property_id) {
             $agent_id = $request['agent_id'];
             $property = Property::where('agent_id', $UserAgent->agent_id)->where('property_id', $property_id)->where('status', '!=', 5)->first();
-            $admin = ['mbayakelvin@gmail.com','kaburu@vinuru.com'];
-        if(in_array(Auth::user()->email, $admin)){
-           $property = Property::where('property_id', $property_id)->where('status', '!=', 5)->first();
-        }
+            $admin = ['mbayakelvin@gmail.com', 'kaburu@vinuru.com'];
+            if (in_array(Auth::user()->email, $admin)) {
+                $property = Property::where('property_id', $property_id)->where('status', '!=', 5)->first();
+            }
 
             if ($property) {
                 $property->status = 5;
@@ -519,30 +515,29 @@ public function viewContact($propertyID,$type){
         $where = [];
         $orwhere = [];
         $qwhere = [];
-        
-        if (Auth::check() && !empty($requestpayload['property_id']) ) {
+
+        if (Auth::check() && !empty($requestpayload['property_id'])) {
 //           $where = [
 //            ['property.status', '=', '1'],
 //        ];   
-            
-        }else{
-          $where = [
-            ['property.status', '!=', '5'],
-            ['property_view.viewed','=','details'],
-        ];  
+        } else {
+            $where = [
+                ['property.status', '!=', '5'],
+                ['property_view.viewed', '=', 'details'],
+            ];
         }
-        
-        
-                    
+
+
+
         //agent specific content
         if (!empty($requestpayload['agent_id'])) {
             array_push($where, ['property.agent_id', '=', $requestpayload['agent_id']]);
         }
-        if(Auth::check()){
-        $admin = ['mbayakelvin@gmail.com','kaburu@vinuru.com'];
-        if(in_array(Auth::user()->email, $admin)){
-           $where = []; 
-        }
+        if (Auth::check()) {
+            $admin = ['mbayakelvin@gmail.com', 'kaburu@vinuru.com'];
+            if (in_array(Auth::user()->email, $admin)) {
+                $where = [];
+            }
         }
         //agent specific content
         if (!empty($requestpayload['property_id'])) {
@@ -590,9 +585,9 @@ public function viewContact($propertyID,$type){
         if (!empty($requestpayload['status'])) {
             array_push($where, ['property.status', '=', $requestpayload['status']]);
         }
-        
-        if(!empty($requestpayload['tag_id'])){
-           array_push($where, ['property_tag.tag_code', '=', $requestpayload['tag_id']]);
+
+        if (!empty($requestpayload['tag_id'])) {
+            array_push($where, ['property_tag.tag_code', '=', $requestpayload['tag_id']]);
         }
 
 
@@ -804,62 +799,61 @@ public function viewContact($propertyID,$type){
 
     private function basicForm($requestpayload) {
         $error_messages = [];
-         if (Auth::check()) {
-        $UserAgent = UserAgent::where('user_id', Auth::user()->id)->first();
-        if (!isset($UserAgent) || !$UserAgent) {
-            return redirect('/home');
-        }
-        $agent_id = $UserAgent->agent_id;
-         }else{
-             if (empty($requestpayload['agent_name'])) {
-            array_push($error_messages, "Your Name is required!");
-        }
-        //validate type
-        if (empty($requestpayload['agent_phone'])) {
-            array_push($error_messages, "Your number is required!");
-        }
-        if (count($error_messages) > 0) {
-            $response['error'] = 1;
-            $response['messages'] = $error_messages;
-            $response['property_id'] = "";
-            return $response;
-        }
-        
-        preg_match('/^(254|0)?(1|7)(\d{8})$/', $requestpayload['agent_phone'], $mobilearray);
+        if (Auth::check()) {
+            $UserAgent = UserAgent::where('user_id', Auth::user()->id)->first();
+            if (!isset($UserAgent) || !$UserAgent) {
+                return redirect('/home');
+            }
+            $agent_id = $UserAgent->agent_id;
+        } else {
+            if (empty($requestpayload['agent_name'])) {
+                array_push($error_messages, "Your Name is required!");
+            }
+            //validate type
+            if (empty($requestpayload['agent_phone'])) {
+                array_push($error_messages, "Your number is required!");
+            }
+            if (count($error_messages) > 0) {
+                $response['error'] = 1;
+                $response['messages'] = $error_messages;
+                $response['property_id'] = "";
+                return $response;
+            }
 
-        if (!isset($mobilearray) || empty($mobilearray)) {
-            array_push($error_messages, "The mobile number provided is incorrect. ".$requestpayload['agent_phone']);
-        }
-        
-         if (count($error_messages) > 0) {
-            $response['error'] = 1;
-            $response['messages'] = $error_messages;
-            $response['property_id'] = "";
-            return $response;
-        }
+            preg_match('/^(254|0)?(1|7)(\d{8})$/', $requestpayload['agent_phone'], $mobilearray);
 
-        $msisdn = "254" . $mobilearray[2] . $mobilearray[3];
-        
-        
-        
-        
-        $agent = Agent::where('phone_number','=',$msisdn)->first();
-        
-        if(empty($agent)){
-        $agent = Agent::create([
-                        'phone_number' => $msisdn,
-                        'phone_number_otp' => strtoupper($this->generateRandomString(4)),
-                        'name' => $requestpayload['agent_name'],
-                        'phone_number_whatsapp' =>  1,
-                        'description' => "Public account.",
-                        'status' => 1,
-            ]);
+            if (!isset($mobilearray) || empty($mobilearray)) {
+                array_push($error_messages, "The mobile number provided is incorrect. " . $requestpayload['agent_phone']);
+            }
 
-            $agent->save();
-        }
+            if (count($error_messages) > 0) {
+                $response['error'] = 1;
+                $response['messages'] = $error_messages;
+                $response['property_id'] = "";
+                return $response;
+            }
+
+            $msisdn = "254" . $mobilearray[2] . $mobilearray[3];
+
+
+
+
+            $agent = Agent::where('phone_number', '=', $msisdn)->first();
+
+            if (empty($agent)) {
+                $agent = Agent::create([
+                            'phone_number' => $msisdn,
+                            'phone_number_otp' => strtoupper($this->generateRandomString(4)),
+                            'name' => $requestpayload['agent_name'],
+                            'phone_number_whatsapp' => 1,
+                            'description' => "Public account.",
+                            'status' => 1,
+                ]);
+
+                $agent->save();
+            }
             $agent_id = $agent->agent_id;
-            
-         }
+        }
         /*
           {
          * "property_id":1,
@@ -876,7 +870,7 @@ public function viewContact($propertyID,$type){
          * "neighborhood":"Milimani",
           }
          */
-        
+
         //validate title
         if (empty($requestpayload['title'])) {
             array_push($error_messages, "Property title is required!");
@@ -894,15 +888,15 @@ public function viewContact($propertyID,$type){
             array_push($error_messages, "Size in Acres  is required!");
         }
 
-        
+
         if (!empty($requestpayload['size_acre'])) {
-           //validate size_acre number or fraction
-        $size_in_acres = $requestpayload['size_acre'];
-        if ((!is_numeric($size_in_acres)) && !str_contains($size_in_acres, '/')) {
-            array_push($error_messages, "Size in Acres  can only be a fraction, EG 1/8 or a number EG: 1.");
+            //validate size_acre number or fraction
+            $size_in_acres = $requestpayload['size_acre'];
+            if ((!is_numeric($size_in_acres)) && !str_contains($size_in_acres, '/')) {
+                array_push($error_messages, "Size in Acres  can only be a fraction, EG 1/8 or a number EG: 1.");
+            }
         }
-        }
-        
+
 
         //validate size in feets
         if (empty($requestpayload['size_feet_1']) != empty($requestpayload['size_feet_2'])) {
