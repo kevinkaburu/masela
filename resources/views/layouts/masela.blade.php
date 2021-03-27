@@ -51,6 +51,10 @@ s0.parentNode.insertBefore(s1,s0);
 $fullPath =\Request::fullUrl();
 $ogtype = 'website';
 $default_title ="Buy Plots safely from  Kenyatta| Nanyuki| Kamulu| Katani| Kitengela| Syokimau.";
+$defaultdescription = "Find land for sale from genuine realestate agents and private sellers. Get help with land transfer and search processes. Sell your land fast and efficiently.";
+if(empty($description)){
+    $description = $defaultdescription;
+}
 if(strpos($fullPath, '/blog/') !== false){
     $ogtype = 'article';
 }else if (strpos($fullPath, '/blog') !== false){
@@ -59,11 +63,11 @@ if(strpos($fullPath, '/blog/') !== false){
 }
 
 ?>
-    <meta name="description" content="{{$description ?? "Find land for sale from genuine realestate agents and private sellers. Get help with land transfer and search processes. Sell your land fast and efficiently."}}" />
+    <meta name="description" content="{{$description}}" />
 <meta name="robots" content="INDEX,FOLLOW">
 <link rel="alternate" hreflang="en-ke" href="https://masela.co.ke" />
 <meta property="og:title" content="{{$title ?? $default_title}}" />
-<meta property="og:description" content="{{$description ?? "Find land for sale from genuine realestate agents and private sellers. Get help with land transfer and search processes. Sell your land fast and efficiently."}}" />
+<meta property="og:description" content="{{$description}}" />
 <meta property="og:image" content="{{ asset($image ??'images/props/flat-1/cossy-1.jpg')}}" alt="Masela.co.ke" />
 <meta property="og:updated_time" content="{{ date('Y-m-d H:i:s') }}" />
 
@@ -72,7 +76,7 @@ if(strpos($fullPath, '/blog/') !== false){
 <meta property="og:site_name" content="Masela Inc" />
 
 <meta name="twitter:title" content="{{$title ?? $default_title}}" />
-<meta name="twitter:description" content="{{$description ?? "Find land for sale from genuine realestate agents and private sellers. Get help with land transfer and search processes. Sell your land fast and efficiently."}}" />
+<meta name="twitter:description" content="{{$description}}" />
 <title>{{$title ?? $default_title}}</title>
 
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon/favicon.ico')}}">
