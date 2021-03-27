@@ -102,10 +102,41 @@ class PropertyController extends Controller {
                     ->join('property_location', 'county.county_id', '=', 'property_location.county_id')
                      ->join('property', 'property.property_id', '=', 'property_location.property_id')
                     ->select('county.county_id','county.name',DB::raw('count(property_location.property_id) as total_property'))
-                    ->where('property.status','=',1)
+                    ->where('property.status','!=',5)
                     ->groupBy('county.county_id')
                    ->get();
         $propertydetail = PropertyDetail::groupBy('type')->get();
+        if(!empty($data['tag_id'])){
+             $metadata = DB::table('property_tag')
+                    ->join('property_image', 'property_tag.property_id', '=', 'property_image.property_id')
+                    ->select('property_tag.name','property_image.images')
+                    ->groupBy('property_image.property_id')
+                   ->get();
+            $images = [];
+             foreach ($metadata as $mdata) {
+            $title = $mdata->name;
+            
+            //get IMG
+            $propertyImages = $mdata->images;
+            $images = ["/images/others/transparent-marked.jpg"];
+            if ($propertyImages) {
+                $imagesData = json_decode($propertyImages);
+                $images = [];
+                foreach ($imagesData as $img) {
+                    array_push($images, "/media/property/" . $img);
+                }
+            }
+            $property['property_image'] = $images[0];
+            
+             }
+             
+             
+           $image =  $images[0];
+            
+           return view('property.listing', compact('counties', 'propertydetail','data','title','image')); 
+            
+            
+        }
 
         return view('property.listing', compact('counties', 'propertydetail','data'));
     }
