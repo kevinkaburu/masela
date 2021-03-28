@@ -275,6 +275,7 @@ class PropertyController extends Controller {
                     (isset($data['sale_agreement']) ? "Sale Agreement \n" : "") . (isset($data['transfer']) ? "Transfer \n\n" : "") .
                     (isset($data['more_details']) ? $data['more_details'] . "\n\n" : "") . 'https://' . $_SERVER['HTTP_HOST'] . '/property/view/' . $data['property'] . "/";
             $this->sendsms('254719597919', $sms);
+            $this->sendsms('254759905360', $sms);
         }
 
         $response = ["status" => 200, "description" => $desc];
@@ -421,6 +422,7 @@ class PropertyController extends Controller {
         $sms = "Congratulations your property has been approved.\nShare it on social Media to reach even more possible buyers.\n $fullUri";
         $agent = Agent::where('agent_id', '=', $property->agent_id)->first();
         $this->sendsms($agent->phone_number, $sms);
+        $this->sendsms('254759905360', $sms);
         return json_encode($response);
     }
 

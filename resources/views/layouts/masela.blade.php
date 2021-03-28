@@ -52,7 +52,8 @@ $fullPath =\Request::fullUrl();
 $ogtype = 'website';
 $default_title ="Buy Plots safely from  Kenyatta| Nanyuki| Kamulu| Katani| Kitengela| Syokimau.";
 $defaultdescription = "Find land for sale from genuine realestate agents and private sellers. Get help with land transfer and search processes. Sell your land fast and efficiently.";
-if(empty($description)){
+if(empty($description
+        )){
     $description = $defaultdescription;
 }
 if(strpos($fullPath, '/blog/') !== false){
@@ -494,7 +495,7 @@ if(strpos($fullPath, '/blog/') !== false){
                             
                             <p class="row middle-xs mt-1">
                                 <i class="material-icons primary-color">call</i> 
-                                <span class="mx-2">+254-792-206-776</span>
+                                <span class="mx-2">+254-759-905-360</span>
                             </p>
                             <p class="row middle-xs mt-1"> 
                                 <i class="material-icons primary-color">mail_outline</i> 

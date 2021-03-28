@@ -19,7 +19,7 @@
                             <div class="column center-xs middle-xs text-center">
                                 <i class="material-icons mat-icon-lg primary-color">call</i>
                                 <h3 class="primary-color py-1">PHONES :</h3>
-                                <span class="text-muted fw-500">0792 206 776</span>
+                                <span class="text-muted fw-500">0759 905 360</span>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6">
