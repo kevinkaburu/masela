@@ -385,8 +385,9 @@
        GetListingProperty(relatedddata, elementIDRelated, elementRelated);
     }
 
-    init();
-
+    window.onload = function() {
+  init();
+};
  
 
 
