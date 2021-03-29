@@ -296,7 +296,12 @@
         GetListingProperty(data, elementID, elementType);
     }
 
-    init();
+    
+    window.onload = function() {
+  init();
+};
+
+     
 //property-search-form-submit
 function searchclicked(){
     var form = document.getElementById("filters");
