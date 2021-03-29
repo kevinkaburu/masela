@@ -31,9 +31,16 @@
                                                     </div>
                                
                             </div>
-                            <button id="page-sidenav-toggle" class="mdc-icon-button material-icons text-muted d-md-none d-lg-none d-xl-none warn-color "> 
-                                call
-                            </button>
+                            
+                            <div class="row  d-md-none d-lg-none d-xl-none"> 
+                    <a id="page-sidenav-toggle" href="#" class=" sell-land mdc-button mdc-button--raised  d-sm-flex">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label">Contact seller</span> 
+                    </a> 
+                </div>
+<!--                            <button id="page-sidenav-toggle" class="mdc-icon-button material-icons text-muted d-md-none d-lg-none d-xl-none warn-color "> 
+                                call 
+                            </button>-->
                         </div>
                         <div class="mdc-card p-3 mt-3">  
                             <div class="main-carousel mb-3"> 
