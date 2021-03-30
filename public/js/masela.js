@@ -809,7 +809,7 @@ function cardsdata(data, elementID) {
         
 
         // Features time
-        featuresHtml += featurehtml("Size", property.size_acre);
+        featuresHtml += featurehtml("Size in Acres", property.size_acre);
         featuresHtml += featurehtml("Kms to Tarmac", property.kms_to_tarmac);
         featuresHtml += featurehtml("Access Road", property.access_rd_type);
         featuresHtml += featurehtml("Title Deed", property.ready_title == 1 ? "Yes" : "No");
