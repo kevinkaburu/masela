@@ -12,12 +12,15 @@ use App\Models\Property;
 use App\Models\PropertyDetail;
 use App\Models\PropertyLocation;
 use App\Models\PropertyFeature;
+use App\Models\ContactView;
 use App\Models\PropertyPaymentTerms;
 use App\Models\PropertyImage;
 use App\Models\Contact;
 use App\Models\PropertyView;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
+use Stevebauman\Location\Facades\Location;
+
 use File;
 
 class PropertyController extends Controller {
@@ -155,6 +158,37 @@ class PropertyController extends Controller {
         if ($viewed == "") {
             return "done";
         }
+        /*
+         * Stevebauman\Location\Position Object
+(
+    [ip] => 66.102.0.0
+    [countryName] => United States
+    [countryCode] => US
+    [regionCode] => CA
+    [regionName] => California
+    [cityName] => Mountain View
+    [zipCode] => 94043
+    [isoCode] => 
+    [postalCode] => 
+    [latitude] => 37.422
+    [longitude] => -122.084
+    [metroCode] => 
+    [areaCode] => CA
+    [driver] => Stevebauman\Location\Drivers\IpApi
+)
+         */
+        $locationData = "";
+        if ($locdata = Location::get()) {
+        $locationData = $locdata->countryName.", ".$locdata->regionName.", ".$locdata->cityName." - IP:".$locdata->ip;
+        }
+        $contactView = new ContactView();
+        $contactView->property_id =$propertyID;
+        $contactView->location = $locationData;
+        $contactView->type = $viewed;
+        $contactView->save();
+        
+        
+        
 
         $propertyView = PropertyView::where('property_id', $propertyID)->where('viewed', $viewed)->first();
 
