@@ -33,11 +33,18 @@ class PropertyController extends Controller {
     public function agent($agentUri) {
         $explodedUril = explode('-', $agentUri);
         $agent_id = end($explodedUril);
-        $counties = County::all();
+        $counties = DB::table('county')
+                ->join('property_location', 'county.county_id', '=', 'property_location.county_id')
+                ->join('property', 'property.property_id', '=', 'property_location.property_id')
+                ->select('county.county_id', 'county.name', DB::raw('count(property_location.property_id) as total_property'))
+                ->where('property.status', '!=', 5)
+                ->where('property.agent_id', '=', $agent_id)
+                ->groupBy('county.county_id')
+                ->get();
         $propertydetail = PropertyDetail::groupBy('type')->get();
         $agent = Agent::find($agent_id);
         if (!$agent) {
-            return redirect('/');
+            return redirect('/listing');
         }
 
 
@@ -170,9 +177,9 @@ if(!empty($images[0])){
         $ip = $locdata->ip;
         }
         $ref = "";
-        if(!empty($_SERVER['HTTP_REFERER'])){
-           $ref =$_SERVER['HTTP_REFERER'];
-        }
+//        if(!empty($_SERVER['HTTP_REFERER'])){
+//           $ref =$_SERVER['HTTP_REFERER'];
+//        }
         $contactView = new ContactView();
         $contactView->property_id =$propertyID;
         $contactView->location = $locationData;
@@ -216,9 +223,9 @@ if(!empty($images[0])){
         $ip = $locdata->ip;
         }
         $ref = "";
-        if(!empty($_SERVER['HTTP_REFERER'])){
-           $ref =$_SERVER['HTTP_REFERER'];
-        }
+//        if(!empty($_SERVER['HTTP_REFERER'])){
+//           $ref =$_SERVER['HTTP_REFERER'];
+//        }
         $contactView = new ContactView();
         $contactView->property_id =$property_id;
         $contactView->location = $locationData;
@@ -468,13 +475,15 @@ if(!empty($images[0])){
                 $property->save();
             }
         }
+        $agent = Agent::where('agent_id',$property->agent_id)->first();
         $response['error'] = 0;
         $response['messages'] = ["Property Published"];
         $response['property_id'] = '';
-        $url = "/property/view/" . $this->generateUrl($property->name, $property->property_id);
+        $url = "/property/view/agent/" . $this->generateUrl($agent->name, $agent->id);
         $response['url'] = $url;
         $fullUri = 'https://' . $_SERVER['HTTP_HOST'] . $url;
-        $sms = "Congratulations your property has been approved.\nShare it on social Media to reach even more possible buyers.\n $fullUri";
+        //Share it on social Media to reach even more possible buyers.
+        $sms = "Congratulations [".$property->name."] has been approved.\nUse below link to share all your parcels on social media and with possible clients.\n $fullUri"."\nHELP: 0759905360";
         $agent = Agent::where('agent_id', '=', $property->agent_id)->first();
         $this->sendsms($agent->phone_number, $sms);
         $this->sendsms('254759905360', $sms);

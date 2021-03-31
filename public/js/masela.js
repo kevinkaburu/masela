@@ -890,7 +890,7 @@ function cardhtml(property, images, commercialNegotiable, features) {
                                                         <span>Ksh ${property.kmb}</span> 
                                                     </h3> 
                                                     <div class="row start-xs middle-xs" title="29">      
-                                                     By: ${property.agent_name}
+                                                     By: <a href="${property.agent_url}">${property.agent_name}</a>
                                                     </div>
                                                 </div>
                                                 <div class="features mt-3">                    
