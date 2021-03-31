@@ -134,9 +134,11 @@ class PropertyController extends Controller {
                 }
                 $property['property_image'] = $images[0];
             }
-
-
-            $image = $images[0];
+$image = "/images/others/transparent-marked.jpg";
+if(!empty($images[0])){
+   $image = $images[0]; 
+}
+            
 
             return view('property.listing', compact('counties', 'description', 'propertydetail', 'data', 'title', 'image'));
         }
