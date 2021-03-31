@@ -158,25 +158,7 @@ class PropertyController extends Controller {
         if ($viewed == "") {
             return "done";
         }
-        /*
-         * Stevebauman\Location\Position Object
-(
-    [ip] => 66.102.0.0
-    [countryName] => United States
-    [countryCode] => US
-    [regionCode] => CA
-    [regionName] => California
-    [cityName] => Mountain View
-    [zipCode] => 94043
-    [isoCode] => 
-    [postalCode] => 
-    [latitude] => 37.422
-    [longitude] => -122.084
-    [metroCode] => 
-    [areaCode] => CA
-    [driver] => Stevebauman\Location\Drivers\IpApi
-)
-         */
+       
         $locationData = "";
         if ($locdata = Location::get()) {
         $locationData = $locdata->countryName.", ".$locdata->regionName.", ".$locdata->cityName." - IP:".$locdata->ip;
@@ -211,6 +193,21 @@ class PropertyController extends Controller {
         if (!$property) {
             return redirect('/');
         }
+        //views counter
+        $locationData = "";
+        if ($locdata = Location::get()) {
+        $locationData = $locdata->countryName.", ".$locdata->regionName.", ".$locdata->cityName." - IP:".$locdata->ip;
+        }
+        $contactView = new ContactView();
+        $contactView->property_id =$property_id;
+        $contactView->location = $locationData;
+        $contactView->type = 'details';
+        $contactView->save();
+        
+        
+        
+        
+        
         $propertyView = PropertyView::where('property_id', $property_id)->where('viewed', 'details')->first();
 
         if (!$propertyView) {
