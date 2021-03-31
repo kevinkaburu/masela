@@ -1,6 +1,13 @@
 @extends('layouts.masela')
 
 @section('main')
+<div class="header-image-wrapper">
+    <div class="bg" style="background-image: url('{{asset('images/carousel/slide-3.jpg')}}');"></div>
+    <div class="mask"></div>            
+    <div class="header-image-content offset-custom">
+
+    </div>
+</div> 
 <div class="px-3">  
     <div class="theme-container">   
         <div class="page-drawer-container mt-3">

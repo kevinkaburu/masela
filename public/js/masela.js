@@ -903,9 +903,9 @@ function cardhtml(property, images, commercialNegotiable, features) {
                                                     <i class="material-icons text-muted">date_range</i>
                                                     <span class="mx-2">${property.property_created}</span>
                                                 </p>
-                                                <a href="${property.url}" class="mdc-button mdc-button--outlined">
+                                                <a href="${property.url}" class="mdc-button mdc-button--raised">
                                                     <span class="mdc-button__ripple"></span>
-                                                    <span class="mdc-button__label">Details</span> 
+                                                    <span class="mdc-button__label">More Details</span> 
                                                 </a>  
                                             </div>
                                         </div>  
