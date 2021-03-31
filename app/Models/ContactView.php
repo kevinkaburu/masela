@@ -14,7 +14,7 @@ class ContactView extends Model
 
 
     protected $fillable = [
-        'property_id', 'location','type','created',
+        'property_id','country','ip_address','referer', 'location','type','created',
     ];
 
 }

@@ -160,12 +160,23 @@ class PropertyController extends Controller {
         }
        
         $locationData = "";
+        $countryName = "";
+        $ip = "";
         if ($locdata = Location::get()) {
-        $locationData = $locdata->countryName.", ".$locdata->regionName.", ".$locdata->cityName." - IP:".$locdata->ip;
+        $locationData = $locdata->countryName.", ".$locdata->regionName.", ".$locdata->cityName;
+        $countryName= $locdata->countryName;
+        $ip = $locdata->ip;
+        }
+        $ref = "";
+        if(!empty($_SERVER['HTTP_REFERER'])){
+           $ref =$_SERVER['HTTP_REFERER'];
         }
         $contactView = new ContactView();
         $contactView->property_id =$propertyID;
         $contactView->location = $locationData;
+ $contactView->country = $countryName;
+         $contactView->ip_address = $ip;         
+         $contactView->referer = $ref;
         $contactView->type = $viewed;
         $contactView->save();
         
@@ -195,12 +206,23 @@ class PropertyController extends Controller {
         }
         //views counter
         $locationData = "";
+        $countryName = "";
+        $ip = "";
         if ($locdata = Location::get()) {
-        $locationData = $locdata->countryName.", ".$locdata->regionName.", ".$locdata->cityName." - IP:".$locdata->ip;
+        $locationData = $locdata->countryName.", ".$locdata->regionName.", ".$locdata->cityName;
+        $countryName= $locdata->countryName;
+        $ip = $locdata->ip;
+        }
+        $ref = "";
+        if(!empty($_SERVER['HTTP_REFERER'])){
+           $ref =$_SERVER['HTTP_REFERER'];
         }
         $contactView = new ContactView();
         $contactView->property_id =$property_id;
         $contactView->location = $locationData;
+         $contactView->country = $countryName;
+         $contactView->ip_address = $ip;
+         $contactView->referer = $ref;
         $contactView->type = 'details';
         $contactView->save();
         
