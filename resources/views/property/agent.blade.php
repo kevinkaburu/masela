@@ -5,7 +5,7 @@
     <div class="bg" style="background-image: url('{{asset('images/carousel/slide-3.jpg')}}');"></div>
     <div class="mask"></div>            
     <div class="header-image-content mh-200"> 
-        <p class="desc">{{$agent->description ?? $agent->name}}</p> 
+        <p class="desc">{{$agent->name}}</p> 
     </div>
 </div>  
 <div class="px-3">  
