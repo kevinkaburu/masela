@@ -479,7 +479,7 @@ if(!empty($images[0])){
         $response['error'] = 0;
         $response['messages'] = ["Property Published"];
         $response['property_id'] = '';
-        $url = "/property/view/agent/" . $this->generateUrl($agent->name, $agent->id);
+        $url = "/property/view/agent/" . $this->generateUrl($agent->name, $agent->agent_id);
         $response['url'] = $url;
         $fullUri = 'https://' . $_SERVER['HTTP_HOST'] . $url;
         //Share it on social Media to reach even more possible buyers.
@@ -582,17 +582,12 @@ if(!empty($images[0])){
         $orwhere = [];
         $qwhere = [];
 
-        if (Auth::check() && !empty($requestpayload['property_id'])) {
-//           $where = [
-//            ['property.status', '=', '1'],
-//        ];   
-        } else {
+
             $where = [
                 ['property.status', '!=', '5'],
                 ['property_view.viewed', '=', 'details'],
             ];
-        }
-
+       
 
 
         //agent specific content

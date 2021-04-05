@@ -494,8 +494,11 @@ if(strpos($fullPath, '/blog/') !== false){
                         <div class="col-xs-12 col-sm-5 col-md-4 p-0"> 
                             
                             <p class="row middle-xs mt-1">
+                               
                                 <i class="material-icons primary-color">call</i> 
+                                 <a href="tel:+254759905360">
                                 <span class="mx-2">+254-759-905-360</span>
+                               </a>
                             </p>
                             <p class="row middle-xs mt-1"> 
                                 <i class="material-icons primary-color">mail_outline</i> 
