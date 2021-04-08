@@ -305,6 +305,9 @@ function Paginate(page){
     console.log(page+" -- "+data);
     var temp = JSON.parse(data);
     temp["page"]=page;
+    if (data.keys(obj).length === 0) {
+        temp={page: 1}
+    }
     data = JSON.stringify(temp);
      console.log(" -- "+data);
     
