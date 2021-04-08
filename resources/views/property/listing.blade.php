@@ -314,6 +314,9 @@ function Paginate(page){
      console.log(" -- "+sdata);
     
     GetListingProperty(sdata, elementID, elementType);
+    $(document).ready(function(){
+    $(window).scrollTop(0);
+});
 }
 
 //property-search-form-submit
