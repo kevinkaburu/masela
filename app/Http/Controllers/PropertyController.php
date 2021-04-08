@@ -795,6 +795,7 @@ if(!empty($images[0])){
             $property['electricity'] = $data->electricity;
             $property['water'] = $data->water;
             $property['url'] = "/property/view/" . $this->generateUrl($data->property_name, $data->property_id) . "/";
+            $property['full_url'] =  'https://' . $_SERVER['HTTP_HOST'] . $property['url'];
             $property['agent_url'] = "/property/view/agent/" . $this->generateUrl($data->agent_name, $data->agent_id) . "/";
             $property['county_name'] = $data->county_name;
             $property['nearest_town'] = $data->nearest_town;
