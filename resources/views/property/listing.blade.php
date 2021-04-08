@@ -283,7 +283,7 @@
 <script>
     const elementID = 'home-property-listing-div';
     const elementType = 'cards';
-    var searchdt = <?php echo json_encode(isset($data) ? $data : []); ?>;
+    var searchdt = <?php echo json_encode(isset($data) ? $data : ""); ?>;
 
     var data = JSON.stringify({page: 1});
     if (searchdt !== "") {
@@ -302,16 +302,18 @@
         init();
     };
 function Paginate(page){
-    console.log(page+" -- "+data);
+    console.log(page+" -- "+typeof data+" --- "+data);
+    if (!data.trim() || data=="[]") { 
+        sdata = JSON.stringify({page: page});
+    }else{
     var temp = JSON.parse(data);
-    temp["page"]=page;
-    if (Object.keys(data).length === 0) {
-        temp={page: 1}
-    }
-    data = JSON.stringify(temp);
-     console.log(" -- "+data);
     
-    GetListingProperty(data, elementID, elementType);
+    temp["page"]=page;
+    sdata = JSON.stringify(temp);
+    }
+     console.log(" -- "+sdata);
+    
+    GetListingProperty(sdata, elementID, elementType);
 }
 
 //property-search-form-submit

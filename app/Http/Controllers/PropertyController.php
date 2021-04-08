@@ -679,7 +679,7 @@ if(!empty($images[0])){
         $currentPage = 1;
         $reqPage = 1;
         $offset = 0;
-        $limit = 30;
+        $limit = 20;
 
         if (!empty($requestpayload['page']) && is_numeric($requestpayload['page'])) {
             $reqPage= ($requestpayload['page']>1? $requestpayload['page']: 1);
@@ -688,8 +688,8 @@ if(!empty($images[0])){
            // workout the limits
             if($reqPage> 1){
                 $currentPage= $reqPage;
-                $limit = $reqPage*30;
-                $offset = $limit-31;
+                $limit = $reqPage*20;
+                $offset = $limit-21;
             }
 
         if (!empty($requestpayload['limit']) && is_numeric($requestpayload['limit'])) {
@@ -817,7 +817,7 @@ if(!empty($images[0])){
 
             array_push($properties, $property);
         }
-        $pages = ($count/30) +1;
+        $pages = ($count/20) +1;
         
         
         $response = [
