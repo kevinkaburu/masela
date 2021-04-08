@@ -106,6 +106,10 @@ class PropertyController extends Controller {
         if (!empty($rdata['tag_id'])) {
             $data['tag_id'] = $rdata['tag_id'];
         }
+        
+        if (!empty($rdata['page'])) {
+            $data['page'] = $rdata['page'];
+        }
 
 
         $counties = DB::table('county')
@@ -672,15 +676,24 @@ if(!empty($images[0])){
 
         $order_by = $order_by . " property.property_id DESC";
 
+        $currentPage = 1;
+        $reqPage = 1;
         $offset = 0;
-        $limit = 1000;
+        $limit = 30;
+
+        if (!empty($requestpayload['page']) && is_numeric($requestpayload['page'])) {
+            $reqPage= ($requestpayload['page']>1? $requestpayload['page']: 1);
+        }
+         
+           // workout the limits
+            if($reqPage> 1){
+                $currentPage= $reqPage;
+                $limit = $reqPage*30;
+                $offset = $limit-31;
+            }
 
         if (!empty($requestpayload['limit']) && is_numeric($requestpayload['limit'])) {
-            $limit = $requestpayload['limit'];
-        }
-
-        if (!empty($requestpayload['offset']) && is_numeric($requestpayload['offset'])) {
-            $offset = $requestpayload['offset'];
+           $limit = $requestpayload['limit'];
         }
 
 
@@ -749,6 +762,7 @@ if(!empty($images[0])){
 //select p.property_id,p.name as property_name, p.created as property_created, p.modified as property_modified, 
 //p.price,p.agent_id,p.description as property_description, p.negotiable,pd.type,pd.size_acre,pd.size_feet,
 //pd.kms_to_tarmac,pd.soil, pd.access_rd_type,pf.electricity,pf.water,pi.images,c.name as country_name,pl.nearest_town,pmt.installment,a.phone_number from property p inner
+        $count = count($proprtydata);
         foreach ($proprtydata as $key => $data) {
             $property = [];
             //process Images
@@ -799,10 +813,22 @@ if(!empty($images[0])){
             $property['phone_number_whatsapp'] = $data->phone_number_whatsapp;
             $property['property_created'] = Carbon::parse($data->property_created)->format('d M, Y');
             $property['property_modified'] = Carbon::parse($data->property_modified)->format('d M, Y');
+            
 
             array_push($properties, $property);
         }
-        return json_encode($properties);
+        $pages = ($count/30) +1;
+        
+        
+        $response = [
+            "properties"=>$properties,
+            "meta"=>[
+                "data"=>$requestpayload,
+                "pages"=>$pages,
+                "current_page"=>$currentPage
+            ]
+        ];
+        return json_encode($response);
     }
 
     function getSize($size_acre) {

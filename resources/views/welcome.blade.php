@@ -377,7 +377,7 @@
     
     const elementIDRelated = 'blog-related-property-div';
     const elementRelated = 'blog-related';
-    const relatedddata = JSON.stringify({limit: 10,status: '10'});
+    const relatedddata = JSON.stringify({page: 1,status: '10'});
    
 
 

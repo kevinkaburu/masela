@@ -139,9 +139,12 @@ async function GetProperty(data, elementID, elementType) {
 }
 
 
-function hometabledata(data, elementID) {
+function hometabledata(resdata, elementID) {
     var tbody = document.getElementById(elementID);
     tbody.innerHTML = "";
+    var data = resdata["properties"];
+    var meta = resdata["meta"];
+    console.log("META: "+meta);
     for (var i = 0; i < data.length; i++) {
         var property = data[i];
         var status = "pending Approval";
@@ -400,6 +403,22 @@ async function GetListingProperty(data, elementID, elementType) {
 
 
 }
+function mcallseller(phone_number,property_id,elementID){
+    var callhtml = `<i class="material-icons primary-color">call</i> <a href="tel:${phone_number}">${phone_number}</a>`;
+    console.log("called---"+elementID);
+    document.getElementById(elementID).innerHTML=callhtml;
+    //make call to view_property call
+    contactviewed(property_id,1);
+}
+function mwhatsappseller(phone_number,property_id,elementID){
+    var sms = window.location.href+"\n Hey, I'm reaching out to inquire on this piece of land that you are selling on Masela. ";
+    document.getElementById(elementID).innerHTML=agentwhatApp(phone_number,sms);
+    //make call to view_property call
+    contactviewed(property_id,2);
+    var URL="https://api.whatsapp.com/send?phone=+"+phone_number+"&text="+sms+"&"
+    $('<a href="'+ URL +'" target="_blank">Open whatsApp messager</a>')[0].click();
+}
+
 function callseller(phone_number,property_id){
     var callhtml = `<i class="material-icons primary-color">call</i> <a href="tel:${phone_number}">${phone_number}</a>`;
     document.getElementById('single-property-agent-phone').innerHTML=callhtml;
@@ -408,7 +427,7 @@ function callseller(phone_number,property_id){
 }
 function whatsappseller(phone_number,property_id){
     var sms = window.location.href+"\n Hey, I'm reaching out to inquire on this piece of land that you are selling on Masela. ";
-    document.getElementById("single-property-agent-whatsApp").innerHTML=agentwhatApp(phone_number,sms);
+    document.getElementById("property-agent-whatsApp").innerHTML=agentwhatApp(phone_number,sms);
     //make call to view_property call
     contactviewed(property_id,2)
     var URL="https://api.whatsapp.com/send?phone=+"+phone_number+"&text="+sms+"&"
@@ -431,7 +450,10 @@ async function contactviewed(propertyID,type){
     });
 }
 
-function singleProperty(data) {
+function singleProperty(resdata) {
+      var data = resdata["properties"];
+    var meta = resdata["meta"];
+    console.log("META::::"+meta['data']);
      for (var i = 0; i < data.length; i++) {
         var property = data[i];
         var imageswippers = '';
@@ -470,7 +492,7 @@ function singleProperty(data) {
                                             <span class="mdc-button__label">WhatApp Seller</span> 
                                         </button>`;
             
-            document.getElementById("single-property-agent-whatsApp").insertAdjacentHTML('beforeend', whatapphtml);
+            document.getElementById("property-agent-whatsApp").insertAdjacentHTML('beforeend', whatapphtml);
         }
         document.getElementById("single-property-size-acre").innerHTML = property.size_acre;
         document.getElementById("single-property-size-feet").innerHTML = property.size_feet;
@@ -578,7 +600,11 @@ function agentwhatApp(phone,current){
     </svg> <a href="https://api.whatsapp.com/send?phone=+${phone}&text=${current}&" class="primary-color"> <span class="mx-2 text-muted fw-500">${phone}</span></a>`;
     return url;
 }
-function blogFeatured(data, elementID) {
+function blogFeatured(resdata, elementID) {
+    var data = resdata["properties"];
+    var meta = resdata["meta"];
+    console.log("META::::"+meta['data']);
+    
     var parentDiv = document.getElementById(elementID);
     var divHeader = '<div class="widget-title bg-primary">Featured Properties</div>';
     parentDiv.innerHTML = "";
@@ -744,7 +770,10 @@ function relatedcard(property, images, commercialNegotiable, features){
 }
     
 
-function blogRelated(data, elementID) {
+function blogRelated(resdata, elementID) {
+    var data = resdata["properties"];
+    var meta = resdata["meta"];
+    console.log("META::::"+meta['data']);
     var parentDiv = document.getElementById(elementID);
     parentDiv.innerHTML = "";
     for (var i = 0; i < data.length; i++) {
@@ -785,10 +814,27 @@ function blogRelated(data, elementID) {
 
 }
 
+function setPagination(metadata){
+    var pagesul = document.getElementById("pagination-ul");
+    var currentPage = metadata["current_page"];
+    var searchdata = metadata["data"];
+    
+    var pages = `<li class="pagination-previous disabled" onclick="Paginate(${(parseInt(currentPage)-1)})"><span>Previous</span></li>
+                        <li onclick="Paginate(${(parseInt(currentPage)-1)})"><a><span>${(parseInt(currentPage)-1)}</span></a></li>    
+                        <li class="current"><span>${currentPage}</span></li>
+                            <li onclick="Paginate(${parseInt(currentPage)+1})"><a"><span>${(parseInt(currentPage)+1)}</span></a></li>
+                            <li class="pagination-next" onclick="Paginate(${(parseInt(currentPage)+1)})"><a><span>Next</span></a></li>`;
+    
+    pagesul.innerHTML = "";
+    pagesul.insertAdjacentHTML('beforeend', pages);
+}
 
-function cardsdata(data, elementID) {
+function cardsdata(resdata, elementID) {
     var parentDiv = document.getElementById(elementID);
     parentDiv.innerHTML = "";
+     var data = resdata["properties"];
+    var meta = resdata["meta"];
+    setPagination(meta);
     for (var i = 0; i < data.length; i++) {
         var property = data[i];
         var imageHtml = "";
@@ -898,16 +944,58 @@ function cardhtml(property, images, commercialNegotiable, features) {
                                                 </div>   
                                             </div> 
                                             <div class="grow"></div>
-                                            <div class="actions row between-xs middle-xs">
-                                                <p class="row date mb-0">
-                                                    <i class="material-icons text-muted">date_range</i>
-                                                    <span class="mx-2">${property.property_created}</span>
-                                                </p>
+                                            
+                           <div class="actions row  between-md d-md-flex d-none d-lg-flex d-xl-flex">
+      <button class="mdc-button mdc-button--outlined " id="${property.property_id}-mcs" type="button" onclick="mcallseller(`+property.phone_number+`,`+ property.property_id+`,'`+property.property_id+"-mcs"+`')">
+                                            <span class="mdc-button__ripple"></span>
+        <i class="material-icons primary-color">call</i>
+                                            <span class="mdc-button__label" >Call</span> 
+                                        </button>
+    <button class="mdc-button mdc-button--outlined " id="${property.property_id}-mwa" type="button" onclick="mwhatsappseller(`+property.phone_number+`,`+ property.property_id+`,'`+property.property_id+"-mwa"+`')">
+                                            <span class="mdc-button__ripple"></span>
+       <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7 8.5 7 9.71C7 10.93 7.89 12.1 8 12.27C8.14 12.44 9.76 14.94 12.25 16C12.84 16.27 13.3 16.42 13.66 16.53C14.25 16.72 14.79 16.69 15.22 16.63C15.7 16.56 16.68 16.03 16.89 15.45C17.1 14.87 17.1 14.38 17.04 14.27C16.97 14.17 16.81 14.11 16.56 14C16.31 13.86 15.09 13.26 14.87 13.18C14.64 13.1 14.5 13.06 14.31 13.3C14.15 13.55 13.67 14.11 13.53 14.27C13.38 14.44 13.24 14.46 13 14.34C12.74 14.21 11.94 13.95 11 13.11C10.26 12.45 9.77 11.64 9.62 11.39C9.5 11.15 9.61 11 9.73 10.89C9.84 10.78 10 10.6 10.1 10.45C10.23 10.31 10.27 10.2 10.35 10.04C10.43 9.87 10.39 9.73 10.33 9.61C10.27 9.5 9.77 8.26 9.56 7.77C9.36 7.29 9.16 7.35 9 7.34C8.86 7.34 8.7 7.33 8.53 7.33Z" />
+    </svg>
+                                            <span class="mdc-button__label">WhatsApp</span> 
+                                        </button>
+
+                               
+                                                   
+    
+                                              
                                                 <a href="${property.url}" class="mdc-button mdc-button--raised">
                                                     <span class="mdc-button__ripple"></span>
-                                                    <span class="mdc-button__label">More Details</span> 
-                                                </a>  
-                                            </div>
+                                                    <span class="mdc-button__label">View Details</span> 
+                                                </a> 
+    
+                                            </div>                     
+                                            
+                                            
+   <div class="actions row  between-xs middle-xs d-md-none d-lg-none d-xl-none">
+    <button class="mdc-button mdc-button--outlined " id="${property.property_id}-cs" type="button" onclick="mcallseller(`+property.phone_number+`,`+ property.property_id+`,'`+property.property_id+"-cs"+`')">
+                                            <span class="mdc-button__ripple"></span>
+        <i class="material-icons primary-color">call</i>
+                                            <span class="mdc-button__label" ></span> 
+                                        </button>
+    <button class="mdc-button mdc-button--outlined " id="${property.property_id}-wa" type="button" onclick="mwhatsappseller(`+property.phone_number+`,`+ property.property_id+`,'`+property.property_id+"-wa"+`')">
+                                            <span class="mdc-button__ripple"></span>
+       <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7 8.5 7 9.71C7 10.93 7.89 12.1 8 12.27C8.14 12.44 9.76 14.94 12.25 16C12.84 16.27 13.3 16.42 13.66 16.53C14.25 16.72 14.79 16.69 15.22 16.63C15.7 16.56 16.68 16.03 16.89 15.45C17.1 14.87 17.1 14.38 17.04 14.27C16.97 14.17 16.81 14.11 16.56 14C16.31 13.86 15.09 13.26 14.87 13.18C14.64 13.1 14.5 13.06 14.31 13.3C14.15 13.55 13.67 14.11 13.53 14.27C13.38 14.44 13.24 14.46 13 14.34C12.74 14.21 11.94 13.95 11 13.11C10.26 12.45 9.77 11.64 9.62 11.39C9.5 11.15 9.61 11 9.73 10.89C9.84 10.78 10 10.6 10.1 10.45C10.23 10.31 10.27 10.2 10.35 10.04C10.43 9.87 10.39 9.73 10.33 9.61C10.27 9.5 9.77 8.26 9.56 7.77C9.36 7.29 9.16 7.35 9 7.34C8.86 7.34 8.7 7.33 8.53 7.33Z" />
+    </svg>
+                                            <span class="mdc-button__label"></span> 
+                                        </button>
+
+                               
+                                                   
+    
+                                              
+                                                <a href="${property.url}" class="mdc-button mdc-button--raised">
+                                                    <span class="mdc-button__ripple"></span>
+                                                    <span class="mdc-button__label">View</span> 
+                                                </a> 
+    
+    </div>
+ 
                                         </div>  
                                     </div> 
                                 </div>  

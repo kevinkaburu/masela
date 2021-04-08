@@ -262,9 +262,10 @@
                 </div>
                 <div class="row center-xs middle-xs p-2 w-100">                
                     <div class="mdc-card w-100"> 
-                        <ul class="theme-pagination">
+                        <ul class="theme-pagination" id="pagination-ul">
                             <li class="pagination-previous disabled"><span>Previous</span></li>
                             <li class="current"><span>1</span></li>
+                            <li><a><span>2</span></a></li>
                             <li class="pagination-next"><a><span>Next</span></a></li>
                         </ul> 
                     </div>
@@ -284,7 +285,7 @@
     const elementType = 'cards';
     var searchdt = <?php echo json_encode(isset($data) ? $data : []); ?>;
 
-    var data = JSON.stringify({limit: 1000});
+    var data = JSON.stringify({page: 1});
     if (searchdt !== "") {
         data = JSON.stringify(searchdt);
     }
@@ -300,7 +301,15 @@
     window.onload = function () {
         init();
     };
-
+function Paginate(page){
+    console.log(page+" -- "+data);
+    var temp = JSON.parse(data);
+    temp["page"]=page;
+    data = JSON.stringify(temp);
+     console.log(" -- "+data);
+    
+    GetListingProperty(data, elementID, elementType);
+}
 
 //property-search-form-submit
     function searchclicked() {
