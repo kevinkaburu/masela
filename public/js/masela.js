@@ -427,7 +427,7 @@ function callseller(phone_number,property_id){
 }
 function whatsappseller(phone_number,property_id){
     var sms = window.location.href+"\n Hey, I'm reaching out to inquire on this piece of land that you are selling on Masela. ";
-    document.getElementById("property-agent-whatsApp").innerHTML=agentwhatApp(phone_number,sms);
+    document.getElementById("single-property-agent-whatsApp").innerHTML=agentwhatApp(phone_number,sms);
     //make call to view_property call
     contactviewed(property_id,2)
     var URL="https://api.whatsapp.com/send?phone=+"+phone_number+"&text="+sms+"&"
@@ -453,7 +453,6 @@ async function contactviewed(propertyID,type){
 function singleProperty(resdata) {
       var data = resdata["properties"];
     var meta = resdata["meta"];
-    console.log("META::::"+meta['data']);
      for (var i = 0; i < data.length; i++) {
         var property = data[i];
         var imageswippers = '';
@@ -492,7 +491,7 @@ function singleProperty(resdata) {
                                             <span class="mdc-button__label">WhatApp Seller</span> 
                                         </button>`;
             
-            document.getElementById("property-agent-whatsApp").insertAdjacentHTML('beforeend', whatapphtml);
+            document.getElementById("single-property-agent-whatsApp").insertAdjacentHTML('beforeend', whatapphtml);
         }
         document.getElementById("single-property-size-acre").innerHTML = property.size_acre;
         document.getElementById("single-property-size-feet").innerHTML = property.size_feet;
