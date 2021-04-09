@@ -301,7 +301,7 @@ if(!empty($images[0])){
 
 
         //TO-DO: formulate a general description capturing most of the land details fir the og:description and the meta-data descriptions
-        $description = "$size acres $comme_recidentail land for sale located at $neighborhood, $county county with a ready title deed @ KSH $money. Has electricity and water on location. You can pay in installments for $months months.";
+        $description = "$size  $comme_recidentail land for sale located at $neighborhood, $county county with a ready title deed @ KSH $money. Has electricity and water on location. You can pay in installments for $months months.";
 
 
         return view('property.view', compact('property_id', 'latlong', 'propertyUri', 'title', 'image', 'description'));
@@ -834,24 +834,29 @@ if(!empty($images[0])){
 
     function getSize($size_acre) {
         $size = (float) $size_acre;
+        $suffix = "acres";
         switch ($size_acre) {
             case '0.1250':
                 $size = '1/8';
+                $suffix = "acre";
                 break;
             case '0.2500':
                 $size = '1/4';
+                $suffix = "acre";
                 break;
             case '0.5000':
                 $size = '1/2';
+                $suffix = "acre";
                 break;
             case '0.7500':
                 $size = '3/4';
+                $suffix = "acre";
                 break;
 
             default:
                 break;
         }
-        return $size . " acre";
+        return $size . " ".$suffix;
     }
 
     function number_shorten($number, $precision = 3, $divisors = null) {
