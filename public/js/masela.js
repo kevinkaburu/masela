@@ -139,12 +139,10 @@ async function GetProperty(data, elementID, elementType) {
 }
 
 
-function hometabledata(resdata, elementID) {
+function hometabledata(data, elementID) {
     var tbody = document.getElementById(elementID);
     tbody.innerHTML = "";
-    var data = resdata["properties"];
-    var meta = resdata["meta"];
-    console.log("META: "+meta);
+   
     for (var i = 0; i < data.length; i++) {
         var property = data[i];
         var status = "pending Approval";
