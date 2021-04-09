@@ -263,7 +263,7 @@
                 </div>
                 <div class="row center-xs middle-xs p-2 w-100">                
                     <div class="mdc-card w-100"> 
-                        <ul class="theme-pagination">
+                        <ul class="theme-pagination" id="pagination-ul">
                             <li class="pagination-previous disabled"><span>Previous</span></li>
                             <li class="current"><span>1</span></li>
                             <li class="pagination-next"><a><span>Next</span></a></li>
