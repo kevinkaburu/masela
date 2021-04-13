@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script type="text/javascript">
+    <!--Clarity--><script type="text/javascript">
+        
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "68t3eskmuz");
 </script>
+<!--Clarity--
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<!--<script async src="https://www.googletagmanager.com/gtag/js?id=G-SDQ0G14XX3"></script>-->
+<!-- Global site tag (gtag.js) - Google Ads: 974622069 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-974622069"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-974622069');
+</script>
+<!-- Event snippet for Website traffic conversion page -->
+<script>
+  gtag('event', 'conversion', {'send_to': 'AW-974622069/xYRiCIDju_oBEPWa3tAD'});
+</script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SDQ0G14XX3');
+</script>
+<script data-ad-client="ca-pub-6003791715361668" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
