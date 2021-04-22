@@ -464,11 +464,13 @@ if(strpos($fullPath, '/blog/') !== false){
                     <a href="{{ route('property.listing') }}" class="mdc-button mdc-button--raised  d-sm-flex">
                         <span class="mdc-button__ripple"></span>
                         <?php
-                        if(empty($data)){?>
-                        <span class="mdc-button__label">Buy Land</span> 
+                        //
+                        if(!empty($data)){?>
+                         <span class="mdc-button__label">More Land</span>  
                         <?php
                         }else{?>
-                            <span class="mdc-button__label">More Land</span>  
+                        <span class="mdc-button__label">Buy Land</span>
+                            
                        
                         <?php
                                                 }

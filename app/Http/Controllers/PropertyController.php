@@ -297,6 +297,7 @@ if(!empty($images[0])){
             $comme_recidentail = $pdetails->type;
         }
         $money = $this->number_shorten($property->price);
+        $data = "View More";
 
 
 
@@ -304,7 +305,7 @@ if(!empty($images[0])){
         $description = "$size  $comme_recidentail land for sale located at $neighborhood, $county county with a ready title deed @ KSH $money. Has electricity and water on location. You can pay in installments for $months months.";
 
 
-        return view('property.view', compact('property_id', 'latlong', 'propertyUri', 'title', 'image', 'description'));
+        return view('property.view', compact('property_id', 'latlong', 'propertyUri', 'title', 'image', 'description','data'));
     }
 
     public function kaziyetu(Request $request) {
