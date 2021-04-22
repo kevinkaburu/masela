@@ -36,7 +36,7 @@ Route::middleware(['web', 'auth'])->group(function () {
     
     
     //Property
-     
+     Route::get('/property/new', 'PropertyController@create')->name('property.new');
      Route::get('/property/edit/{PropertyID}/', 'PropertyController@edit')->name('property.edit');
      Route::post('/property/list', 'PropertyController@list')->name('property.list');
      Route::post('/property/delete', 'PropertyController@delete')->name('property.delete');
@@ -55,7 +55,6 @@ Route::middleware(['web', 'auth'])->group(function () {
 });
 
 //No Auth required
-Route::get('/property/new', 'PropertyController@create')->name('property.new');
 Route::post('/property/create', 'PropertyController@write')->name('property.write');
 
 Route::get('/', 'HomeController@landing')->name('welcome');

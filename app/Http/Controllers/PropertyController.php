@@ -593,17 +593,17 @@ if(!empty($images[0])){
             ];
        
 
-
+if (Auth::check()) {
+            $admin = ['mbayakelvin@gmail.com', 'kaburu@vinuru.com'];
+            if (in_array(Auth::user()->email, $admin)) {
+                $where = ['property_view.viewed', '=', 'details'];
+            }
+        }
         //agent specific content
         if (!empty($requestpayload['agent_id'])) {
             array_push($where, ['property.agent_id', '=', $requestpayload['agent_id']]);
         }
-        if (Auth::check()) {
-            $admin = ['mbayakelvin@gmail.com', 'kaburu@vinuru.com'];
-            if (in_array(Auth::user()->email, $admin)) {
-                $where = [];
-            }
-        }
+        
         //agent specific content
         if (!empty($requestpayload['property_id'])) {
             array_push($where, ['property.property_id', '=', $requestpayload['property_id']]);
@@ -656,13 +656,13 @@ if(!empty($images[0])){
         }
 
 
-        if (!empty($requestpayload['query'])) {
-            array_push($qwhere, ['property.name', 'like', "%" . $requestpayload['query'] . "%"]);
-            array_push($orwhere, ['property.name', 'like', "%" . $requestpayload['query'] . "%"]);
-            array_push($orwhere, ['property.description', 'like', "%" . $requestpayload['query'] . "%"]);
-            array_push($orwhere, ['agent.description', 'like', "%" . $requestpayload['query'] . "%"]);
-            array_push($orwhere, ['agent.name', 'like', "%" . $requestpayload['query'] . "%"]);
-        }
+//        if (!empty($requestpayload['query'])) {
+//            array_push($qwhere, ['property.name', 'like', "%" . $requestpayload['query'] . "%"]);
+//            array_push($orwhere, ['property.name', 'like', "%" . $requestpayload['query'] . "%"]);
+//            array_push($orwhere, ['property.description', 'like', "%" . $requestpayload['query'] . "%"]);
+//            array_push($orwhere, ['agent.description', 'like', "%" . $requestpayload['query'] . "%"]);
+//            array_push($orwhere, ['agent.name', 'like', "%" . $requestpayload['query'] . "%"]);
+//        }
 
 
         $order_by = "";
@@ -725,9 +725,10 @@ if(!empty($images[0])){
                         $query->where('property.name', 'like', "%" . $requestpayload['query'] . "%")
                         ->orWhere('property.description', 'like', "%" . $requestpayload['query'] . "%")
                         ->orWhere('property_location.nearest_town', 'like', "%" . $requestpayload['query'] . "%")
+                        ->orWhere('county.name', 'like', "%" . $requestpayload['query'] . "%")
                         ->orWhere('property_location.neighborhood', 'like', "%" . $requestpayload['query'] . "%")
-                        ->orWhere('agent.name', 'like', "%" . $requestpayload['query'] . "%")
-                        ->orWhere('agent.description', 'like', "%" . $requestpayload['query'] . "%");
+                        ->orWhere('agent.name', 'like', "%" . $requestpayload['query'] . "%");
+                        
                     })
                     ->groupBy('property.property_id')
                     ->orderByRaw($order_by)
@@ -753,7 +754,7 @@ if(!empty($images[0])){
                             'property_payment_terms.installment', 'property_payment_terms.installment_deposit_amount', 'property_payment_terms.installment_months',
                             'property_payment_terms.installment_price', 'property_view.views', 'property_payment_terms.inclusive_titledeed_processing', 'agent.phone_number_whatsapp', 'agent.name AS agent_name', 'agent.description AS agent_description', 'agent.phone_number')
                     ->where($where)
-                    ->orwhere($orwhere)
+                   // ->orwhere($orwhere)
                     ->groupBy('property.property_id')
                     ->orderByRaw($order_by)
                     ->offset($offset)->limit($limit)
