@@ -588,16 +588,17 @@ if(!empty($images[0])){
         $qwhere = [];
 
 
-            $where = [
-                ['property.status', '!=', '5'],
+            $where = [               
                 ['property_view.viewed', '=', 'details'],
             ];
+            $notpropertyStatus = [5,0];
+            
        
 
 if (Auth::check()) {
             $admin = ['mbayakelvin@gmail.com', 'kaburu@vinuru.com'];
             if (in_array(Auth::user()->email, $admin)) {
-                $where = ['property_view.viewed', '=', 'details'];
+                $notpropertyStatus = [5];
             }
         }
         //agent specific content
@@ -722,6 +723,7 @@ if (Auth::check()) {
                             'property_payment_terms.installment', 'property_payment_terms.installment_deposit_amount', 'property_payment_terms.installment_months',
                             'property_payment_terms.installment_price', 'property_view.views', 'property_payment_terms.inclusive_titledeed_processing', 'agent.phone_number_whatsapp', 'agent.name AS agent_name', 'agent.description AS agent_description', 'agent.phone_number')
                     ->where($where)
+                    ->whereNotIn('property.status', $notpropertyStatus)
                     ->where(function($query) use ($requestpayload) {
                         $query->where('property.name', 'like', "%" . $requestpayload['query'] . "%")
                         ->orWhere('property.description', 'like', "%" . $requestpayload['query'] . "%")
@@ -755,6 +757,7 @@ if (Auth::check()) {
                             'property_payment_terms.installment', 'property_payment_terms.installment_deposit_amount', 'property_payment_terms.installment_months',
                             'property_payment_terms.installment_price', 'property_view.views', 'property_payment_terms.inclusive_titledeed_processing', 'agent.phone_number_whatsapp', 'agent.name AS agent_name', 'agent.description AS agent_description', 'agent.phone_number')
                     ->where($where)
+                    ->whereNotIn('property.status', $notpropertyStatus)
                    // ->orwhere($orwhere)
                     ->groupBy('property.property_id')
                     ->orderByRaw($order_by)
