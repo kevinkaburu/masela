@@ -1201,13 +1201,17 @@ if (Auth::check()) {
         if (empty($requestpayload['property_id'])) {
             array_push($error_messages, "We are unabel to save file. Refresh your page and try again!");
         }
-
+        
+        
         if (count($error_messages) > 0) {
             $response['error'] = 1;
             $response['messages'] = $error_messages;
             $response['property_id'] = '';
             return $response;
         }
+        //send sms to check the post
+        $sms = "We have a new property on masela.co.ke that requires your attention.";
+        $this->sendsms('254719597919', $sms);
         //if isset latlong we save it
         if (!empty($requestpayload['latlong'])) {
             $propertyLocation = PropertyLocation::where('property_id', $requestpayload['property_id'])->first();
